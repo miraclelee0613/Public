@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <title>웹개발 5조</title>   
+    <link rel='stylesheet' type='text/css' th:href="@{/css/main/main.css}">
+    <link rel="stylesheet" href="metro-sans-medium.otf">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+    <!-- 헤더 -->
+    <main>
+        <div class="css-section1">
+            <!-- 메인 배너 -->
+            <div class="css-banner">
+                <div class="css-banner-section1">
+                    <h1 class="css-banner-title">웹개발5 No.1팀 봄이5조에서 <br>원하는 전문가를 찾아보세요!</h1>
+                    <!-- 배너 검색창 -->
+                    <form action="" style="display: inline-flex; position: relative; width: 504px; height: 64px;">
+                        <div class="input-wrapper">
+                            <div class="css-input-category">
+                                <span class="category-text" style="white-space: pre; min-height: 29px;"></span>
+                                <input id="banner-input" maxlength="15" autocomplete="off" 
+                                autocorrect="off" autocapitalize="off" class="css-ecqpj1 e1dqgp70" value="">
+                                <div class="css-banner-search">
+                                    <span role="img" color="#ffffff" rotate="0" class="css-search-icon">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" 
+                                        focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0">
+                                            <path xmlns="http://www.w3.org/2000/svg" 
+                                            d="M11.2307008,3.5 C15.5002489,3.5 18.9614015,6.96828437 18.9614015,11.24663 C18.9614015,13.0978372 18.3133954,14.7973826 17.2322825,16.1299241 L20.2742127,19.178378 C20.5762688,19.4810023 20.5764739,19.9714482 20.2746708,20.2738195 C19.9728678,20.5761908 19.4833433,20.5759857 19.1812873,20.2733614 L19.1812873,20.2733614 L16.1426973,17.2288066 C14.8071694,18.3312107 13.0960911,18.9932599 11.2307008,18.9932599 C6.96115262,18.9932599 3.5,15.5249756 3.5,11.24663 C3.5,6.96828437 6.96115262,3.5 11.2307008,3.5 Z M11.2307008,5.04932599 C7.81506225,5.04932599 5.04614015,7.82395349 5.04614015,11.24663 C5.04614015,14.6693064 7.81506225,17.4439339 11.2307008,17.4439339 C14.6463393,17.4439339 17.4152614,14.6693064 17.4152614,11.24663 C17.4152614,7.82395349 14.6463393,5.04932599 11.2307008,5.04932599 Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="banner-hashtags">
+                        <div class="hashtag">
+                            <span>#웹개발 5조</span>
+                        </div>
+                        <div class="hashtag">
+                            <span>#스프링</span>
+                        </div>
+                        <div class="hashtag">
+                            <span>#강남IT</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 배너 슬라이드 -->
+                <div class="banner-slides">
+                    <div class="slides-list">
+                        <div class="outer">
+                            <div class="inner-list">
+                                <div class="inner" id="img1">
+                                    <img th:src="@{/img/main/slide_img01.webp}" alt="">
+                                </div>
+                                <div class="inner" id="img2">
+                                    <img th:src="@{/img/main/slide_img02.webp}" alt="">
+                                </div>
+                                <div class="inner" id="img3">
+                                    <img th:src="@{/img/main/slide_img03.webp}" alt="">
+                                </div>
+                                <div class="inner" id="img3">
+                                    <img th:src="@{/img/main/slide_img04.webp}" alt="">
+                                </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 과목 카테고리 -->
+        <div class="css-section2">
+            <h1 class="css-section-title">일곱가지 과목중에서 골라봐!</h1>
+            <div class="css-section2-icons">
+                <!-- 카테고리별 아이콘 -->
+                <div class="categories">
+                    <a href="">
+                        <div class="category">
+                            <span>
+                                <img th:src="@{/img/main/category_icon_kr.png}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="category">
+                            <span>
+                                <img th:src="@{/img/main/category_icon_eng.png}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="category">
+                            <span>
+                                <img th:src="@{/img/main/category_icon_math.png}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="category">
+                            <span>
+                                <img th:src="@{/img/main/category_icon_si.png}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="category">
+                            <span>
+                                <img th:src="@{/img/main/category_icon_so.png}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="category">
+                            <span>
+                                <img th:src="@{/img/main/category_icon_his.png}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="category">
+                            <span>
+                                <img th:src="@{/img/main/category_icon_for.png}" alt="">
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 회원가입 배너 -->
+        <div class="css-section">
+            <!-- url 달아야함 -->
+            <a href="" class="css-0">
+                <div class="css-join-event">
+                        <img th:src="@{/img/main/join_event_banner.png}" alt="">
+                    </span>
+                </div>
+            </a>
+        </div>
+        <!-- 랭킹 -->
+        <div class="ranking-section">
+            <h1 class="css-section-title">1위는 다 모아놨어!</h1>
+            <div class="rankings">
+                <div class="ranking-wrapper">
+                    <a href="">
+                        <div class="user-ranking">
+                            <span>유저 랭킹</span>
+                        </div>
+                    </a>
+                    <div class="user-list-a">
+                        <div class="user-list-wrapper">
+                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
+                                <img th:src="@{/img/main/medal.png}" alt="">
+                            </span>
+                            <div class="user-wrapper">
+                                <span class="userInfo-Id" id="rankingUserId">
+                                    1위유저아이디
+                                </span>
+                                <span class="userInfo-Point" id="rankingUserPoint">
+                                    누적 포인트 : 10000
+                                </span>
+                            </div>
+                            <span>
+                                <div>
+                                    <img tth:src="@{/img/main/.png}" alt="">
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="user-list-b">
+                        <div class="user-list-wrapper">
+                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
+                                <img src="../main/img/coin.png" alt="">
+                            </span>
+                            <div class="user-wrapper">
+                                <span class="userInfo-Id" id="rankingUserId">
+                                    2위유저아이디
+                                </span>
+                                <span class="userInfo-Point" id="rankingUserPoint">
+                                    누적 포인트 : 10000
+                                </span>
+                            </div>
+                            <span>
+                                <div>
+                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                </div>
+                            </span>
+                        </div>
+                        <div class="user-list-wrapper">
+                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
+                                <img src="../main/img/coin.png" alt="">
+                            </span>
+                            <div class="user-wrapper">
+                                <span class="userInfo-Id" id="rankingUserId">
+                                    3위유저아이디
+                                </span>
+                                <span class="userInfo-Point" id="rankingUserPoint">
+                                    누적 포인트 : 10000
+                                </span>
+                            </div>
+                            <span>
+                                <div>
+                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ranking-wrapper">
+                    <a href="">
+                        <div class="user-ranking">
+                            <span>인기 게시글</span>
+                        </div>
+                    </a>
+                    <div class="user-list-a">
+                        <div class="user-list-wrapper">
+                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
+                                <img src="../main/img/medal.png" alt="">
+                            </span>
+                            <div class="user-wrapper">
+                                <span class="userInfo-Id" id="rankingUserId">
+                                    1위유저아이디
+                                </span>
+                                <span class="userInfo-Point" id="rankingUserPoint">
+                                    누적 포인트 : 10000
+                                </span>
+                            </div>
+                            <span>
+                                <div>
+                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="user-list-b">
+                        <div class="user-list-wrapper">
+                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
+                                <img src="../main/img/coin.png" alt="">
+                            </span>
+                            <div class="user-wrapper">
+                                <span class="userInfo-Id" id="rankingUserId">
+                                    2위유저아이디
+                                </span>
+                                <span class="userInfo-Point" id="rankingUserPoint">
+                                    누적 포인트 : 10000
+                                </span>
+                            </div>
+                            <span>
+                                <div>
+                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                </div>
+                            </span>
+                        </div>
+                        <div class="user-list-wrapper">
+                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
+                                <img src="../main/img/coin.png" alt="">
+                            </span>
+                            <div class="user-wrapper">
+                                <span class="userInfo-Id" id="rankingUserId">
+                                    3위유저아이디
+                                </span>
+                                <span class="userInfo-Point" id="rankingUserPoint">
+                                    누적 포인트 : 10000
+                                </span>
+                            </div>
+                            <span>
+                                <div>
+                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 사이트 주석 -->
+        <div class="css-section3">
+            <div class="css-web-text">
+                <div class="css-section3-text-wrapper">
+                    <h1 class="css-section3-text1">
+                        내가 궁금한 어떤 과목,<br>문제 무엇이든 물어봐!
+                    </h1>
+                    <h2 class="css-section3-text2">
+                        누적 질문량 30만개!<br>
+                        7 개의 과목 모두 수많은 선배들이<br>
+                        여러분이 필요한게 무엇이든 답해드립니다.
+                    </h2>
+                </div>
+                <div class="css-ifame">
+                    <iframe width="692px" height="390px" src="https://www.youtube.com/embed/jwysq-KGOgA?autoplay=0" 
+                    title="YouTube video player" frameborder="0" style="border-radius: 12px;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="section4">
+                <div class="css-section3-text-wrapper">
+                    <div class="text-wrapper2">
+                        <h3 class="css-17mol43 e1o8iw1h2">빠른 커뮤니케이션</h3>
+                        <h4 style="font-weight: bold; color: #797979;">실시간 채팅으로<br>
+                            빠르게 문의하고 거래해보세요!</h4>
+                    </div>
+                </div>
+                <div class="css-section3-text-wrapper">
+                    <div class="text-wrapper2">
+                        <h3 class="css-17mol43 e1o8iw1h2">안전한 결제</h3>
+                        <h4 style="font-weight: bold; color: #797979;">소중한 내 돈, 걱정되지 않나요?<br>
+                            에스크로 결제 시스템으로<br>
+                            안전하게 보호해드려요!</h4>
+                    </div>
+                </div>
+                <div class="css-section3-text-wrapper">
+                    <div class="text-wrapper2">
+                        <h3 class="css-17mol43 e1o8iw1h2">만족스러운 답변들</h3>
+                        <h4 style="font-weight: bold; color: #797979;">평균 만족도 9.8점!<br>
+                            분야별 전문가가<br>
+                            만족스러운 답변들을 제공합니다.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="css-footer">
+        <div class="css-footer-info">
+            <p class="css-info-text">
+                웹개발 5조
+                <span class="css-info-bar"> | </span>
+                서울특별시 강남구 역삼동 736-7
+                <span class="css-info-bar"> | </span>
+                팀장 : 강민구
+                <span class="css-info-bar"> | </span>
+                사업자등록번호 : 613-81-65278
+                <span class="css-info-bar"> | </span><br>
+                통신판매업신고 : 2018-서울서초-2134
+                <span class="css-info-bar"> | </span>
+                유료직업소개사업등록번호 : 제2021-3210195-14-5-00035호
+                <span class="css-info-bar"> | </span>
+                고객센터 : 1544-6254
+                <span class="css-info-bar"> | </span>
+                kmg2331@gmail.com
+            </p>
+        </div>
+    </div>
+    </main>
+</body>
+<script type="text/javascript">
+    let headerInput = document.querySelector(".css-input");
+    let inputWrapper = document.querySelector("#inputWrapper");
+
+    $('.header').load('../header_footer/header.html');
+
+    headerInput.addEventListener('focus', function(){
+    inputWrapper.style.width = '90%';
+    inputWrapper.style.borderColor = '#2e2e2e';
+    });
+
+    headerInput.addEventListener('focusout', function(){
+    inputWrapper.style.width = '65%';
+    inputWrapper.style.borderColor = 'transparent';
+    });
+</script>
+<script type="text/javascript" th:src="@{/js/main/main-banner-transition.js}"></script>
+<script type="text/javascript" src="../main/js/main-banner-typingEffect.js"></script>
+</html>

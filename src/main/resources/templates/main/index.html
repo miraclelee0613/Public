@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset='utf-8'>
-    <title>웹개발 5조</title>   
+    <title>웹개발 5조</title>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/header.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/footer.css}'>
     <link rel='stylesheet' type='text/css' th:href="@{/css/main/main.css}">
-    <link rel="stylesheet" href="metro-sans-medium.otf">
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" th:href="@{/webfonts/metro-sans-medium.otf}">
 </head>
 <body>
     <!-- 헤더 -->
+    <header th:replace="/fix/header.html::.header"></header>
     <main>
         <div class="css-section1">
             <!-- 메인 배너 -->
@@ -165,7 +167,7 @@
                             </div>
                             <span>
                                 <div>
-                                    <img tth:src="@{/img/main/.png}" alt="">
+                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
                                 </div>
                             </span>
                         </div>
@@ -173,7 +175,7 @@
                     <div class="user-list-b">
                         <div class="user-list-wrapper">
                             <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img src="../main/img/coin.png" alt="">
+                                <img th:src="@{/img/main/coin.png}" alt="">
                             </span>
                             <div class="user-wrapper">
                                 <span class="userInfo-Id" id="rankingUserId">
@@ -185,13 +187,13 @@
                             </div>
                             <span>
                                 <div>
-                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
                                 </div>
                             </span>
                         </div>
                         <div class="user-list-wrapper">
                             <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img src="../main/img/coin.png" alt="">
+                                <img th:src="@{/img/main/coin.png}" alt="">
                             </span>
                             <div class="user-wrapper">
                                 <span class="userInfo-Id" id="rankingUserId">
@@ -203,7 +205,7 @@
                             </div>
                             <span>
                                 <div>
-                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
                                 </div>
                             </span>
                         </div>
@@ -218,7 +220,7 @@
                     <div class="user-list-a">
                         <div class="user-list-wrapper">
                             <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img src="../main/img/medal.png" alt="">
+                                <img th:src="@{/img/main/medal.png}" alt="">
                             </span>
                             <div class="user-wrapper">
                                 <span class="userInfo-Id" id="rankingUserId">
@@ -230,7 +232,7 @@
                             </div>
                             <span>
                                 <div>
-                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
                                 </div>
                             </span>
                         </div>
@@ -238,7 +240,7 @@
                     <div class="user-list-b">
                         <div class="user-list-wrapper">
                             <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img src="../main/img/coin.png" alt="">
+                                <img th:src="@{/img/main/coin.png}" alt="">
                             </span>
                             <div class="user-wrapper">
                                 <span class="userInfo-Id" id="rankingUserId">
@@ -250,13 +252,13 @@
                             </div>
                             <span>
                                 <div>
-                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
                                 </div>
                             </span>
                         </div>
                         <div class="user-list-wrapper">
                             <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img src="../main/img/coin.png" alt="">
+                                <img th:src="@{/img/main/coin.png}" alt="">
                             </span>
                             <div class="user-wrapper">
                                 <span class="userInfo-Id" id="rankingUserId">
@@ -268,7 +270,7 @@
                             </div>
                             <span>
                                 <div>
-                                    <img src="../main/img/ranking_icon01.png" alt="">
+                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
                                 </div>
                             </span>
                         </div>
@@ -323,29 +325,31 @@
             </div>
         </div>
     </div>
-    <div class="css-footer">
-        <div class="css-footer-info">
-            <p class="css-info-text">
-                웹개발 5조
-                <span class="css-info-bar"> | </span>
-                서울특별시 강남구 역삼동 736-7
-                <span class="css-info-bar"> | </span>
-                팀장 : 강민구
-                <span class="css-info-bar"> | </span>
-                사업자등록번호 : 613-81-65278
-                <span class="css-info-bar"> | </span><br>
-                통신판매업신고 : 2018-서울서초-2134
-                <span class="css-info-bar"> | </span>
-                유료직업소개사업등록번호 : 제2021-3210195-14-5-00035호
-                <span class="css-info-bar"> | </span>
-                고객센터 : 1544-6254
-                <span class="css-info-bar"> | </span>
-                kmg2331@gmail.com
-            </p>
-        </div>
-    </div>
+<!--    <div class="css-footer">-->
+<!--        <div class="css-footer-info">-->
+<!--            <p class="css-info-text">-->
+<!--                웹개발 5조-->
+<!--                <span class="css-info-bar"> | </span>-->
+<!--                서울특별시 강남구 역삼동 736-7-->
+<!--                <span class="css-info-bar"> | </span>-->
+<!--                팀장 : 강민구-->
+<!--                <span class="css-info-bar"> | </span>-->
+<!--                사업자등록번호 : 613-81-65278-->
+<!--                <span class="css-info-bar"> | </span><br>-->
+<!--                통신판매업신고 : 2018-서울서초-2134-->
+<!--                <span class="css-info-bar"> | </span>-->
+<!--                유료직업소개사업등록번호 : 제2021-3210195-14-5-00035호-->
+<!--                <span class="css-info-bar"> | </span>-->
+<!--                고객센터 : 1544-6254-->
+<!--                <span class="css-info-bar"> | </span>-->
+<!--                kmg2331@gmail.com-->
+<!--            </p>-->
+<!--        </div>-->
+<!--    </div>-->
     </main>
+    <footer th:replace="/fix/footer.html :: .footer"></footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript">
     let headerInput = document.querySelector(".css-input");
     let inputWrapper = document.querySelector("#inputWrapper");
@@ -363,5 +367,6 @@
     });
 </script>
 <script type="text/javascript" th:src="@{/js/main/main-banner-transition.js}"></script>
-<script type="text/javascript" src="../main/js/main-banner-typingEffect.js"></script>
+<script type="text/javascript" th:src="@{/js/main/main-banner-typingEffect.js}"></script>
+<script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
 </html>

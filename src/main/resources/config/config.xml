@@ -2,9 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.springdream.app.domain.MemberVO" alias="memberVO"></typeAlias>
-        <typeAlias type="com.springdream.app.domain.BoardVO" alias="boardVO"></typeAlias>
+        <typeAlias type="com.springdream.app.domain.MemberVO" alias="memberVO"/>
         <typeAlias type="com.springdream.app.domain.BoardVO" alias="boardVO" />
         <typeAlias type="com.springdream.app.domain.BoardDTO" alias="boardDTO" />
+        <typeAlias type="com.springdream.app.domain.PointVO" alias="pointVO"/>
     </typeAliases>
 </configuration>

@@ -38,4 +38,5 @@ public class MemberVO {
         this.fileUploadPath = fileUploadPath;
         this.fileUUID = fileUUID;
     }
+    
 }

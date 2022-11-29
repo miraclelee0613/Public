@@ -14,24 +14,24 @@ public class MemberMapperTest {
     @Autowired
     private MemberMapper memberMapper;
 
-    @Test
-    public void insertTest(){
-        MemberVO memberVO = new MemberVO();
-        memberVO.create("msj2331", "1234", "kmg2331@gmail.com",
-                "문성준", "테스트닉123", "01034442331",
-                "1", 1);
-        memberMapper.insert(memberVO);
-    }
-
-    @Test
-    public void updateTest(){
-        MemberVO memberVO = new MemberVO();
-        memberVO.create("msj2331", "1234", "msh1234@gmail.com",
-                "문승현", "테스트닉321", "01034442331",
-                "2", 1);
-        memberVO.setMemberNumber((long)5);
-        memberMapper.update(memberVO);
-    }
+//    @Test
+//    public void insertTest(){
+//        MemberVO memberVO = new MemberVO();
+//        memberVO.create("msj2331", "1234", "kmg2331@gmail.com",
+//                "문성준", "테스트닉123", "01034442331",
+//                "1", 1);
+//        memberMapper.insert(memberVO);
+//    }
+//
+//    @Test
+//    public void updateTest(){
+//        MemberVO memberVO = new MemberVO();
+//        memberVO.create("msj2331", "1234", "msh1234@gmail.com",
+//                "문승현", "테스트닉321", "01034442331",
+//                "2", 1);
+//        memberVO.setMemberNumber((long)5);
+//        memberMapper.update(memberVO);
+//    }
 
     @Test
     public void deleteTest(){

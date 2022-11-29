@@ -11,10 +11,10 @@ public class RankingService {
     private final PointDAO pointDAO;
 
     //    랭킹 목록
-    public void list(PointVO pointVO) {
-        pointDAO.
-
-    }
+//    public void list(PointVO pointVO) {
+//        pointDAO.
+//
+//    }
 
 }
 

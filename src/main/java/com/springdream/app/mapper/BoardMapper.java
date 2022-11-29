@@ -1,9 +1,6 @@
 package com.springdream.app.mapper;
 
-<<<<<<< HEAD
-=======
 import com.springdream.app.domain.BoardDTO;
->>>>>>> 96b6b6afb51683d395c065a2d524b8e3d8cb1165
 import com.springdream.app.domain.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 

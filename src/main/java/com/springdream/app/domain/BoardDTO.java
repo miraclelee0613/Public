@@ -1,12 +1,18 @@
 package com.springdream.app.domain;
 
 import lombok.Data;
+<<<<<<< HEAD
+=======
 import lombok.NoArgsConstructor;
+>>>>>>> 96b6b6afb51683d395c065a2d524b8e3d8cb1165
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
+<<<<<<< HEAD
+=======
 @NoArgsConstructor
+>>>>>>> 96b6b6afb51683d395c065a2d524b8e3d8cb1165
 public class BoardDTO {
     private Long boardNumber;
     private String boardTitle;

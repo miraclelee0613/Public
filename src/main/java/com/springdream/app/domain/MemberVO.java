@@ -1,4 +1,35 @@
 package com.springdream.app.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@Data
+@NoArgsConstructor
 public class MemberVO {
+
+//    FILE_NAME VARCHAR2(500),
+//    FILE_UPLOAD_PATH VARCHAR2(500),
+//    FILE_UUID VARCHAR2(500)
+    private long memberNumber;
+    private String memberId;
+    private String memberPw;
+    private String memberEmail;
+    private String memberName;
+    private String memberNickname;
+    private String memberMobile;
+    private String memberRank;
+    private int memberStatus;
+
+    public void create(String memberId, String memberPw, String memberEmail, String memberName, String memberNickname, String memberMobile, String memberRank, int memberStatus) {
+        this.memberId = memberId;
+        this.memberPw = memberPw;
+        this.memberEmail = memberEmail;
+        this.memberName = memberName;
+        this.memberNickname = memberNickname;
+        this.memberMobile = memberMobile;
+        this.memberRank = memberRank;
+        this.memberStatus = memberStatus;
+    }
 }

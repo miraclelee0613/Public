@@ -1,5 +1,7 @@
 package com.springdream.app.repository;
 
+import com.springdream.app.domain.MemberVO;
+import com.springdream.app.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -8,27 +10,30 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class MemberDAO {
-//    private final MemberMapper memberMapper;
-//
-//    //    아이디 중복
-//    public boolean checkId(String memberId) {
-//        return memberMapper.select("member.checkId", memberId) == 0;
-//    }
-//
-//    //    회원가입
-//
-//    //    정보 수정
-//    public void accountChange(MemberVO memberVO) {
-//        memberMapper.update("member.accountChanges", memberVO);
-//    }
 
-    //    내 글 목록
+    private final MemberMapper memberMapper;
 
+    //  회원가입
+    public void join(MemberVO memberVO){
+        memberMapper.insert(memberVO);
+    }
+    //  정보 수정
+    public void update(MemberVO memberVO){
+        memberMapper.update(memberVO);
+    }
 
-    //    답글 목록
+    //  회원탈퇴
+    public void quit(Long memberNumber){
+        memberMapper.quit(memberNumber);
+    }
 
-    //    내 포인트
+    //  회원조회
+    public MemberVO select(Long memberNumber){
+        return memberMapper.select(memberNumber);
+    }
 
-    //    충전 내역 확인
-
+    //  전체 회원조회
+    public List<MemberVO> selectAll(){
+        return memberMapper.selectAll();
+    }
 }

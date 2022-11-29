@@ -4,11 +4,13 @@
     <meta charset='utf-8'>
     <title>웹개발 5조</title>   
     <link rel='stylesheet' type='text/css' th:href="@{/css/main/main.css}">
+    <link rel='stylesheet' type='text/css' th:href="@{/css/main/banner.css}">
     <link rel="stylesheet" href="metro-sans-medium.otf">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 <body>
-    <!-- 헤더 -->
+    <!--  헤더  -->
+    <div th:insert="~{/header_footer/header :: header}"></div>
     <main>
         <div class="css-section1">
             <!-- 메인 배너 -->
@@ -51,20 +53,22 @@
                 <div class="banner-slides">
                     <div class="slides-list">
                         <div class="outer">
-                            <div class="inner-list">
-                                <div class="inner" id="img1">
-                                    <img th:src="@{/img/main/slide_img01.webp}" alt="">
+                            <section class="container">
+                                <div class="arrow prev">&lt;</div>
+                                <div class="banner">
+                                    <div><img src="/img/main/slide_img01.webp"></div>
+                                    <div><img src="/img/main/slide_img02.webp"></div>
+                                    <div><img src="/img/main/slide_img03.webp"></div>
+                                    <div><img src="/img/main/slide_img04.webp"></div>
                                 </div>
-                                <div class="inner" id="img2">
-                                    <img th:src="@{/img/main/slide_img02.webp}" alt="">
+                                <div class="arrow next">&gt;</div>
+                                <div class="btns">
+                                    <button class="btn"></button>
+                                    <button class="btn"></button>
+                                    <button class="btn"></button>
+                                    <button class="btn"></button>
                                 </div>
-                                <div class="inner" id="img3">
-                                    <img th:src="@{/img/main/slide_img03.webp}" alt="">
-                                </div>
-                                <div class="inner" id="img3">
-                                    <img th:src="@{/img/main/slide_img04.webp}" alt="">
-                                </div>
-                            </div>
+                            </section>
                           </div>
                           
                         </div>

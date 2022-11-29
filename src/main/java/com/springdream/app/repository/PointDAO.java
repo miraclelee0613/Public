@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class PointDAO {
-//    private final PointMapper pointMapper;
 
 //    포인트 조회
 

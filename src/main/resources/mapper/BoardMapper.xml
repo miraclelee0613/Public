@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="com.springdream.app.mapper.BoardMapper">
+<!-- 게시글 추가 -->
+<!--  keyProperty에 boardNumber를 가져와도 value값에서 똑같이 쓰는게 아니다  -->
+<!--  작성한 VO값에 덮어씌워지고 다시 불러와 insert문의 boardNumber값에 들어간다.  -->
+    <insert id="insert">
+        <selectKey keyProperty="boardNumber" order="BEFORE" resultType="long">
+            SELECT SEQ_BOARD.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_BOARD(BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, BOARD_CATEGORY)
+        VALUES(#{boardNumber}, #{boardTitle}, #{boardContent}, #{boardReward}, #{boardCategory})
+    </insert>
 
+<!--  게시글 수정  -->
+    <update id="update">
+        UPDATE TBL_BOARD
+        SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_UPDATE_DATE = SYSDATE
+        WHERE BOARD_NUMBER = #{boardNumber}
+    </update>
+
+<!--  게시글 삭제  -->
+    <delete id="delete">
+        DELETE FROM TBL_BOARD
+        WHERE BOARD_NUMBER = #{boardNumber}
+    </delete>
+
+<!--  조회  -->
+    <select id="select" resultType="boardDTO">
+        SELECT BOARD_NUMBER, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, BOARD_CATEGORY
+        FROM TBL_BOARD
+        WHERE BOARD_NUMBER = #{boardNumber}
+    </select>
+
+<!--  게시글 전체 조회  -->
+<!--  썸네일 방식을 몰라 잠시 보류  -->
+    <select id="selectAll" resultType="boardDTO">
+        SELECT BOARD_NUMBER, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, BOARD_CATEGORY
+        FROM TBL_BOARD
+    </select>
 </mapper>
 
 

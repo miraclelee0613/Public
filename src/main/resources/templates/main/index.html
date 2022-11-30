@@ -5,23 +5,13 @@
     <title>웹개발 5조</title>
     <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/header.css}'>
     <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/footer.css}'>
-    <link rel='stylesheet' type='text/css' th:href="@{/css/main/main.css}">
-<<<<<<< HEAD
-    <link rel='stylesheet' type='text/css' th:href="@{/css/main/banner.css}">
-    <link rel="stylesheet" href="metro-sans-medium.otf">
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-</head>
-<body>
-    <!--  헤더  -->
-    <div th:insert="~{/header_footer/header :: header}"></div>
-=======
+    <link rel='stylesheet' type='text/css' media='screen' href="/css/main/main.css">
     <link rel="stylesheet" th:href="@{/webfonts/metro-sans-medium.otf}">
 </head>
 <body>
     <!-- 헤더 -->
-    <header th:replace="/fix/header.html::.header"></header>
->>>>>>> 96b6b6afb51683d395c065a2d524b8e3d8cb1165
     <main>
+        <div th:insert="/fix/header :: header" class="header"></div>
         <div class="css-section1">
             <!-- 메인 배너 -->
             <div class="css-banner">
@@ -32,13 +22,13 @@
                         <div class="input-wrapper">
                             <div class="css-input-category">
                                 <span class="category-text" style="white-space: pre; min-height: 29px;"></span>
-                                <input id="banner-input" maxlength="15" autocomplete="off" 
+                                <input id="banner-input" maxlength="15" autocomplete="off"
                                 autocorrect="off" autocapitalize="off" class="css-ecqpj1 e1dqgp70" value="">
                                 <div class="css-banner-search">
                                     <span role="img" color="#ffffff" rotate="0" class="css-search-icon">
-                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" 
+                                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
                                         focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0">
-                                            <path xmlns="http://www.w3.org/2000/svg" 
+                                            <path xmlns="http://www.w3.org/2000/svg"
                                             d="M11.2307008,3.5 C15.5002489,3.5 18.9614015,6.96828437 18.9614015,11.24663 C18.9614015,13.0978372 18.3133954,14.7973826 17.2322825,16.1299241 L20.2742127,19.178378 C20.5762688,19.4810023 20.5764739,19.9714482 20.2746708,20.2738195 C19.9728678,20.5761908 19.4833433,20.5759857 19.1812873,20.2733614 L19.1812873,20.2733614 L16.1426973,17.2288066 C14.8071694,18.3312107 13.0960911,18.9932599 11.2307008,18.9932599 C6.96115262,18.9932599 3.5,15.5249756 3.5,11.24663 C3.5,6.96828437 6.96115262,3.5 11.2307008,3.5 Z M11.2307008,5.04932599 C7.81506225,5.04932599 5.04614015,7.82395349 5.04614015,11.24663 C5.04614015,14.6693064 7.81506225,17.4439339 11.2307008,17.4439339 C14.6463393,17.4439339 17.4152614,14.6693064 17.4152614,11.24663 C17.4152614,7.82395349 14.6463393,5.04932599 11.2307008,5.04932599 Z">
                                             </path>
                                         </svg>
@@ -63,24 +53,20 @@
                 <div class="banner-slides">
                     <div class="slides-list">
                         <div class="outer">
-                            <section class="container">
-                                <div class="arrow prev">&lt;</div>
-                                <div class="banner">
-                                    <div><img src="/img/main/slide_img01.webp"></div>
-                                    <div><img src="/img/main/slide_img02.webp"></div>
-                                    <div><img src="/img/main/slide_img03.webp"></div>
-                                    <div><img src="/img/main/slide_img04.webp"></div>
+                            <div class="inner-list">
+                                <div class="inner" id="img1">
+                                    <img th:src="@{/img/main/slide_img01.webp}" alt="">
                                 </div>
-                                <div class="arrow next">&gt;</div>
-                                <div class="btns">
-                                    <button class="btn"></button>
-                                    <button class="btn"></button>
-                                    <button class="btn"></button>
-                                    <button class="btn"></button>
+                                <div class="inner" id="img2">
+                                    <img th:src="@{/img/main/slide_img02.webp}" alt="">
                                 </div>
-                            </section>
-                          </div>
-                          
+                                <div class="inner" id="img3">
+                                    <img th:src="@{/img/main/slide_img03.webp}" alt="">
+                                </div>
+                                <div class="inner" id="img4">
+                                    <img th:src="@{/img/main/slide_img04.webp}" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,6 +135,7 @@
             <!-- url 달아야함 -->
             <a href="" class="css-0">
                 <div class="css-join-event">
+                    <span>
                         <img th:src="@{/img/main/join_event_banner.png}" alt="">
                     </span>
                 </div>
@@ -304,7 +291,7 @@
                     </h2>
                 </div>
                 <div class="css-ifame">
-                    <iframe width="692px" height="390px" src="https://www.youtube.com/embed/jwysq-KGOgA?autoplay=0" 
+                    <iframe width="692px" height="390px" src="https://www.youtube.com/embed/jwysq-KGOgA?autoplay=0"
                     title="YouTube video player" frameborder="0" style="border-radius: 12px;"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
@@ -337,47 +324,10 @@
             </div>
         </div>
     </div>
-<!--    <div class="css-footer">-->
-<!--        <div class="css-footer-info">-->
-<!--            <p class="css-info-text">-->
-<!--                웹개발 5조-->
-<!--                <span class="css-info-bar"> | </span>-->
-<!--                서울특별시 강남구 역삼동 736-7-->
-<!--                <span class="css-info-bar"> | </span>-->
-<!--                팀장 : 강민구-->
-<!--                <span class="css-info-bar"> | </span>-->
-<!--                사업자등록번호 : 613-81-65278-->
-<!--                <span class="css-info-bar"> | </span><br>-->
-<!--                통신판매업신고 : 2018-서울서초-2134-->
-<!--                <span class="css-info-bar"> | </span>-->
-<!--                유료직업소개사업등록번호 : 제2021-3210195-14-5-00035호-->
-<!--                <span class="css-info-bar"> | </span>-->
-<!--                고객센터 : 1544-6254-->
-<!--                <span class="css-info-bar"> | </span>-->
-<!--                kmg2331@gmail.com-->
-<!--            </p>-->
-<!--        </div>-->
-<!--    </div>-->
     </main>
-    <footer th:replace="/fix/footer.html :: .footer"></footer>
+    <footer th:replace="/fix/footer.html::.footer"></footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script type="text/javascript">
-    let headerInput = document.querySelector(".css-input");
-    let inputWrapper = document.querySelector("#inputWrapper");
-
-    $('.header').load('../header_footer/header.html');
-
-    headerInput.addEventListener('focus', function(){
-    inputWrapper.style.width = '90%';
-    inputWrapper.style.borderColor = '#2e2e2e';
-    });
-
-    headerInput.addEventListener('focusout', function(){
-    inputWrapper.style.width = '65%';
-    inputWrapper.style.borderColor = 'transparent';
-    });
-</script>
 <script type="text/javascript" th:src="@{/js/main/main-banner-transition.js}"></script>
 <script type="text/javascript" th:src="@{/js/main/main-banner-typingEffect.js}"></script>
 <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>

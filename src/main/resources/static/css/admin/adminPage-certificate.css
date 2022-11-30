@@ -22,8 +22,8 @@ div.title-box p {
   padding-top: 4px;
   text-align: center;
   font-size: 12px;
-  width: 30px;
-  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 15px;
   background-color: #50c1ef;
   color: white;

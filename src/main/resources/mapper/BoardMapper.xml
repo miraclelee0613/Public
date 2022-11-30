@@ -8,8 +8,8 @@
         <selectKey keyProperty="boardNumber" order="BEFORE" resultType="long">
             SELECT SEQ_BOARD.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO TBL_BOARD(BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, BOARD_CATEGORY)
-        VALUES(#{boardNumber}, #{boardTitle}, #{boardContent}, #{boardReward}, #{boardCategory})
+        INSERT INTO TBL_BOARD(BOARD_NUMBER, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, BOARD_CATEGORY, MEMBER_NUMBER)
+        VALUES(#{boardNumber}, #{boardTitle}, #{boardContent}, #{boardReward}, #{boardCategory}, #{memberNumber})
     </insert>
 
 <!--  게시글 수정  -->
@@ -24,19 +24,26 @@
         DELETE FROM TBL_BOARD
         WHERE BOARD_NUMBER = #{boardNumber}
     </delete>
-
-<!--  조회  -->
+    <!--  조회  -->
     <select id="select" resultType="boardDTO">
-        SELECT BOARD_NUMBER, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, BOARD_CATEGORY
-        FROM TBL_BOARD
+        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+        b.BOARD_DATE, b.BOARD_UPDATE_DATE,
+        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+        FROM TBL_BOARD b
+        INNER JOIN TBL_MEMBER m
+        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
         WHERE BOARD_NUMBER = #{boardNumber}
     </select>
 
-<!--  게시글 전체 조회  -->
-<!--  썸네일 방식을 몰라 잠시 보류  -->
+    <!--  게시글 전체 조회  -->
+    <!--  썸네일 방식을 몰라 잠시 보류  -->
     <select id="selectAll" resultType="boardDTO">
-        SELECT BOARD_NUMBER, BOARD_DATE, BOARD_UPDATE_DATE, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, BOARD_CATEGORY
-        FROM TBL_BOARD
+        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
+        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+        FROM TBL_BOARD b
+        INNER JOIN TBL_MEMBER m
+        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
     </select>
 </mapper>
 

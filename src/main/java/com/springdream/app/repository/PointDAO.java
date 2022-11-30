@@ -12,10 +12,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class PointDAO {
-<<<<<<< HEAD
-=======
     private final PointMapper pointMapper;
->>>>>>> 96b6b6afb51683d395c065a2d524b8e3d8cb1165
 
     //    포인트 조회
     public PointVO findById(Long memberNumber){
@@ -32,9 +29,9 @@ public class PointDAO {
     }
 
     //    채택 포인트 전송 (1 to 2)
-    public PointVO sendPoint(Long memberNumber1, Long memberNumber2){
-        
-    }
+//    public PointVO sendPoint(Long memberNumber1, Long memberNumber2){
+//
+//    }
 
 
 //    private final BoardMapper boardMapper;

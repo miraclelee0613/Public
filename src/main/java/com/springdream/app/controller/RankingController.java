@@ -1,5 +1,6 @@
 package com.springdream.app.controller;
 
+import com.springdream.app.domain.Criteria;
 import com.springdream.app.service.RankingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,11 @@ public class RankingController {
 
     //    랭킹 목록
     @GetMapping("/list")
-    public void list(Long memberRank, Model model) {
-
+    public void list(Criteria criteria, Model model) {
+        if(criteria.getPage() == 0){
+            criteria.create(1, 10);
+        }
+        model.addAttribute("rankings", rankingService.showAll(criteria));
+//        showAll(criteria)
     }
 }

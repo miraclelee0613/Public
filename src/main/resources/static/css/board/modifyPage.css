@@ -232,10 +232,8 @@ label {
   font-weight: 400;
 }
 
-.point-deal p {
-  font-size: 10px;
-  color: #f00;
-  margin-bottom: 5px;
+.content-enter {
+  word-wrap: break-word;
 }
 
 /* 등록 버튼 */

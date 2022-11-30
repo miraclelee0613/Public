@@ -2,6 +2,7 @@ package com.springdream.app.service;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
+import com.springdream.app.repository.BoardDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
@@ -12,6 +13,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor @Qualifier("subject") @Primary
 public class SubjectBoardService implements BoardService{
+
+    private final BoardDAO boardDAO;
 
     @Override
     public void register(BoardVO boardVO) {
@@ -35,6 +38,6 @@ public class SubjectBoardService implements BoardService{
 
     @Override
     public List<BoardDTO> showAll() {
-        return null;
+        return boardDAO.findUnreportAll();
     }
 }

@@ -36,4 +36,10 @@ public class MemberDAO {
     public List<MemberVO> selectAll(){
         return memberMapper.selectAll();
     }
+
+    //  아이디 중복확인  public int checkId(String memberId);
+    public int checkId(String memberId) {return memberMapper.checkId(memberId);}
+
+    //  로그인
+    public int login(MemberVO memberVO) {return memberMapper.login(memberVO);}
 }

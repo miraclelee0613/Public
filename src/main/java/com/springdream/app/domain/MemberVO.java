@@ -19,14 +19,14 @@ public class MemberVO {
     private String memberName;
     private String memberNickname;
     private String memberMobile;
-    private String memberRank;
+    private int memberRank;
     private int memberStatus;
     private String fileName;
     private String fileUploadPath;
     private String fileUUID;
 
     // 파일 업로드 O
-    public void create(String memberId, String memberPw, String memberEmail, String memberName, String memberNickname, String memberMobile, String memberRank, int memberStatus, String fileName, String fileUploadPath, String fileUUID) {
+    public void create(Long memberNumber, String memberId, String memberPw, String memberEmail, String memberName, String memberNickname, String memberMobile, int memberRank, int memberStatus, String fileName, String fileUploadPath, String fileUUID) {
         this.memberId = memberId;
         this.memberPw = memberPw;
         this.memberEmail = memberEmail;
@@ -41,7 +41,7 @@ public class MemberVO {
     }
 
     // 파일 업로드 X
-    public void create(String memberId, String memberPw, String memberEmail, String memberName, String memberNickname, String memberMobile, String memberRank, int memberStatus) {
+    public void create(String memberId, String memberPw, String memberEmail, String memberName, String memberNickname, String memberMobile, int memberRank, int memberStatus) {
         this.memberId = memberId;
         this.memberPw = memberPw;
         this.memberEmail = memberEmail;

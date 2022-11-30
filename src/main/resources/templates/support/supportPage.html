@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>게시글 신고하기</title>
 </head>
-<link rel="stylesheet" href="/css/support.css">
-<link rel="stylesheet" href="/css/bulma.css">
-<link rel='stylesheet' type='text/css' media='screen' href='/headerfooter/header.css'>
+<link rel="stylesheet" href="/css/support/support.css">
+<link rel="stylesheet" href="/css/support/bulma.css">
+<link rel='stylesheet' type='text/css' media='screen' href='/css/fix/header.css'>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -27,7 +27,7 @@
     });
 </script>
 
-<script src="../../../../../../../../team5/archive/LJS_1122_SpringDream/supportPage/index.js"></script>
+<script src="/js/support/index.js"></script>
 
 <style>
     div#header {
@@ -83,15 +83,10 @@
                     </li>
                 </ol>
 
-                <!-- 검색바 -->
-                <form role="search" class="search" action="" accept-charset="UTF-8" method="get">
-                    <input name="utf8" type="hidden" value="✓" autocomplete="off">
-                    <input type="search" name="query" id="query" placeholder="검색" aria-label="검색">
-                </form>
             </nav>
 
             <h1>
-                <div class="page-title">문의 등록</div>
+                <div class="page-title">게시글 신고하기</div>
             </h1>
 
             <form id="new_request" class="request-form" action="" accept-charset="UTF-8" method="post">
@@ -99,26 +94,26 @@
                 <!-- <input type="hidden" name="authenticity_token" value=""> -->
 
                 <div class="form-field required">
-                    <label for="request_anonymous_requester_email">이메일 주소</label>
+                    <label for="request_anonymous_requester_email">게시글 주소</label>
                     <input type="text" name="" id="request_anonymous_requester_email" aria-required="true">
                 </div>
 
                 <div class="form-field required">
-                    <label id="" for="">상담유형</label>
+                    <label id="" for="">신고사유</label>
                     <div class="">
                         <input type="radio" name="type" id="voice" class=""
                             style="display: inline-block; max-width: min-content;">
-                        <label for="voice" style="display: inline-block;">고객의소리</label>
+                        <label for="voice" style="display: inline-block;">불건전하거나 불쾌감을 주는 내용</label>
                     </div>
                     <div class="">
                         <input type="radio" name="type" id="connect" class=""
                             style="display: inline-block; max-width: min-content;">
-                        <label for="connect" style="display: inline-block;">제휴</label>
+                        <label for="connect" style="display: inline-block;">도배성 게시글</label>
                     </div>
                     <div class="">
                         <input type="radio" name="type" id="how-to-use" class=""
                             style="display: inline-block; max-width: min-content;">
-                        <label for="how-to-use" style="display: inline-block;">이용문의</label>
+                        <label for="how-to-use" style="display: inline-block;">게시판 카테고리에 맞지 않는 내용</label>
                     </div>
                 </div>
 

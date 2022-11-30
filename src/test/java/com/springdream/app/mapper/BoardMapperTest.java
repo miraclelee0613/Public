@@ -47,5 +47,10 @@ public class BoardMapperTest {
     public void selectAllTest(){
         boardMapper.selectAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
+
+    @Test
+    public void selectUnreportAllTest(){
+        boardMapper.selectUnreportAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
 }
 

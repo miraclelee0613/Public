@@ -17,6 +17,10 @@ public interface BoardMapper {
     public void delete(Long boardNumber);
 //    조회
     public BoardDTO select(Long boardNumber);
+
+//    신고 제외한 전체 조회
+    public List<BoardDTO> selectUnreportAll();
+
 //    전체 조회
     public List<BoardDTO> selectAll();
     

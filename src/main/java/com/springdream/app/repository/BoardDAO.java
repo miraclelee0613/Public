@@ -33,6 +33,9 @@ public class BoardDAO {
         return boardMapper.selectAll();
     }
 
+    public List<BoardDTO> findUnreportAll(){
+        return boardMapper.selectUnreportAll();
+    }
 //    //    전체 개수
 //    public int findCountAll(){
 //        return boardMapper.getTotal();

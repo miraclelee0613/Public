@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/img/admin/customer-service.png" />
-    <link rel="stylesheet" th:href="@{/css/admin/adminPage-userlist.css}" />
+    <link rel="stylesheet" th:href="@{/css/admin/adminPage-post.css}" />
     <link rel="stylesheet" th:href="@{/css/admin/adminPage-interface.css}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,7 +55,7 @@
                     <!-- 제목 -->
                     <div class="title-box">
                         <h2>게시글 목록</h2>
-                        <p>6+</p>
+                        <p >123123</p>
                     </div>
                     <div class="request-box">
                         <!-- 테이블 -->
@@ -69,122 +69,21 @@
                                     <!-- <th scope="cols">이메일</th> -->
                                     <th scope="cols">작성 날짜</th>
                                     <th scope="cols">수정 날짜</th>
-                                    <th scope="cols">댓글 수</th>
-                                    <th scope="cols">답글 수</th>
+                                    <th scope="cols">조회수</th>
                                     <th scope="cols">게시글 삭제</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>33</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
+                            <th:block th:each="board:${boards}">
+                                <tr class="tBody" th:object="${board}">
+                                    <th scope="row" th:text="*{memberId}"></th>
+                                    <td th:text="*{boardNumber}"></td>
+                                    <td th:text="*{boardDate}"></td>
+                                    <td th:text="*{boardUpdateDate}"></td>
+                                    <td th:text="*{boardViewcount}">2</td>
                                     <td><button class="secession">삭제</button></td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>32</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>31</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>30</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>29</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>28</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>27</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>26</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>25</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>24</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">ljs1324</th>
-                                    <td>23</td>
-                                    <!-- <td>msj1</td>    -->
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td><button class="secession">삭제</button></td>
-                                </tr>
+                            </th:block>
                             </tbody>
                         </table>
                         <!-- 페이지 버튼 -->

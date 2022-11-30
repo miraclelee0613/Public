@@ -17,17 +17,17 @@ div.request-wrap {
     margin-right: 10px;
   }
   div.title-box p {
-    border: 1px solid #50c1ef;
-    margin: 4px;
-    padding-top: 4px;
-    text-align: center;
-    font-size: 12px;
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    background-color: #50c1ef;
-    color: white;
-  }
+  border: 1px solid #50c1ef;
+  margin: 4px;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+  background-color: #50c1ef;
+  color: white;
+}
   /* 테이블 */
   div.request-box {
     width: 100%;

@@ -5,9 +5,11 @@ import com.springdream.app.domain.BoardVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 @RequiredArgsConstructor @Qualifier("subject") @Primary
 public class SubjectBoardService implements BoardService{
 

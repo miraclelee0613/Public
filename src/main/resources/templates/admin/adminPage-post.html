@@ -55,7 +55,7 @@
                     <!-- 제목 -->
                     <div class="title-box">
                         <h2>게시글 목록</h2>
-                        <p >123123</p>
+                        <p th:text="${totalBoardCount}"></p>
                     </div>
                     <div class="request-box">
                         <!-- 테이블 -->
@@ -80,7 +80,7 @@
                                     <td th:text="*{boardNumber}"></td>
                                     <td th:text="*{boardDate}"></td>
                                     <td th:text="*{boardUpdateDate}"></td>
-                                    <td th:text="*{boardViewcount}">2</td>
+                                    <td th:text="*{boardViewcount}"></td>
                                     <td><button class="secession">삭제</button></td>
                                 </tr>
                             </th:block>

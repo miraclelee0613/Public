@@ -16,24 +16,25 @@ public class AdminController {
 
     private final BoardService boardService;
 
-    @GetMapping("/main")
+    @GetMapping("main")
     public String main(){
+        // 관리자 계정인지 검사 필요
         return "admin/adminPage-main";
     }
 
     // 유저 리스트
-    @GetMapping("/userlist")
+    @GetMapping("userlist")
     public String userList(MemberVO memberVO){
         return "admin/adminPage-userlist";
     }
 
-    @GetMapping("/support")
+    @GetMapping("support")
     public String support(){
         return "admin/adminPage-support";
     }
 
     // 게시글 목록
-    @GetMapping("/boards")
+    @GetMapping("boards")
     public String boards(Model model){
         int totalBoardCount = boardService.showAll().size();
         model.addAttribute("boards", boardService.showAll());
@@ -41,7 +42,7 @@ public class AdminController {
         return "admin/adminPage-post";
     }
 
-    @GetMapping("/report")
+    @GetMapping("report")
     public String report(){
         return "admin/adminPage-report";
     }

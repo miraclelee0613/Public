@@ -40,7 +40,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 80px 0px 80px;
+    padding: 262px 0px 80px;
     background-color: rgb(55, 17, 108);
     transition: background-color 350ms ease-out 0s;
 }
@@ -344,7 +344,6 @@ main{
 
 .css-section2-icons {
     padding: 20px 24px;
-    background-color: rgb(250, 250, 252);
     border-radius: 16px;
     display: flex;
     justify-content: center;
@@ -373,6 +372,7 @@ main{
     margin: 0px;
     padding: 0px;
     position: relative;
+    z-index: -1;
     margin: 10px 5px 10px 5px;
 }
 
@@ -538,7 +538,7 @@ main{
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     color: rgb(46, 46, 46);
-    box-shadow: rgb(48, 52, 65, 0.5) 0px 0px 20px 5px;
+    box-shadow: rgba(48, 52, 65, 0.5) 0px 0px 20px 5px;
     display: grid;
     gap: 12px;
     line-height: 25px;

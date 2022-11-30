@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.springdream.app.mapper.SupportMapper">
+    <insert id="insert" parameterType="supportVO">
+        <selectKey keyProperty="boardNumber" order="BEFORE" resultType="long">
+            SELECT SEQ_SUPPORT.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_SUPPORT(SUPPORT_NUMBER, SUPPORT_TITLE, SUPPORT_CONTENT, MEMBER_NUMBER)
+        VALUES(#{supportNumber}, #{supportTitle}, #{supportContent}, #{supportReward}, #{memberNumber})
+    </insert>
+</mapper>

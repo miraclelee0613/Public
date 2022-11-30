@@ -1,7 +1,7 @@
 let headerInput = document.querySelector(".css-input");
 let inputWrapper = document.querySelector("#inputWrapper");
 
-$('.header').load('../header_footer/header.html');
+// $('.header').load('../header_footer/header.html');
 
 headerInput.addEventListener('focus', function(){
     inputWrapper.style.width = '90%';

@@ -41,4 +41,9 @@ public class BoardDAOTest {
     public void findAllTest(){
         boardDAO.findAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
+
+    @Test
+    public void findUnreportAllTest(){
+        boardDAO.findUnreportAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
 }

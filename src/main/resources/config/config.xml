@@ -6,5 +6,6 @@
         <typeAlias type="com.springdream.app.domain.BoardVO" alias="boardVO" />
         <typeAlias type="com.springdream.app.domain.BoardDTO" alias="boardDTO" />
         <typeAlias type="com.springdream.app.domain.PointVO" alias="pointVO"/>
+        <typeAlias type="com.springdream.app.domain.SupportVO" alias="supportVO"/>
     </typeAliases>
 </configuration>

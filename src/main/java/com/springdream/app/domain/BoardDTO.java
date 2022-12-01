@@ -12,7 +12,7 @@ public class BoardDTO {
     private String boardTitle;
     private String boardContent;
     private int boardReward;
-    private int boardCategory;
+    private String boardCategory;
     private String boardDate;
     private String boardUpdateDate;
     private Long boardViewcount;

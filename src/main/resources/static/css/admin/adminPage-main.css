@@ -246,13 +246,14 @@ div.content-body {
 /* 메인 컨텐츠 목록 */
 div.item-list {
   display: flex;
+  justify-content: center;
+  align-self: center;
   width: 100%;
-  height: 340px;
+  /*height: 340px;*/
   margin: 20px auto 0 auto;
 }
 div.item {
   width: 100%;
-  height: 100%;
   background-color: white;
   box-shadow: 0.063rem 0 0.313rem #084b8a;
   margin: 0 10px 10px 10px;
@@ -277,10 +278,10 @@ canvas#total-chart {
 div.new-user {
   width: 100%;
   /* height: 260px; */
-  height: 77%;
+  /*height: 77%;*/
   display: flex;
   flex-direction: column;
-  padding: 0 0.938rem;
+  padding: 0 0.938rem 10px;
   overflow-y: hidden;
 }
 
@@ -289,6 +290,7 @@ div.user-list {
   grid-template-columns: 1fr 6fr 1fr;
   border: 1px solid #c0c7c8;
   border-radius: 10px;
+  margin-bottom: 10px;
   background-color: #ebf2fb;
 }
 

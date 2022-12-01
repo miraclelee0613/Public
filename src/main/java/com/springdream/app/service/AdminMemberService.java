@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -41,13 +42,33 @@ public class AdminMemberService implements MemberService{
     //  전체 회원조회
     @Override
     public List<MemberVO> selectAll(){
-        return memberDAO.selectAll();
+        return null;
+    }
+
+    //  전체 회원조회DTO
+    public List<MemberDTO> selectAllDTO(){
+        List<MemberDTO> members = new ArrayList<>();
+        memberDAO.selectAll().forEach(memberVO -> {
+            members.add(createMemberDTO(memberVO));
+        });
+        return members;
     }
 
     //  최신 N개 회원조회
-    @Override
-    public List<MemberVO> newMembers(int criteria){
-        return memberDAO.selectRecent(criteria);
+    public List<MemberDTO> newMembers(int criteria){
+        List<MemberDTO> members = new ArrayList<>();
+        memberDAO.selectRecent(criteria).forEach(memberVO -> {
+            MemberDTO memberDTO = new MemberDTO();
+            memberDTO.setMemberNumber(memberVO.getMemberNumber());
+            memberDTO.setMemberId(memberVO.getMemberId());
+            memberDTO.setMemberName(memberVO.getMemberName());
+            memberDTO.setMemberMobile(memberVO.getMemberMobile());
+            memberDTO.setMemberEmail(memberVO.getMemberEmail());
+            memberDTO.setMemberBoardCount(memberDAO.getBoardNum(memberVO.getMemberNumber()));
+            members.add(memberDTO);
+        });
+
+        return members;
     }
 
     //  회원 게시글 수 조회
@@ -63,4 +84,17 @@ public class AdminMemberService implements MemberService{
     //  로그인 성공 시 memberNumber, 실패 시 0 출력
     @Override
     public int login(MemberVO memberVO) { return memberDAO.login(memberVO); }
+
+
+    private MemberDTO createMemberDTO(MemberVO memberVO){
+        MemberDTO memberDTO = new MemberDTO();
+        memberDTO.setMemberNumber(memberVO.getMemberNumber());
+        memberDTO.setMemberId(memberVO.getMemberId());
+        memberDTO.setMemberName(memberVO.getMemberName());
+        memberDTO.setMemberMobile(memberVO.getMemberMobile());
+        memberDTO.setMemberEmail(memberVO.getMemberEmail());
+        memberDTO.setMemberBoardCount(memberDAO.getBoardNum(memberVO.getMemberNumber()));
+        //           memberDTO.setMemberReplyCount(memberService.replyCount(memberVO.getMemberNumber()));
+        return memberDTO;
+    }
 }

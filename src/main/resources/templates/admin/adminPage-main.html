@@ -49,109 +49,20 @@
 
 
       <!-- 컨텐츠 시작 -->
-      <div class="content-body container" style="margin-left: 0; max-width: 975px;">
+      <div class="content-body container" style="margin: 0 auto; max-width: 975px;">
         <div class="item-list">
           <div class="item content-click pointer">
             <h3>신규 회원</h3>
             <div class="new-user" id="up-slide">
-              <div class="user-list1">
-                <div class="user-list">
-                  <img src="/img/admin/user.png" />
+              <div class="user-list1" th:each="member:${newMembers}">
+                <div class="user-list" th:object="${member}">
+                  <img src="/img/admin/user.png"/>
                   <div class="user-info">
-                    <span>문성준</span>
-                    <p>MSJ1@gmail.com / 2022-10-23 13:24</p>
+                    <span th:text="*{memberName}">문성준</span><br>
+                    <p style="display: inline-block">총 게시글 수 : </p>
+                    <p style="display: inline-block" th:text="*{memberBoardCount}"></p>
                   </div>
-                  <p class="pointer">보기</p>
                 </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>강민구</span>
-                    <p>KMK2@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>문승현</span>
-                    <p>MSH3@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>김민지</span>
-                    <p>KMJ4@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>이준상</span>
-                    <p>LJS5@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>노희찬</span>
-                    <p>NHC6@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>이종호</span>
-                    <p>LJH7@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>고진혁</span>
-                    <p>KJH8@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>이향준</span>
-                    <p>LHJ9@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>강경민</span>
-                    <p>KKM10@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>최수빈</span>
-                    <p>CSB11@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
-                </div>
-                <div class="user-list">
-                  <img src="img/user.png" />
-                  <div class="user-info">
-                    <span>김종현</span>
-                    <p>KJH12@gmail.com / 2022-10-23 13:24</p>
-                  </div>
-                  <p class="pointer">보기</p>
                 </div>
               </div>
             </div>
@@ -163,27 +74,28 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="/js/admin/admin-main.js"></script>
 <!--<script th:src="@{/js/admin/adminPage-main.js}"></script>-->
-<script>
-  setInterval(function () {
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "-52px" });
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "-104px" });
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "-156px" });
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "-208px" });
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "-260px" });
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "-312px" });
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "-364px" });
-    $("#up-slide > .user-list1").delay(2000);
-    $("#up-slide > .user-list1").animate({ marginTop: "0px" });
+<!--<script>-->
+<!--  setInterval(function () {-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "-52px" });-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "-104px" });-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "-156px" });-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "-208px" });-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "-260px" });-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "-312px" });-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "-364px" });-->
+<!--    $("#up-slide > .user-list1").delay(2000);-->
+<!--    $("#up-slide > .user-list1").animate({ marginTop: "0px" });-->
 
-  });
-</script>
+<!--  });-->
+<!--</script>-->
 
 </html>

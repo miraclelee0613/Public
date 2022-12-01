@@ -1,6 +1,7 @@
 package com.springdream.app.mapper;
 
 import com.springdream.app.domain.BoardVO;
+import com.springdream.app.domain.MemberDTO;
 import com.springdream.app.domain.MemberVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -26,6 +27,15 @@ public interface MemberMapper {
 
     // 회원 전체조회
     public List<MemberVO> selectAll();
+
+    // 회원 최신 10개 조회
+    public List<MemberVO> selectRecent(int criteria);
+
+    // 회원 게시글수 조회
+    public int memberBoardCount(Long memberNumber);
+
+    // 회원 답글수 조회
+//    public int memberReplyCount(Long memberNumber);
 
     // 중복체크
     public int checkId(String memberId);

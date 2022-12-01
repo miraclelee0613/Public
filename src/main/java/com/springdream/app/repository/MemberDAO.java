@@ -37,8 +37,14 @@ public class MemberDAO {
         return memberMapper.selectAll();
     }
 
+    // 회원 최신 N개 조회
+    public List<MemberVO> selectRecent(int criteria) { return memberMapper.selectRecent(criteria); };
+
     //  아이디 중복확인  public int checkId(String memberId);
     public int checkId(String memberId) {return memberMapper.checkId(memberId);}
+
+    // 회원 게시글수 조회
+    public int getBoardNum(Long memberNumber) { return memberMapper.memberBoardCount(memberNumber); }
 
     //  로그인
     public int login(MemberVO memberVO) {return memberMapper.login(memberVO);}

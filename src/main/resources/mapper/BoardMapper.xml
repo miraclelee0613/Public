@@ -36,7 +36,6 @@
     </select>
 
     <!--  게시글 전체 조회  -->
-    <!--  썸네일 방식을 몰라 잠시 보류  -->
     <select id="selectAll" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -45,6 +44,7 @@
         INNER JOIN TBL_MEMBER m
         ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
     </select>
+
     <!--  신고 제외한 전체 조회  -->
     <select id="selectUnreportAll" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
@@ -54,6 +54,41 @@
         INNER JOIN TBL_MEMBER m
         ON b.MEMBER_NUMBER = m.MEMBER_NUMBER AND b.BOARD_REPORT <![CDATA[<]]> 1
     </select>
+
+    <!--  인기글 조회  -->
+    <select id="popularBoard" resultType="boardDTO">
+        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
+        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+        FROM TBL_BOARD b
+        INNER JOIN TBL_MEMBER m
+        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
+        ORDER BY BOARD_VIEWCOUNT DESC
+    </select>
+
+    <!--  최신글 조회  -->
+    <select id="recentBoard" resultType="boardDTO">
+        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
+        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+        FROM TBL_BOARD b
+        INNER JOIN TBL_MEMBER m
+        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
+        ORDER BY BOARD_UPDATE_DATE DESC
+    </select>
+
+    <!--  카테고리별 조회  -->
+    <select id="categoryBoard" parameterType="_int" resultType="boardDTO">
+        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
+        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+        FROM TBL_BOARD b
+        INNER JOIN TBL_MEMBER m
+        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER AND b.BOARD_CATEGORY = #{boardCategory}
+        ORDER BY BOARD_UPDATE_DATE DESC
+    </select>
+
+
 </mapper>
 
 

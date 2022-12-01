@@ -69,7 +69,7 @@
           <!-- 제목 -->
           <div class="title-box">
             <h2>회원 목록</h2>
-            <p>6+</p>
+            <p th:text="memberTotal"></p>
           </div>
           <div class="request-box">
             <!-- 테이블 -->
@@ -77,28 +77,27 @@
               <thead>
                 <tr>
                   <th scope="cols" class="total-name">이 름</th>
-                  <th scope="cols">나이</th>
                   <th scope="cols">아이디</th>
                   <th scope="cols">전화 번호</th>
                   <th scope="cols">이메일</th>
-                  <th scope="cols">가입 날짜</th>
                   <th scope="cols">질문 수</th>
-                  <th scope="cols">답변 수</th>
+<!--                  <th scope="cols">답변 수</th>-->
+                  <th scope="cols">삭제</th>
                   <th scope="cols">탈퇴</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">문성준</th>
-                  <td>26</td>
-                  <td>msj1</td>
-                  <td>010-1111-1111</td>
-                  <td>msj1@gmail.com</td>
-                  <td>2022/10/25</td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td><button class="secession">탈퇴</button></td>
-                </tr>
+                <th:block th:each="member:${members}">
+                  <tr class="tBody" th:object="${member}">
+                    <th scope="row" th:text="*{memberName}">이름</th>
+                    <td th:text="*{memberId}"></td>
+                    <td th:text="*{memberMobile}"></td>
+                    <td th:text="*{memberEmail}"></td>
+                    <td th:text="*{memberBoardCount}"></td>
+                    <td><button class="secession">삭제</button></td>
+                    <td><button class="secession">탈퇴</button></td>
+                  </tr>
+                </th:block>
               </tbody>
             </table>
             <!-- 페이지 버튼 -->
@@ -136,5 +135,5 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="../js/adminPage-main.js"></script>
-
+<script
 </html>

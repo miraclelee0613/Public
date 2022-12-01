@@ -37,9 +37,10 @@ public class BoardController {
     }
 
 //    게시글 상세보기
-    @GetMapping(value = {"/read", "/modify"})
-    public void read(Long boardNumber, Model model){
+    @GetMapping("/read")
+    public String read(Long boardNumber, Model model){
        model.addAttribute("board", boardService.show(boardNumber));
+       return "/board/page";
     }
 
 

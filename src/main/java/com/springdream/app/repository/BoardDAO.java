@@ -32,12 +32,25 @@ public class BoardDAO {
     public List<BoardDTO> findAll(){
         return boardMapper.selectAll();
     }
-
+    //    신고되지 않은 게시물 조회
     public List<BoardDTO> findUnreportAll(){
         return boardMapper.selectUnreportAll();
     }
-//    //    전체 개수
-//    public int findCountAll(){
-//        return boardMapper.getTotal();
-//    }
+
+    //    인기글 조회
+    public List<BoardDTO> popularPost(){
+        return boardMapper.popularBoard();
+    }
+
+    //    최신글 조회
+    public List<BoardDTO> recentPost(){
+        return boardMapper.recentBoard();
+    }
+
+    //    카테고리별 조회
+    public List<BoardDTO> categoryPost(){
+        return boardMapper.categoryBoard();
+    }
+
+
 }

@@ -18,12 +18,12 @@ public class SubjectBoardService implements BoardService{
 
     @Override
     public void register(BoardVO boardVO) {
-
+        boardDAO.save(boardVO);
     }
 
     @Override
-    public void modify(BoardDTO boardVO) {
-
+    public void modify(BoardDTO boardDTO) {
+        boardDAO.setBoardDTO(boardDTO);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class SubjectBoardService implements BoardService{
 
     @Override
     public BoardDTO show(Long boardNumber) {
-        return null;
+        return boardDAO.findByBoard(boardNumber);
     }
 
     @Override

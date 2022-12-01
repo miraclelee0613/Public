@@ -1,5 +1,6 @@
 package com.springdream.app.controller;
 
+import com.springdream.app.service.SubjectBoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,6 +49,7 @@ class BoardControllerTest {
 
     @Test
     void update() {
+
     }
 
     @Test

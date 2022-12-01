@@ -26,7 +26,7 @@ public class BoardDAOTest {
     @Test
     public void setBoardDTOTest(){
         BoardDTO boardDTO = boardDAO.findByBoard(1L);
-        boardDTO.setBoardTitle("수정된 게시글 제목");
+        boardDTO.setBoardTitle("수정된 게시글 제목3");
         boardDAO.setBoardDTO(boardDTO);
     }
 

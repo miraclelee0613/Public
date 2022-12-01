@@ -62,7 +62,7 @@ public class BoardDAOTest {
 
     //    카테고리별 조회
     @Test
-    public void categoryPost(){
-        boardDAO.categoryPost().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    public void categoryPost(int category){
+        boardDAO.categoryPost(category).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     };
 }

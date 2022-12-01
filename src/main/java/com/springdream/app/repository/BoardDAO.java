@@ -48,8 +48,8 @@ public class BoardDAO {
     }
 
     //    카테고리별 조회
-    public List<BoardDTO> categoryPost(){
-        return boardMapper.categoryBoard();
+    public List<BoardDTO> categoryPost(int category){
+        return boardMapper.categoryBoard(category);
     }
 
 

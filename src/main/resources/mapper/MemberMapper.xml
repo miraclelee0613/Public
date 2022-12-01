@@ -33,13 +33,23 @@
 
     <!--  회원조회  -->
     <select id="select" resultType="memberVO">
-        SELECT MEMBER_NUMBER, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_MOBILE, MEMBER_RANK, MEMBER_STATUS FROM TBL_MEMBER
+        SELECT MEMBER_NUMBER, MEMBER_NAME, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_MOBILE, MEMBER_RANK, MEMBER_STATUS FROM TBL_MEMBER
         WHERE MEMBER_NUMBER = #{memberNumber}
     </select>
 
-    <!--  회원전체조회  -->
+    <select id="memberBoardCount" resultType="_int">
+        SELECT COUNT(*) AS MEMBER_BOARD_COUNT FROM TBL_BOARD WHERE MEMBER_NUMBER = #{memberNumber}
+    </select>
+
+    <!--  회원 전체조회  -->
     <select id="selectAll" resultType="memberVO">
-        SELECT MEMBER_NUMBER, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_MOBILE, MEMBER_RANK, MEMBER_STATUS FROM TBL_MEMBER
+        SELECT MEMBER_NUMBER, MEMBER_NAME, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_MOBILE, MEMBER_RANK, MEMBER_STATUS FROM TBL_MEMBER
+    </select>
+    
+    <select id="selectRecent" parameterType="_int" resultType="memberVO">
+        SELECT MEMBER_NUMBER, MEMBER_NAME, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_MOBILE, MEMBER_RANK, MEMBER_STATUS
+        FROM (SELECT * FROM TBL_MEMBER ORDER BY MEMBER_NUMBER DESC)
+        WHERE MEMBER_STATUS <![CDATA[=]]> 1 AND ROWNUM <![CDATA[<=]]> #{criteria}
     </select>
 
     <!--  아이디 중복확인  -->
@@ -56,6 +66,7 @@
     <select id="login" parameterType="memberVO" resultType="_int">
 		SELECT NVL(MAX(MEMBER_NUMBER||COUNT(1)), 0) FROM TBL_MEMBER WHERE MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw} GROUP BY MEMBER_NUMBER
 	</select>
+    
 </mapper>
 
 

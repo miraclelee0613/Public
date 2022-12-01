@@ -18,4 +18,10 @@ public interface BoardService {
     public BoardDTO show(Long boardNumber);
     //    전체 조회
     public List<BoardDTO> showAll();
+//    인기글 조회
+    public List<BoardDTO> popularPost();
+//    최신글 조회
+    public List<BoardDTO> recentPost();
+//    카테고리별 조회
+    public List<BoardDTO> categoryPost();
 }

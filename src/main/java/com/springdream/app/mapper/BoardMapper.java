@@ -23,5 +23,14 @@ public interface BoardMapper {
 
 //    전체 조회
     public List<BoardDTO> selectAll();
-    
+
+//    인기글 조회
+    public List<BoardDTO> popularBoard();
+
+//    최신글 조회
+    public List<BoardDTO> recentBoard();
+
+//    카테고리별 조회
+    public List<BoardDTO> categoryBoard();
+
 }

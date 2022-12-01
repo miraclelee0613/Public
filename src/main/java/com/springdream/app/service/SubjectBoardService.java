@@ -40,4 +40,21 @@ public class SubjectBoardService implements BoardService{
     public List<BoardDTO> showAll() {
         return boardDAO.findUnreportAll();
     }
+
+    @Override
+    public List<BoardDTO> popularPost() {
+        return boardDAO.findUnreportAll();
+    }
+
+    @Override
+    public List<BoardDTO> recentPost() {
+        return boardDAO.findUnreportAll();
+    }
+
+    @Override
+    public List<BoardDTO> categoryPost() {
+        return boardDAO.findUnreportAll();
+    }
+
+
 }

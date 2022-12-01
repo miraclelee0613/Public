@@ -43,5 +43,23 @@ public class SubjectBoardServiceTest {
     public void showAllTest(){
         boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
+    
+    //    인기글
+    @Test
+    public void popularPost(){
+        boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
+    
+    //    최신글
+    @Test
+    public void recentPost(){
+        boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
+    
+    //    카테고리별
+    @Test
+    public void categoryPost(){
+        boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
 
 }

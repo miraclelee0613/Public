@@ -17,7 +17,7 @@ public class MemberMapperTest {
     @Test
     public void insertTest(){
         MemberVO memberVO = new MemberVO();
-        memberVO.create("msj2331", "1234", "kmg2331@gmail.com",
+        memberVO.create("msj3333", "1234", "kmg2331@gmail.com",
                 "문성준", "테스트닉123", "01034442331",
                 1, 1);
         memberMapper.insert(memberVO);
@@ -50,6 +50,16 @@ public class MemberMapperTest {
         MemberVO memberVO = new MemberVO();
         memberVO.setMemberNumber(1);
         log.info("select : " +  memberMapper.select(memberVO.getMemberNumber()));
+    }
+
+    @Test
+    public void selectRecentTest(){
+        log.info("select recent : " + memberMapper.selectRecent(10));
+    }
+
+    @Test
+    public void memberBoardCountTest(){
+        log.info("memberBoardCount : " + memberMapper.memberBoardCount(1L));
     }
 
     @Test

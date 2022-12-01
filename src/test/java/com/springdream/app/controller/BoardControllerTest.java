@@ -44,7 +44,7 @@ class BoardControllerTest {
 
     @Test
     void read() throws Exception{
-        log.info("model map" + mockMvc.perform(MockMvcRequestBuilders.get("/board/page").param("boardNumber", "2")).andReturn().getModelAndView().getModelMap());
+        log.info("model map" + mockMvc.perform(MockMvcRequestBuilders.get("/board/page").param("boardNumber", "11")).andReturn().getModelAndView().getModelMap());
     }
 
     @Test

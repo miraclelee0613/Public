@@ -42,8 +42,27 @@ public class BoardDAOTest {
         boardDAO.findAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
 
+    //    신고 제외 전체 조회
     @Test
     public void findUnreportAllTest(){
         boardDAO.findUnreportAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
+
+    //    인기글 조회
+    @Test
+    public void popularPost(){
+        boardDAO.popularPost().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
+
+    //    최신글 조회
+    @Test
+    public void recentPost(){
+        boardDAO.recentPost().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    };
+
+    //    카테고리별 조회
+    @Test
+    public void categoryPost(int category){
+        boardDAO.categoryPost(category).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    };
 }

@@ -8,11 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.lang.reflect.Member;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Slf4j
 public class BoardMapperTest {
@@ -48,9 +43,28 @@ public class BoardMapperTest {
         boardMapper.selectAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
 
+    //    신고 안된사람 조회
     @Test
     public void selectUnreportAllTest(){
         boardMapper.selectUnreportAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
+
+    //    인기글 조회
+    @Test
+    public void popularBoard(){
+        boardMapper.popularBoard().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
+
+    //    최신글 조회
+    @Test
+    public void recentBoard(){
+        boardMapper.recentBoard().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    };
+
+    //    카테고리별 조회
+    @Test
+    public void categoryBoard(){
+        boardMapper.categoryBoard(1).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    };
 }
 

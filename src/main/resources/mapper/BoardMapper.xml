@@ -78,14 +78,13 @@
     </select>
 
     <!--  카테고리별 조회  -->
-<!--  #{boardCategory}  -->
     <select id="categoryBoard" parameterType="_int" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
         b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
         FROM TBL_BOARD b
         INNER JOIN TBL_MEMBER m
-        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER AND b.BOARD_CATEGORY = 4
+        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER AND b.BOARD_CATEGORY = #{boardCategory}
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 

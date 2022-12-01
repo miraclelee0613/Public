@@ -38,4 +38,19 @@ public class AdminBoardService implements BoardService{
     public List<BoardDTO> showAll() {
         return null;
     }
+
+    @Override
+    public List<BoardDTO> popularPost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> recentPost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> categoryPost() {
+        return null;
+    }
 }

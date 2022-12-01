@@ -19,6 +19,7 @@ public class SubjectBoardServiceTest {
     @Test
     public void registerTest(){
         BoardVO boardVO = new BoardVO();
+
         boardVO.create("새로 쓴 글2", "새로 쓴 내용", 500, 1, 1L);
         boardService.register(boardVO);
     }
@@ -27,14 +28,14 @@ public class SubjectBoardServiceTest {
     @Test
     public void modifyTest(){
         BoardDTO boardDTO = boardService.show(1L);
-        boardDTO.setBoardTitle("수정된 게시글 제목");
+        boardDTO.setBoardTitle("수정된 게시글 제목4");
         boardService.modify(boardDTO);
     }
 
     //    게시글 조회 테스트
     @Test
     public void showTest(){
-        log.info("board : " + boardService.show(1L));
+        log.info("board : " + boardService.show(2L));
     }
 
     //    게시글 목록 전체 조회

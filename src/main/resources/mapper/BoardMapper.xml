@@ -13,7 +13,7 @@
     </insert>
 
 <!--  게시글 수정  -->
-    <update id="update">
+    <update id="update" parameterType="boardDTO">
         UPDATE TBL_BOARD
         SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_UPDATE_DATE = SYSDATE
         WHERE BOARD_NUMBER = #{boardNumber}

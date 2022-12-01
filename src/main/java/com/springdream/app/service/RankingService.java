@@ -5,6 +5,7 @@ import com.springdream.app.repository.PointDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+// worker: LeeJunSang
 @Service
 @RequiredArgsConstructor
 public class RankingService {

@@ -11,7 +11,7 @@ public interface BoardService {
     //    추가
     public void register(BoardVO boardVO);
     //    수정
-    public void modify(BoardDTO boardVO);
+    public void modify(BoardDTO boardDTO);
     //    삭제
     public void remove(Long boardNumber);
     //    조회

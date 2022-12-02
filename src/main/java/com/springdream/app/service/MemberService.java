@@ -25,7 +25,7 @@ public interface MemberService {
     // 최근 N개 회원조회
     public List<MemberVO> newMembers(int criteria);
 
-    //  아이디 중복확인  public int checkId(String memberId);
+    //  아이디 중복확인
     public int checkId(String memberId);
 
     //  로그인

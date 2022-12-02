@@ -40,7 +40,7 @@ public class MemberDAO {
     // 회원 최신 N개 조회
     public List<MemberVO> selectRecent(int criteria) { return memberMapper.selectRecent(criteria); };
 
-    //  아이디 중복확인  public int checkId(String memberId);
+    //  아이디 중복확인
     public int checkId(String memberId) {return memberMapper.checkId(memberId);}
 
     // 회원 게시글수 조회

@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 // worker: LeeJunSang
-// lastUpdate :
+// lastUpdate : 221202
 @Service
 public interface PointService {
-//    private final PointDAO pointDAO;
 
-    //  랭킹 목록
-    public List<PointVO> list();
+    //  포인트 보유 리스트
+//    public List<PointVO> list(Criteria criteria);
+
+
 
 }
 

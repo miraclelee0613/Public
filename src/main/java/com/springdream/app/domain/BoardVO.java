@@ -13,12 +13,12 @@ public class BoardVO {
     private String boardTitle;
     private String boardContent;
     private int boardReward;
-    private int boardCategory;
+    private String boardCategory;
     private int boardAdopt;
     private int boardReport;
     private Long memberNumber;
 
-    public void create(String boardTitle, String boardContent, int boardReward, int boardCategory, Long memberNumber) {
+    public void create(String boardTitle, String boardContent, int boardReward, String boardCategory, Long memberNumber) {
         this.boardTitle = boardTitle;
         this.boardContent = boardContent;
         this.boardReward = boardReward;

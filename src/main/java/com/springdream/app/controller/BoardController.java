@@ -58,4 +58,10 @@ public class BoardController {
         boardService.remove(boardNumber);
         return new RedirectView("/board/boardMain");
     }
+
+    //    인기글
+    @GetMapping("/popular")
+    public void popular(Model model) {
+        model.addAttribute("popular", boardService.popularPost());
+    }
 }

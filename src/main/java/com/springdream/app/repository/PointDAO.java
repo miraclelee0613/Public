@@ -1,7 +1,6 @@
 package com.springdream.app.repository;
 
 
-import com.springdream.app.domain.Criteria;
 import com.springdream.app.domain.PointVO;
 import com.springdream.app.mapper.PointMapper;
 import lombok.RequiredArgsConstructor;
@@ -14,19 +13,24 @@ import java.util.List;
 public class PointDAO {
     private final PointMapper pointMapper;
 
-    //    포인트 조회
-    public PointVO findById(Long memberNumber){
-        return pointMapper.select(memberNumber);
+//    //    포인트 조회
+//    public PointVO findById(Long memberNumber){
+//        return pointMapper.select(memberNumber);
+//    }
+
+//    public List<PointVO> findAll(Criteria criteria){
+//        return pointMapper.rankList(criteria);
+//    }
+
+//    랭킹 리스트
+    public List<PointVO> findAllOrderByTotalPoint(){
+        return pointMapper.rankingList();
     }
 
-    public List<PointVO> findAll(Criteria criteria){
-        return pointMapper.rankList(criteria);
-    }
-
-    //    누적 포인트
-    public PointVO totalPointById(Long memberNumber){
-        return pointMapper.totalPoint(memberNumber);
-    }
+//    //    누적 포인트
+//    public PointVO totalPointById(Long memberNumber){
+//        return pointMapper.totalPoint(memberNumber);
+//    }
 
     //    채택 포인트 전송 (1 to 2)
 //    public PointVO sendPoint(Long memberNumber1, Long memberNumber2){

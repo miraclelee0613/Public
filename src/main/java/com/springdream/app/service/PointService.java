@@ -9,12 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 // worker: LeeJunSang
-// lastUpdate : 221201
+// lastUpdate : 221202
 @Service
 public interface PointService {
 
     //  포인트 보유 리스트
-    public List<PointVO> list(Criteria criteria);
+//    public List<PointVO> list(Criteria criteria);
+
+
 
 }
 

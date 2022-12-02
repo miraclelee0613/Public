@@ -1,6 +1,5 @@
 package com.springdream.app.service;
 
-import com.springdream.app.domain.Criteria;
 import com.springdream.app.domain.PointVO;
 import com.springdream.app.repository.PointDAO;
 import lombok.RequiredArgsConstructor;
@@ -12,14 +11,20 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor @Qualifier("ranking") @Primary
-public class PointRankingService implements PointService {
+public class PointRankingService {
     private final PointDAO pointDAO;
 
-//    포인트 보유 리스트
-    @Override
-    public List<PointVO> list(Criteria criteria) {
-        return pointDAO.findAll(criteria);
+////    포인트 보유 리스트
+//    @Override
+//    public List<PointVO> list(Criteria criteria) {
+//        return pointDAO.findAll(criteria);
+//    }
+
+    //  포인트 랭킹 리스트
+    public List<PointVO> rankingListService(PointVO pointVO){
+        return pointDAO.findAllOrderByTotalPoint();
     }
+
 }
 
 

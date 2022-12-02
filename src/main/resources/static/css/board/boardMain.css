@@ -87,7 +87,7 @@ main {
     border-radius: 4px;
     padding: 0 16px;
     cursor: unset;
-    pointer-events: none;
+    /*pointer-events: none;*/
     color: #303441;
     background-color: #f2f3f7;
 }

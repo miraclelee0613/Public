@@ -13,6 +13,11 @@
     a {
         text-decoration: none;
         color: black;
+        cursor: pointer;
+    }
+
+    button {
+        border: none;
     }
 </style>
 <body>
@@ -37,50 +42,32 @@
         <section class="main-body">
             <!-- 카테고리 -->
             <div class="main-category">
-                <div class="category-list">
-                    <a href="#">
-                        최신글
-                    </a>
-                </div>
-                <div class="category-list">
-                    <a href="#">
-                        인기글
-                    </a>
-                </div>
                 <div class="category-list selected">
-                    <a href="#">
-                        국어
-                    </a>
+                    <button type="button" class="recent">최신글</button>
                 </div>
                 <div class="category-list">
-                    <a href="#">
-                        수학
-                    </a>
+                    <button type="button" class="interest">인기글</button>
                 </div>
                 <div class="category-list">
-                    <a href="#">
-                        영어
-                    </a>
+                    <button type="button" class="korean" value="국어">국어</button>
                 </div>
                 <div class="category-list">
-                    <a href="#">
-                        사탐
-                    </a>
+                    <button type="button" class="math" value="수학">수학</button>
                 </div>
                 <div class="category-list">
-                    <a href="#">
-                        과탐
-                    </a>
+                    <button type="button" class="english" value="영어">영어</button>
                 </div>
                 <div class="category-list">
-                    <a href="#">
-                        한국사
-                    </a>
+                    <button type="button" class="society" value="사탐">사탐</button>
                 </div>
                 <div class="category-list">
-                    <a href="#">
-                        제2외국어
-                    </a>
+                    <button type="button" class="science" value="과탐">과탐</button>
+                </div>
+                <div class="category-list">
+                    <button type="button" class="history" value="한국사">한국사</button>
+                </div>
+                <div class="category-list">
+                    <button type="button" class="foreign" value="제2외국어">제2외국어</button>
                 </div>
             </div>
             <!-- 메인 헤더 -->
@@ -174,14 +161,76 @@
 <script th:src="@{/js/fix/header.js}"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
-    $.ajax({
-        url: "",
-        type: "get",
-        contentType: "text/html",
-        data: "",
-        dataType
-        success
-        error
+
+    // var $cat = $(".subject").val();
+    //
+    // $("$cat").on("change", function() {
+    //     $.ajax({
+    //         url: "/board/boardMain",
+    //         type: "GET",
+    //         contentType: "text/html, charset= UTF-8",
+    //         data: {boardCategory: "$cat"},
+    //         dataType: "json"
+    //     });
+    // });
+    //
+    // $("#math").on("change", function() {
+    //     $.ajax({
+    //         url: "/board/boardMain",
+    //         type: "GET",
+    //         contentType: "text/html, charset= UTF-8",
+    //         data: {boardCategory: "$cat"},
+    //         dataType: "json"
+    //     });
+    // });
+
+    // 인기글
+    $("button.interest").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/popular";
     });
+
+    // 최신글
+    $("button.recent").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/recent";
+    });
+
+    // 국어
+    $("button.korean").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/korean";
+    });
+    // 수학
+    $("button.math").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/math";
+    });
+    // 영어
+    $("button.english").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/english";
+    });
+    // 사탐
+    $("button.society").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/society";
+    });
+    // 과탐
+    $("button.science").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/science";
+    });
+    // 한국사
+    $("button.history").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/history";
+    });
+    // 제2외국어
+    $("button.foreign").on("click", function(e){
+        e.preventDefault();
+        location.href = "/board/foreign";
+    });
+
 </script>
 </html>

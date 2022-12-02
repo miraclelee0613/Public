@@ -64,4 +64,46 @@ public class BoardController {
     public void popular(Model model) {
         model.addAttribute("popular", boardService.popularPost());
     }
+
+    //    최신글
+    @GetMapping("/recent")
+    public void recent(Model model) {
+        model.addAttribute("recent", boardService.recentPost());
+    }
+
+    //    국어
+    @GetMapping("/korean")
+    public void korean(Model model) {
+        model.addAttribute("korean", boardService.koreanPost());
+    }
+    //    수학
+    @GetMapping("/math")
+    public void math(Model model) {
+        model.addAttribute("math", boardService.mathPost());
+    }
+    //    영어
+    @GetMapping("/english")
+    public void english(Model model) {
+        model.addAttribute("english", boardService.englishPost());
+    }
+    //    사탐
+    @GetMapping("/society")
+    public void society(Model model) {
+        model.addAttribute("society", boardService.societyPost());
+    }
+    //    과탐
+    @GetMapping("/science")
+    public void science(Model model) {
+        model.addAttribute("science", boardService.sciencePost());
+    }
+    //    한국사
+    @GetMapping("/history")
+    public void history(Model model) {
+        model.addAttribute("history", boardService.historyPost());
+    }
+    //    제2외국어
+    @GetMapping("/foreign")
+    public void foreign(Model model) {
+        model.addAttribute("foreign", boardService.foreignPost());
+    }
 }

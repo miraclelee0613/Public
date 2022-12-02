@@ -48,7 +48,7 @@
                 <div class="category-list">
                     <button type="button" class="interest">인기글</button>
                 </div>
-                <div class="category-list selected">
+                <div class="category-list">
                     <button type="button" class="korean" value="국어">국어</button>
                 </div>
                 <div class="category-list">
@@ -63,7 +63,7 @@
                 <div class="category-list">
                     <button type="button" class="science" value="과탐">과탐</button>
                 </div>
-                <div class="category-list">
+                <div class="category-list selected">
                     <button type="button" class="history" value="한국사">한국사</button>
                 </div>
                 <div class="category-list">
@@ -94,7 +94,8 @@
                             <div class="article-category">
                                 <div class="category">
                                     <div class="selected-category" th:text="*{boardCategory}"></div>  <!-- 선택된 카테고리 -->
-                                    <div class="selected-category" th:text="*{boardReward}"></div>
+                                    <div class="selected-category" th:text="*{boardReward} + 'p'"></div>
+                                    <div class="selected-category" th:text="'조회수 : ' + *{boardViewcount}"></div>
                                 </div>
                             </div>
                         </div>

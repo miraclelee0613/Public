@@ -18,11 +18,11 @@ public class BoardVO {
     private int boardReport;
     private Long memberNumber;
 
-    public void create(String boardTitle, String boardContent, int boardReward, String boardCategory, Long memberNumber) {
+    public void create( String boardCategory, String boardTitle, String boardContent, int boardReward, Long memberNumber) {
+        this.boardCategory = boardCategory;
         this.boardTitle = boardTitle;
         this.boardContent = boardContent;
         this.boardReward = boardReward;
-        this.boardCategory = boardCategory;
         this.memberNumber = memberNumber;
     }
 }

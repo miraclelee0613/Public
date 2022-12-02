@@ -42,36 +42,32 @@
 
         <!-- 글쓰기 양식 -->
         <div class="form">
-          <form id="new-write" class="write-form" action="">
+          <form id="new-write" class="write-form" method="post" th:action="@{/board/write}" th:object="${board}">
             <!-- 카테고리 체크박스 -->
-            <div class="category-radio">
-              <div>
-                <input type="radio" name="subject" value="국어" checked /> 국어
-              </div>
-              <div><input type="radio" name="subject" value="영어" /> 영어</div>
-              <div><input type="radio" name="subject" value="수학" /> 수학</div>
-              <div><input type="radio" name="subject" value="과탐" /> 과탐</div>
-              <div><input type="radio" name="subject" value="사탐" /> 사탐</div>
-              <div><input type="radio" name="subject" value="한국사" /> 한국사</div>
-              <div>
-                <input type="radio" name="subject" value="제2외국어" /> 제2외국어
-              </div>
+            <div class="category-radio fields">
+              <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'국어'}" checked /> 국어</div>
+              <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'수학'}" /> 영어</div>
+              <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'영어'}" /> 수학</div>
+              <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'사탐'}" /> 과탐</div>
+              <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'과탐'}" /> 사탐</div>
+              <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'한국사'}" /> 한국사</div>
+              <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'제2외국어'}" /> 제2외국어</div>
             </div>
             <!-- 글 제목 -->
-            <div class="write-title">
+            <div class="write-title field">
               <label for=""> 제목 </label>
-              <input type="text" maxlength="20" placeholder="" />
+              <input th:field="*{boardTitle}" type="text" maxlength="20" placeholder="" />
             </div>
             <!-- 글 내용-->
-            <div class="write-content">
+            <div class="write-content field">
               <label for=""> 설명 </label>
-              <input type="text" maxlength="500" placeholder="" />
+              <input th:field="*{boardContent}" type="text" maxlength="500" placeholder="" />
             </div>
             <!-- 이미지 파일 -->
-            <div class="write-title">
+            <div class="write-title field">
               <label for=""> 문제 이미지 </label>
               <div id="upload-drop" class="upload-drop">
-                <input type="file" />
+<!--                <input type="file" />-->
                 <span>
                   <a>파일 추가</a>
                   또는 파일을 여기로 드래그
@@ -79,14 +75,14 @@
               </div>
             </div>
             <!-- 포인트 걸기 -->
-            <div class="point-deal">
+            <div class="point-deal field">
               <label for=""> 등록 포인트 </label>
               <p>포인트는 수정할 수 없으니 신중하게 기입해주세요.</p>
-              <input type="text" />
+              <input th:field="*{boardReward}" type="text" />
             </div>
             <!-- 등록 버튼 -->
             <footer>
-              <input type="submit" value="등록" />
+              <input type="submit" class="button" value="등록" />
             </footer>
           </form>
         </div>
@@ -97,4 +93,12 @@
   </body>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
+  <script>
+    $("input[type=submit]").on("click", function(e){
+      e.preventDefault();
+      alert("게시글이 등록되었습니다.");
+      location.href = "/board/boardMain";
+    });
+
+  </script>
 </html>

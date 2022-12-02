@@ -6,98 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글 페이지</title>
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/header.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/footer.css}'>
     <link rel="stylesheet" th:href="@{/css/board/page.css}">
 </head>
 
 <body>
     <!-- 헤더 -->
-    <header>
-        <div class="css-header header">
-            <div class="css-header-main">
-                <!-- 로고 -->
-                <a href="" class="css-logo">
-                    <div class="css-logo-img">
-                        <img src="../main/img/header_logo.png" alt="">
-                    </div>
-                </a>
-                <div style="flex-grow: 1;"></div>
-                <!-- 검색바 -->
-                <form action="" class="css-search">
-                    <div class="css-input-wrapper" id="inputWrapper">
-                        <input class="css-input" id="input"
-                        placeholder="서비스, 전문가를 검색해 보세요" maxlength="15"
-                        autocomplete="off" autocorrect="off" 
-                        autocapitalize="off" type="text">
-                        <div class="suffix-wrapper">
-                            <span role="img" rotate="0" class="css-aah4od e181xm9y1">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0">
-                                    <path xmlns="http://www.w3.org/2000/svg" 
-                                    d="M11.2307008,3.5 C15.5002489,3.5 18.9614015,6.96828437 18.9614015,11.24663 C18.9614015,13.0978372 18.3133954,14.7973826 17.2322825,16.1299241 L20.2742127,19.178378 C20.5762688,19.4810023 20.5764739,19.9714482 20.2746708,20.2738195 C19.9728678,20.5761908 19.4833433,20.5759857 19.1812873,20.2733614 L19.1812873,20.2733614 L16.1426973,17.2288066 C14.8071694,18.3312107 13.0960911,18.9932599 11.2307008,18.9932599 C6.96115262,18.9932599 3.5,15.5249756 3.5,11.24663 C3.5,6.96828437 6.96115262,3.5 11.2307008,3.5 Z M11.2307008,5.04932599 C7.81506225,5.04932599 5.04614015,7.82395349 5.04614015,11.24663 C5.04614015,14.6693064 7.81506225,17.4439339 11.2307008,17.4439339 C14.6463393,17.4439339 17.4152614,14.6693064 17.4152614,11.24663 C17.4152614,7.82395349 14.6463393,5.04932599 11.2307008,5.04932599 Z">
-                                    </path>
-                                </svg>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-                <!-- 버튼 -->
-                <div class="css-buttons">
-                    <button class="css-button" id="button-top">
-                        <span>결제하기</span>
-                    </button>
-                    <button class="css-button" id="button-top">
-                        <span>로그인</span>
-                    </button>
-                    <button class="css-button" id="button-join">
-                        <span>무료 회원가입</span>
-                    </button>
-                </div>
-            </div>
-            <!-- 카테고리 -->
-            <div class="css-category category">
-                <div class="css-category-main">
-                    <div class="css-categoryAll-wrapper">
-                        <button class="css-category-button">
-                            <span role="img" rotate="0">
-                                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0">
-                                    <path xmlns="http://www.w3.org/2000/svg" d="M19,17 C19.5522847,17 20,17.4477153 20,18 C20,18.5522847 19.5522847,19 19,19 L5,19 C4.44771525,19 4,18.5522847 4,18 C4,17.4477153 4.44771525,17 5,17 L19,17 Z M19,11 C19.5522847,11 20,11.4477153 20,12 C20,12.5522847 19.5522847,13 19,13 L5,13 C4.44771525,13 4,12.5522847 4,12 C4,11.4477153 4.44771525,11 5,11 L19,11 Z M19,5 C19.5522847,5 20,5.44771525 20,6 C20,6.55228475 19.5522847,7 19,7 L5,7 C4.44771525,7 4,6.55228475 4,6 C4,5.44771525 4.44771525,5 5,5 L19,5 Z"></path>
-                                </svg>
-                            </span>
-                            <span style="margin: 0 0 5px 8px;">전체 카테고리</span>
-                            <span role="img" rotate="0" style="margin-top: 5px;">
-                                <svg width="25" height="25" viewBox="0 0 28 28" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0">
-                                    <polygon id="Triangle" transform="translate(12.000000, 12.000000) rotate(-180.000000) translate(-12.000000, -12.000000) " points="12 9 18 15 6 15"></polygon>
-                                </svg>
-                            </span>
-                            <!-- 드롭다운 메뉴 -->
-                            <!-- <div class="css-dropdown">
-                                <ul>
-                                    <li><a href="">국어</a></li>
-                                    <li><a href="">영어</a></li>
-                                    <li><a href="">수학</a></li>
-                                    <li><a href="">과탐</a></li>
-                                    <li><a href="">사탐</a></li>
-                                    <li><a href="">한국사</a></li>
-                                    <li><a href="">제2외국어</a></li>
-                                </ul>
-                            </div> -->
-                        </button>
-                    </div>
-                    <div class="button">
-                        <button class="css-menu-button">
-                            <span>유저 랭킹</span>
-                        </button>
-                    </div>
-                    <div class="button">
-                        <button class="css-menu-button">
-                            <span>인기글</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div th:insert="/fix/header :: header" class="header"></div>
     <!-- 메인 -->
     <main>
         <div class="container-divider"></div>
@@ -136,14 +52,16 @@
                             </li>
                             <li>
                                 <a href="" class="sidebar-item">
-                                    <p class="sidebar-item-text">동생예비고1인데 국어 
-                                        <br>공부 미리좀 시키고싶은데</p>
+                                    <p class="sidebar-item-text">동생예비고1인데 국어
+                                        <br>공부 미리좀 시키고싶은데
+                                    </p>
                                 </a>
                             </li>
                             <li>
                                 <a href="" class="sidebar-item">
                                     <p class="sidebar-item-text">모고 풀 때 집중력
-                                        <br>떨어지는 건 어떡하나요?</p>
+                                        <br>떨어지는 건 어떡하나요?
+                                    </p>
                                 </a>
                             </li>
                         </ul>
@@ -157,29 +75,33 @@
                             <h1 class="article-title">국어 질문</h1> <!-- 글 제목 -->
                         </div>
                         <div class="user-profile-area">
-                            <img src="user_icon.png" alt="유저 이미지" class="profile-image">
+                            <img th:src="@{/img/board/user_icon.png}" alt="유저 이미지" class="profile-image">
                             <div class="profile-info">
                                 <span class="user-name">강민구</span>   <!-- 작성자 이름 -->
                                 <div class="created-at">
                                     <span class="time">22.9.13</span>   <!-- 작성 날짜 -->
                                     <span class="divider-dot">·</span>
                                     <span class="views">조회수</span>   <!-- 조회수 -->
+                                    <span class="divider-dot">·</span>
+                                    <span class="report">               <!-- 신고 -->
+                                        <img th:src="@{/img/board/report.png}" class="report-button" alt="">
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="article-content">
                             <div class="article-attachments">
-                                <img src="test1.png" alt="글 이미지">
+                                <img th:src="@{/img/board/test1.png}" alt="글 이미지">
                             </div>
                             <div class="article-body">   <!-- 글 내용 -->
                                 <p>
-                                    대성마이맥패스 샀는데 작년엔 유대종쌤 들었는데 뭔가 유대종쌤 독해법보단 구조독해하는게 잘 맞는 것 같아서요. 
+                                    대성마이맥패스 샀는데 작년엔 유대종쌤 들었는데 뭔가 유대종쌤 독해법보단 구조독해하는게 잘 맞는 것 같아서요.
                                     <br>
                                     이번엔 다른 선생님 들어보고싶은데 김승리쌤은 책이 너무 비싸서 김승리t,유대종t빼고 들어보려 합니다.
                                     <br>
                                     김상훈 선생님 독서도 괜찮나요?
                                     <br>
-                                    파이널강의 때 대부분 독서문학 같이 다뤄주셔서 문학도 김상훈쌤 들으니까 독서도 같이 들어보려 합니다. 
+                                    파이널강의 때 대부분 독서문학 같이 다뤄주셔서 문학도 김상훈쌤 들으니까 독서도 같이 들어보려 합니다.
                                     <br>
                                     나머지 대성인강중에 괜찮은 분들도 추천해주세요..</p>
                             </div>
@@ -191,23 +113,26 @@
                             <textarea name="comment-write" placeholder="댓글을 남겨보세요"></textarea>
                         </div>
                         <button type="button" class="comment-write-button">작성</button>
-                        </div>
+                    </div>
                     <!-- 답글 리스트 -->
                     <ul class="comment-list">
                         <li class="comment">
                             <div class="comment-wrapper">
                                 <div class="profile-image">
-                                    <img src="user_icon.png" alt="유저 사진" class="image">
+                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-info">
-                                    <div class="user">
-                                        <span class="user-name">김민지</span>   <!-- 답글 작성자 이름 -->
+                                        <div class="user">
+                                            <span class="user-name">김민지</span>   <!-- 답글 작성자 이름 -->
+                                        </div>
+                                        <button>
+                                            <img th:src="@{/img/board/like_icon.png}" alt="">
+                                        </button>
+                                        <button>
+                                            <img th:src="@{/img/board/report.png}" alt="">
+                                        </button>
                                     </div>
-                                    <button>
-                                        <img src="like_icon.png" alt="">
-                                    </button>
-                                </div>
                                     <div class="comment-contents">
                                         <p class="text">
                                             <span>독서는 자기 맘에 드는 거 빨리 끝내고 혼자 기출 보는게 추천</span>   <!-- 댓글 내용 -->
@@ -222,7 +147,7 @@
                         <li class="comment">
                             <div class="comment-wrapper">
                                 <div class="profile-image">
-                                    <img src="user_icon.png" alt="유저 사진" class="image">
+                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-info">
@@ -230,7 +155,10 @@
                                             <span class="user-name">문성준</span>   <!-- 답글 작성자 이름 -->
                                         </div>
                                         <button>
-                                            <img src="like_icon.png" alt="">
+                                            <img th:src="@{/img/board/like_icon.png}" alt="">
+                                        </button>
+                                        <button>
+                                            <img th:src="@{/img/board/report.png}" alt="">
                                         </button>
                                     </div>
                                     <div class="comment-contents">
@@ -247,7 +175,7 @@
                         <li class="comment">
                             <div class="comment-wrapper">
                                 <div class="profile-image">
-                                    <img src="user_icon.png" alt="유저 사진" class="image">
+                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-info">
@@ -255,13 +183,17 @@
                                             <span class="user-name">문승현</span>   <!-- 답글 작성자 이름 -->
                                         </div>
                                         <button>
-                                            <img src="like_icon.png" alt="">
+                                            <img th:src="@{/img/board/like_icon.png}" alt="">
+                                        </button>
+                                        <button>
+                                            <img th:src="@{/img/board/report.png}" alt="">
                                         </button>
                                     </div>
                                     <div class="comment-contents">
                                         <p class="text">
                                             <span>유네스코 좋아보이긴 하던데 4등급이 바로 가기엔 살짝 무리인거같고
-                                                <br> 김젬마쌤 독서 강의 들어보시는거 추천</span>   <!-- 댓글 내용 -->
+                                                <br> 김젬마쌤 독서 강의 들어보시는거 추천
+                                            </span>   <!-- 댓글 내용 -->
                                         </p>
                                     </div>
                                     <div class="comment-time">
@@ -273,7 +205,7 @@
                         <li class="comment">
                             <div class="comment-wrapper">
                                 <div class="profile-image">
-                                    <img src="user_icon.png" alt="유저 사진" class="image">
+                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-info">
@@ -281,7 +213,10 @@
                                             <span class="user-name">이준상</span>   <!-- 답글 작성자 이름 -->
                                         </div>
                                         <button>
-                                            <img src="like_icon.png" alt="">
+                                            <img th:src="@{/img/board/like_icon.png}" alt="">
+                                        </button>
+                                        <button>
+                                            <img th:src="@{/img/board/report.png}" alt="">
                                         </button>
                                     </div>
                                     <div class="comment-contents">
@@ -301,29 +236,8 @@
         </div>
     </main>
     <!-- 푸터 -->
-    <footer>
-        <div class="css-footer">
-            <div class="css-footer-info">
-                <p class="css-info-text">
-                    웹개발 5조
-                    <span class="css-info-bar"> | </span>
-                    서울특별시 강남구 역삼동 736-7
-                    <span class="css-info-bar"> | </span>
-                    팀장 : 강민구
-                    <span class="css-info-bar"> | </span>
-                    사업자등록번호 : 613-81-65278
-                    <span class="css-info-bar"> | </span><br>
-                    통신판매업신고 : 2018-서울서초-2134
-                    <span class="css-info-bar"> | </span>
-                    유료직업소개사업등록번호 : 제2021-3210195-14-5-00035호
-                    <span class="css-info-bar"> | </span>
-                    고객센터 : 1544-6254
-                    <span class="css-info-bar"> | </span>
-                    kmg2331@gmail.com
-                </p>
-            </div>
-        </div>
-    </footer>
+    <footer th:replace="/fix/footer.html::.footer"></footer>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
 </html>

@@ -5,7 +5,7 @@
     <title>웹개발 5조</title>
     <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/header.css}'>
     <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/footer.css}'>
-    <link rel='stylesheet' type='text/css' media='screen' href="/css/main/main.css">
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{/css/main/main.css}">
     <link rel="stylesheet" th:href="@{/webfonts/metro-sans-medium.otf}">
 </head>
 <body>
@@ -25,7 +25,7 @@
                                 <input id="banner-input" maxlength="15" autocomplete="off"
                                 autocorrect="off" autocapitalize="off" class="css-ecqpj1 e1dqgp70" value="">
                                 <div class="css-banner-search">
-                                    <span role="img" color="#ffffff" rotate="0" class="css-search-icon">
+                                    <span role="img" color="#ffffff" rotate="0" class="css-search-icon" th:onclick="|location.href='@{/main/searchResult}'|">
                                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
                                         focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0">
                                             <path xmlns="http://www.w3.org/2000/svg"

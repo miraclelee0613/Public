@@ -248,21 +248,21 @@ main{
 }
 
 #img1 {
-    background-image: url(../img/event_image01.png);
+    /*background-image: url(../img/event_image01.png);*/
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 #img2 {
-    background-image: url(../img/event_image02.png);
+    /*background-image: url(../img/event_image02.png);*/
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 #img3 {
-    background-image: url(../img/event_image03.png);
+    /*background-image: url(../img/event_image03.png);*/
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

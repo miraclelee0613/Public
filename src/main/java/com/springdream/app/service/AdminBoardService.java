@@ -49,8 +49,10 @@ public class AdminBoardService implements BoardService{
         return null;
     }
 
+    // 카테고리별 조회
     @Override
-    public List<BoardDTO> categoryPost() {
+    public List<BoardDTO> categoryPost(String category) {
         return null;
     }
+
 }

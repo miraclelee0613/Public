@@ -59,7 +59,7 @@ public class SubjectBoardServiceTest {
     //    카테고리별
     @Test
     public void categoryPost(){
-        boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+        boardService.categoryPost("한국사").stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
 
 }

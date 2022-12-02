@@ -64,7 +64,7 @@ public class BoardMapperTest {
     //    카테고리별 조회
     @Test
     public void categoryBoard(){
-        boardMapper.categoryBoard(1).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+        boardMapper.categoryBoard("국어").stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     };
 }
 

@@ -31,6 +31,6 @@ public interface BoardMapper {
     public List<BoardDTO> recentBoard();
 
 //    카테고리별 조회
-    public List<BoardDTO> categoryBoard(int boardCategory);
+    public List<BoardDTO> categoryBoard(String category);
 
 }

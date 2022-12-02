@@ -48,7 +48,7 @@ public class BoardDAO {
     }
 
     //    카테고리별 조회
-    public List<BoardDTO> categoryPost(int category){
+    public List<BoardDTO> categoryPost(String category){
         return boardMapper.categoryBoard(category);
     }
 

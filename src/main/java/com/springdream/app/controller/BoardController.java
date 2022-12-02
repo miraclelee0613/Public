@@ -21,7 +21,7 @@ public class BoardController {
 //    게시글 목록
     @GetMapping("/boardMain")
     public void main(Model model) {
-        model.addAttribute("boards", boardService.showAll());
+        model.addAttribute("boards", boardService.categoryPost("국어"));
     }
 
 //    게시글 등록

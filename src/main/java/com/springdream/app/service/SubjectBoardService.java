@@ -51,9 +51,8 @@ public class SubjectBoardService implements BoardService{
         return boardDAO.findUnreportAll();
     }
 
-    @Override
-    public List<BoardDTO> categoryPost() {
-        return boardDAO.findUnreportAll();
+    public List<BoardDTO> categoryPost(String category) {
+        return boardDAO.categoryPost(category);
     }
 
 

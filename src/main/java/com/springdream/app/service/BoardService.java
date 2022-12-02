@@ -23,5 +23,5 @@ public interface BoardService {
 //    최신글 조회
     public List<BoardDTO> recentPost();
 //    카테고리별 조회
-    public List<BoardDTO> categoryPost();
+    public List<BoardDTO> categoryPost(String category);
 }

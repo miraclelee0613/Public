@@ -94,7 +94,8 @@
                             <div class="article-category">
                                 <div class="category">
                                     <div class="selected-category" th:text="*{boardCategory}"></div>  <!-- 선택된 카테고리 -->
-                                    <div class="selected-category" th:text="*{boardReward}"></div>
+                                    <div class="selected-category" th:text="*{boardReward} + 'p'"></div>
+                                    <div class="selected-category" th:text="'조회수 : ' + *{boardViewcount}"></div>
                                 </div>
                             </div>
                         </div>

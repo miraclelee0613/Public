@@ -52,5 +52,28 @@ public class BoardDAO {
         return boardMapper.categoryBoard(category);
     }
 
+    //    국어
+    public List<BoardDTO> koreanPost() {
+        return boardMapper.koreanBoard();
+    }
 
+    public List<BoardDTO> mathPost() {
+        return boardMapper.mathBoard();
+    }
+
+    public List<BoardDTO> englishPost() {
+        return boardMapper.englishBoard();
+    }
+    public List<BoardDTO> societyPost() {
+        return boardMapper.societyBoard();
+    }
+    public List<BoardDTO> sciencePost() {
+        return boardMapper.scienceBoard();
+    }
+    public List<BoardDTO> historyPost() {
+        return boardMapper.historyBoard();
+    }
+    public List<BoardDTO> foreignPost() {
+        return boardMapper.foreignBoard();
+    }
 }

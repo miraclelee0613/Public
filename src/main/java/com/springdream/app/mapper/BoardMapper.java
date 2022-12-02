@@ -33,4 +33,19 @@ public interface BoardMapper {
 //    카테고리별 조회
     public List<BoardDTO> categoryBoard(String category);
 
+//    국어
+    public List<BoardDTO> koreanBoard();
+//    수학
+    public List<BoardDTO> mathBoard();
+//    영어
+    public List<BoardDTO> englishBoard();
+//    사탐
+    public List<BoardDTO> societyBoard();
+//    과탐
+    public List<BoardDTO> scienceBoard();
+//    한국사
+    public List<BoardDTO> historyBoard();
+//    제2외국어
+    public List<BoardDTO> foreignBoard();
+
 }

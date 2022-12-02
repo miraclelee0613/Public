@@ -79,9 +79,9 @@
 
             <!-- 글 리스트 -->
             <section class="article-list" >
-                <th:block th:each="popular:${popular}">
+                <th:block th:each="math:${math}">
                     <!-- 글 -->
-                    <article class="article" th:object="${popular}">
+                    <article class="article" th:object="${math}">
                         <!-- 이미지 -->
                         <span class="article-img">
                             <img th:src="@{/img/board/test1.png}" alt="">
@@ -94,8 +94,7 @@
                             <div class="article-category">
                                 <div class="category">
                                     <div class="selected-category" th:text="*{boardCategory}"></div>  <!-- 선택된 카테고리 -->
-                                    <div class="selected-category" th:text="*{boardReward} + 'p'"></div>
-                                    <div class="selected-category" th:text="'조회수 : ' + *{boardViewcount}"></div>
+                                    <div class="selected-category" th:text="*{boardReward}"></div>
                                 </div>
                             </div>
                         </div>

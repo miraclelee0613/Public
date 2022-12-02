@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"  th:href="@{/css/member/login.css}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/webfonts/metro-sans-medium.otf}">
     <title>질문이 필요한 순간, SpringDream 로그인</title>
 </head>
 <body>
@@ -64,21 +62,21 @@
                         </label>
                         <!-- 아이디/비밀번호 찾기 -->
                         <div class="find-id">
-                            <a href="">아이디•비밀번호 찾기</a>
+                            <a th:href="@{/member/findId}">아이디•비밀번호 찾기</a>
                         </div>
                     </div>
                 </form>
                 <!-- 구분선 -->
                 <hr class="hr-line">
                 <!-- 회원가입 버튼 -->
-                <div class="join-btn">
+                <div class="join-btn" >
                     <p class="join-info">
                         모르는 문제가 생기면
                         <br>
                         <b>스프링드림</b>
                         으로 오세요!
                     </p>
-                    <a href="#" class="join-link">
+                    <a th:href="@{/member/join}" class="join-link">
                         <span class="join-btn">회원가입 하러 가기</span>
                     </a>
                 </div>

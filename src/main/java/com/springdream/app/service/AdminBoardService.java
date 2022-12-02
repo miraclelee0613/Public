@@ -51,7 +51,39 @@ public class AdminBoardService implements BoardService{
 
     // 카테고리별 조회
     @Override
-    public List<BoardDTO> categoryPost(String category) {
+    public List<BoardDTO> categoryPost(String category) { return null; }
+
+    public List<BoardDTO> koreanPost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> mathPost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> englishPost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> societyPost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> sciencePost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> historyPost() {
+        return null;
+    }
+
+    @Override
+    public List<BoardDTO> foreignPost() {
         return null;
     }
 

@@ -65,5 +65,5 @@ public class BoardDAOTest {
     public void categoryPost(){
         String category = "수학";
         boardDAO.categoryPost(category).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
-    };
+    }
 }

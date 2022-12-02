@@ -5,19 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel='stylesheet' type='text/css' th:href="@{/css/member/join.css}">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" th:href="@{/webfonts/metro-sans-medium.otf}">
     <title>질문이 필요한 순간, SpringDream 회원가입</title>
   </head>
   <body>
     <div class="wrapper">
       <div class="join">
         <!-- 로고 -->
-        <a href="#" class="logo">
+        <a th:href="@{/main/index}" class="logo">
           <span class="logo-title">SpringDream</span>
         </a>
 

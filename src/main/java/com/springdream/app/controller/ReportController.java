@@ -9,4 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping("/report")
 public class ReportController {
+
+    @GetMapping("")
+    public String main(){
+        return "report/reportPage";
+    }
 }

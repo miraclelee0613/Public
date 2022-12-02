@@ -1,8 +1,7 @@
 package com.springdream.app.mapper;
 
 import com.springdream.app.domain.BoardDTO;
-import com.springdream.app.domain.BoardVO;
-import com.springdream.app.domain.SupportVO;
+import com.springdream.app.domain.ReportVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 public interface BoardFileMapper {
 
     //    추가
-    public void insert(SupportVO supportVO);
+    public void insert(ReportVO supportVO);
     //    수정
     public void update(BoardDTO boardDTO);
     //    삭제

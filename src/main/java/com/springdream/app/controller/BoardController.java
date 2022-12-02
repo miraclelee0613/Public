@@ -29,6 +29,7 @@ public class BoardController {
     public void write(){
 
     }
+
     @PostMapping("/write")
     public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
         boardService.register(boardVO);
@@ -42,7 +43,6 @@ public class BoardController {
        model.addAttribute("board", boardService.show(boardNumber));
        return "/board/page";
     }
-
 
 //    게시글 수정
     @PostMapping("/update")

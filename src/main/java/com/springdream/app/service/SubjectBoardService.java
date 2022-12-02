@@ -52,8 +52,8 @@ public class SubjectBoardService implements BoardService{
     }
 
     @Override
-    public List<BoardDTO> categoryPost() {
-        return boardDAO.categoryPost();
+    public List<BoardDTO> categoryPost(String category) {
+        return boardDAO.categoryPost(category);
     }
 
     @Override
@@ -84,7 +84,5 @@ public class SubjectBoardService implements BoardService{
     public List<BoardDTO> foreignPost() {
         return boardDAO.foreignPost();
     }
-
-
 
 }

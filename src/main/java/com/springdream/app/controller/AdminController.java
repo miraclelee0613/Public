@@ -7,8 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,30 +34,19 @@ public class AdminController {
     // 유저 리스트
     @GetMapping("userlist")
     public String userList(Model model){
-        int totalMemberCount = adminMemberService.selectAll().size();
-
-//        List<Integer> boardCount = new ArrayList<>();
-//        memberService.selectAll().forEach(memberVO -> {
-//            boardCount.add(memberService.boardCount(memberVO.getMemberNumber()));
-//        });
-
-        List<MemberDTO> members = new ArrayList<>();
-               adminMemberService.selectAll().forEach(memberVO -> {
-               MemberDTO memberDTO = new MemberDTO();
-               memberDTO.setMemberNumber(memberVO.getMemberNumber());
-               memberDTO.setMemberId(memberVO.getMemberId());
-               memberDTO.setMemberName(memberVO.getMemberName());
-               memberDTO.setMemberMobile(memberVO.getMemberMobile());
-               memberDTO.setMemberEmail(memberVO.getMemberEmail());
-               memberDTO.setMemberBoardCount(adminMemberService.boardCount(memberVO.getMemberNumber()));
-    //           memberDTO.setMemberReplyCount(memberService.replyCount(memberVO.getMemberNumber()));
-               members.add(memberDTO);
-           });
-
-        model.addAttribute("members", members);
+        int totalMemberCount = adminMemberService.selectAllDTO().size();
+        model.addAttribute("members", adminMemberService.selectAllDTO());
         model.addAttribute("memberTotal", totalMemberCount);
         return "admin/adminPage-userlist";
     }
+
+//    @PostMapping("userlist")
+//    public String userList(HttpRequest request, Model model){
+//        int totalMemberCount = adminMemberService.selectAllDTO().size();
+//        model.addAttribute("members", adminMemberService.selectAllDTO());
+//        model.addAttribute("memberTotal", totalMemberCount);
+//        return "admin/adminPage-userlist";
+//    }
 
     @GetMapping("support")
     public String support(){

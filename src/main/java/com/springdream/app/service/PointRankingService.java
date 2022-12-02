@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor @Qualifier("ranking") @Primary
 public class PointRankingService {
     private final PointDAO pointDAO;
-
 ////    포인트 보유 리스트
 //    @Override
 //    public List<PointVO> list(Criteria criteria) {

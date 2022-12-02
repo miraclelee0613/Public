@@ -49,7 +49,10 @@ public class AdminBoardService implements BoardService{
         return null;
     }
 
+    // 카테고리별 조회
     @Override
+    public List<BoardDTO> categoryPost(String category) { return null; }
+
     public List<BoardDTO> koreanPost() {
         return null;
     }
@@ -84,8 +87,4 @@ public class AdminBoardService implements BoardService{
         return null;
     }
 
-    @Override
-    public List<BoardDTO> categoryPost() {
-        return null;
-    }
 }

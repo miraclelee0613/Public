@@ -41,8 +41,13 @@ class AdminMemberServiceTest {
     }
 
     @Test
-    void selectAll() {
+    void selectAllTest() {
         log.info(" selectAll : " + adminMemberService.selectAll());
+    }
+
+    @Test
+    void sselectAllDTOTest() {
+        log.info(" selectAll DTO : " + adminMemberService.selectAllDTO());
     }
 
     @Test

@@ -48,10 +48,11 @@ public class BoardDAO {
     }
 
     //    카테고리별 조회
-    public List<BoardDTO> categoryPost() {
-        return boardMapper.categoryBoard();
+    public List<BoardDTO> categoryPost(String category){
+        return boardMapper.categoryBoard(category);
     }
-//    국어
+
+    //    국어
     public List<BoardDTO> koreanPost() {
         return boardMapper.koreanBoard();
     }

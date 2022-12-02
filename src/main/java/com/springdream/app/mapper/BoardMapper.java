@@ -30,7 +30,8 @@ public interface BoardMapper {
 //    최신글 조회
     public List<BoardDTO> recentBoard();
 
-    public List<BoardDTO> categoryBoard();
+//    카테고리별 조회
+    public List<BoardDTO> categoryBoard(String category);
 
 //    국어
     public List<BoardDTO> koreanBoard();

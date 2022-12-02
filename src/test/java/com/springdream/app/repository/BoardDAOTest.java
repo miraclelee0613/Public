@@ -62,7 +62,8 @@ public class BoardDAOTest {
 
     //    카테고리별 조회
     @Test
-    public void categoryPost(String categoryBoard){
-        boardDAO.categoryPost().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
-    };
+    public void categoryPost(){
+        String category = "수학";
+        boardDAO.categoryPost(category).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+    }
 }

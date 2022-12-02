@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-
+<!-- worker: Lee JunSang -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
 <link rel='stylesheet' type='text/css' media='screen' href='/css/fix/header.css'>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <!-- header/footer load를 위한 스크립트 -->
 <script type="text/javascript">
@@ -40,120 +40,121 @@
 </style>
 
 <body>
-    <main>
+<main>
 
-        <div style="background-color:#FAE57C">
-            <header class="header" style="background-color:#FAE57C">
-                <div class="logo">
-                    <a href="https://kmong.com">
-                        <!-- <img src="//theme.zdassets.com/theme_assets/9204604/ed54b2d958a2f7b420f8412b529519e676c20bc3.png"
-                            class="logo-kmong"> -->
-                    </a>
-                    <a title="홈" href="/hc/ko">
-                        <img src="//theme.zdassets.com/theme_assets/9204604/db54bfa5d2ad14572afe57b4b5582b04a38aa9e1.png"
-                            class="cs">
-                    </a>
+    <div style="background-color:#FAE57C">
+        <header class="header" style="background-color:#FAE57C">
+            <div class="logo">
+                <a href="https://kmong.com">
+                    <!-- <img src="//theme.zdassets.com/theme_assets/9204604/ed54b2d958a2f7b420f8412b529519e676c20bc3.png"
+                        class="logo-kmong"> -->
+                </a>
+                <a title="홈" href="/hc/ko">
+                    <img src="//theme.zdassets.com/theme_assets/9204604/db54bfa5d2ad14572afe57b4b5582b04a38aa9e1.png"
+                         class="cs">
+                </a>
+            </div>
+
+
+            <div class="nav-wrapper">
+                <a href="https://support.kmong.com/hc/ko/requests/new" target="_parent">문의하기</a>
+                <a class="login" data-auth-action="signin" role="button" rel="nofollow" title="대화 상자를 엽니다."
+                   href="/hc/ko/signin?return_to=https%3A%2F%2Fsupport.kmong.com%2Fhc%2Fko%2Frequests%2Fnew&amp;locale=ko">로그인</a>
+
+            </div>
+        </header>
+    </div>
+
+    <!-- <div id="header">헤더</div> -->
+    <!-- 헤더와의 간격 유지 -->
+    <!-- <div class="container-divider"></div> -->
+
+    <!-- 메인바디 -->
+    <div class="container" style="max-width: 700px;">
+        <nav class="sub-nav">
+            <ol class="breadcrumbs">
+
+                <!-- 고객센터 > 문의등록 -->
+                <li title="고객센터">
+                    <a href="supportPage.html">고객센터</a>
+                </li>
+                <li title="문의 등록">
+                    문의 등록
+                </li>
+            </ol>
+
+        </nav>
+
+        <h1>
+            <div class="page-title">게시글 신고하기</div>
+        </h1>
+
+        <form id="new_request" class="request-form" action="" accept-charset="UTF-8" method="post">
+            <input name="utf8" type="hidden" value="✓" autocomplete="off">
+            <!-- <input type="hidden" name="authenticity_token" value=""> -->
+
+            <div class="form-field required">
+                <label for="request_board_address">게시글 주소</label>
+                <input type="text" name="" id="request_board_address" aria-required="true">
+            </div>
+
+            <div class="form-field required">
+                <label id="support_type" for="">신고사유</label>
+                <div class="">
+                    <input type="radio" name="type" id="discomfort" class=""
+                           style="display: inline-block; max-width: min-content;">
+                    <label for="discomfort" style="display: inline-block;">불건전하거나 불쾌감을 주는 내용</label>
                 </div>
-
-
-                <div class="nav-wrapper">
-                    <a href="https://support.kmong.com/hc/ko/requests/new" target="_parent">문의하기</a>
-                    <a class="login" data-auth-action="signin" role="button" rel="nofollow" title="대화 상자를 엽니다."
-                        href="/hc/ko/signin?return_to=https%3A%2F%2Fsupport.kmong.com%2Fhc%2Fko%2Frequests%2Fnew&amp;locale=ko">로그인</a>
-
+                <div class="">
+                    <input type="radio" name="type" id="papering" class=""
+                           style="display: inline-block; max-width: min-content;">
+                    <label for="papering" style="display: inline-block;">도배성 게시글</label>
                 </div>
-            </header>
-        </div>
-
-        <!-- <div id="header">헤더</div> -->
-        <!-- 헤더와의 간격 유지 -->
-        <!-- <div class="container-divider"></div> -->
-
-        <!-- 메인바디 -->
-        <div class="container" style="max-width: 700px;">
-            <nav class="sub-nav">
-                <ol class="breadcrumbs">
-
-                    <!-- 고객센터 > 문의등록 -->
-                    <li title="고객센터">
-                        <a href="supportPage.html">고객센터</a>
-                    </li>
-                    <li title="문의 등록">
-                        문의 등록
-                    </li>
-                </ol>
-
-            </nav>
-
-            <h1>
-                <div class="page-title">게시글 신고하기</div>
-            </h1>
-
-            <form id="new_request" class="request-form" action="" accept-charset="UTF-8" method="post">
-                <input name="utf8" type="hidden" value="✓" autocomplete="off">
-                <!-- <input type="hidden" name="authenticity_token" value=""> -->
-
-                <div class="form-field required">
-                    <label for="request_anonymous_requester_email">게시글 주소</label>
-                    <input type="text" name="" id="request_anonymous_requester_email" aria-required="true">
+                <div class="">
+                    <input type="radio" name="type" id="category_missmatch" class=""
+                           style="display: inline-block; max-width: min-content;">
+                    <label for="category_missmatch" style="display: inline-block;">게시판 카테고리에 맞지 않는 내용</label>
                 </div>
+            </div>
 
-                <div class="form-field required">
-                    <label id="" for="">신고사유</label>
-                    <div class="">
-                        <input type="radio" name="type" id="voice" class=""
-                            style="display: inline-block; max-width: min-content;">
-                        <label for="voice" style="display: inline-block;">불건전하거나 불쾌감을 주는 내용</label>
-                    </div>
-                    <div class="">
-                        <input type="radio" name="type" id="connect" class=""
-                            style="display: inline-block; max-width: min-content;">
-                        <label for="connect" style="display: inline-block;">도배성 게시글</label>
-                    </div>
-                    <div class="">
-                        <input type="radio" name="type" id="how-to-use" class=""
-                            style="display: inline-block; max-width: min-content;">
-                        <label for="how-to-use" style="display: inline-block;">게시판 카테고리에 맞지 않는 내용</label>
-                    </div>
+            <div class="form-field required request_subject">
+                <label id="request_subject_label" for="request_subject">제목</label>
+                <input type="text" name="request[subject]" id="request_subject" maxlength="150" size="150"
+                       aria-required="true" aria-labelledby="request_subject_label">
+            </div>
+
+            <div class="form-field required">
+                <label id="text_area_label" for="text_area">설명</label>
+                <textarea name="text_area_" id="text_area" aria-required="true"></textarea>
+                <input type="hidden" name="text_area_input" id="" value="text/plain" style="display: none;"
+                       autocomplete="off">
+
+                <p id="">요청에 관한 세부 정보를 입력하세요. 저희 지원 스태프가 가능한 한 빨리 자세한 답변을 드리도록 하겠습니다.</p>
+            </div>
+            <div class="container-divider"></div>
+            <div class="form-field">
+                <label class="is-block">
+                    첨부 파일
+                </label>
+                <div style="height: 10px;"></div>
+
+                <div class="filebox">
+                    <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
+                    <label for="file">파일찾기</label>
+                    <input type="file" id="file" onchange="readURL(this);" multiple="true">
+                    <img id="preview"/>
                 </div>
+                <div style="height: 10px;"></div>
+            </div>
 
-                <div class="form-field required request_subject">
-                    <label id="request_subject_label" for="request_subject">제목</label>
-                    <input type="text" name="request[subject]" id="request_subject" maxlength="150" size="150"
-                        aria-required="true" aria-labelledby="request_subject_label">
-                </div>
-
-                <div class="form-field required">
-                    <label id="" for="">설명</label>
-                    <textarea name="" id="" aria-required="true"></textarea>
-                    <input type="hidden" name="" id="" value="text/plain" style="display: none;" autocomplete="off">
-
-                    <p id="">요청에 관한 세부 정보를 입력하세요. 저희 지원 스태프가 가능한 한 빨리 자세한 답변을 드리도록 하겠습니다.</p>
-                </div>
-                <div class="container-divider"></div>
-                <div class="form-field">
-                    <label class="is-block">
-                        첨부 파일
-                    </label>
-                    <div style="height: 10px;"></div>
-
-                    <div class="filebox">
-                        <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
-                        <label for="file">파일찾기</label>
-                        <input type="file" id="file" onchange="readURL(this);" multiple="true">
-                        <img id="preview" />
-                    </div>
-                    <div style="height: 10px;"></div>
-                </div>
-
-                <footer><input type="submit" name="commit" value="제출"></footer>
+            <footer><input type="submit" name="commit" value="제출"></footer>
 
 
-            </form>
-        </div>
-    </main>
-    <div class="container-divider mt-3"></div>
-    <footer id="footer"></footer>
+        </form>
+    </div>
+</main>
+<div class="container-divider mt-3"></div>
+<footer id="footer"></footer>
 </body>
 
 </html>

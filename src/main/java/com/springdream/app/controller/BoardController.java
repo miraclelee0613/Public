@@ -21,16 +21,16 @@ public class BoardController {
 //    게시글 목록
     @GetMapping("/boardMain")
     public void main(Model model) {
-        model.addAttribute("boards", boardService.categoryPost("국어"));
+        model.addAttribute("boards", boardService.recentPost());
     }
 
 //    게시글 등록
-    @GetMapping("/write")
-    public void write(){
-
+    @GetMapping("/writePage")
+    public void write(Model model){
+        model.addAttribute("board", new BoardVO());
     }
 
-    @PostMapping("/write")
+    @PostMapping("/writePage")
     public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
         boardService.register(boardVO);
         redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());

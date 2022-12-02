@@ -19,8 +19,7 @@ public class SubjectBoardServiceTest {
     @Test
     public void registerTest(){
         BoardVO boardVO = new BoardVO();
-
-        boardVO.create("새로 쓴 글2", "새로 쓴 내용", 500, "국어", 1L);
+        boardVO.create("한국사", "한국사 서비스 테스트1", "한1", 300, 41L);
         boardService.register(boardVO);
     }
 

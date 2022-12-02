@@ -35,11 +35,12 @@ class BoardControllerTest {
 
     @Test
     void write() throws Exception{
-        log.info("flash map: " + mockMvc.perform(MockMvcRequestBuilders.post("/board/write")
-            .param("boardTitle", "또 새로 작성한 글 제목")
-            .param("boardContent", "또 새로 작성한 글 내용")
-            .param("boardReward", "500")
-            .param("boardCategory", "1")).andReturn().getFlashMap());
+        log.info("flash map: " + mockMvc.perform(MockMvcRequestBuilders.post("/board/writePage")
+                .param("boardCategory", "한국사")
+            .param("boardTitle", "한국사 컨트롤러 테스트1")
+            .param("boardContent", "한한")
+            .param("boardReward", "400")
+        .param("memberNumber", "41")).andReturn().getFlashMap());
     }
 
     @Test

@@ -67,6 +67,8 @@ public class BoardMapperTest {
     public void categoryBoard(){
         boardMapper.categoryBoard("국어").stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
+
+    @Test
     public void koreanBoard(){
         boardMapper.koreanBoard().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }

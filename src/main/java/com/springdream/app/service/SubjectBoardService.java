@@ -43,18 +43,48 @@ public class SubjectBoardService implements BoardService{
 
     @Override
     public List<BoardDTO> popularPost() {
-        return boardDAO.findUnreportAll();
+        return boardDAO.popularPost();
     }
 
     @Override
     public List<BoardDTO> recentPost() {
-        return boardDAO.findUnreportAll();
+        return boardDAO.recentPost();
     }
 
     @Override
     public List<BoardDTO> categoryPost() {
-        return boardDAO.findUnreportAll();
+        return boardDAO.categoryPost();
     }
+
+    @Override
+    public List<BoardDTO> koreanPost() {
+        return boardDAO.koreanPost();
+    }
+    @Override
+    public List<BoardDTO> mathPost() {
+        return boardDAO.mathPost();
+    }
+    @Override
+    public List<BoardDTO> englishPost() {
+        return boardDAO.englishPost();
+    }
+    @Override
+    public List<BoardDTO> societyPost() {
+        return boardDAO.societyPost();
+    }
+    @Override
+    public List<BoardDTO> sciencePost() {
+        return boardDAO.sciencePost();
+    }
+    @Override
+    public List<BoardDTO> historyPost() {
+        return boardDAO.historyPost();
+    }
+    @Override
+    public List<BoardDTO> foreignPost() {
+        return boardDAO.foreignPost();
+    }
+
 
 
 }

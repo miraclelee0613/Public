@@ -78,49 +78,49 @@
             <div class="css-section2-icons">
                 <!-- 카테고리별 아이콘 -->
                 <div class="categories">
-                    <a href="">
+                    <a th:href="@{/board/korean}">
                         <div class="category">
                             <span>
                                 <img th:src="@{/img/main/category_icon_kr.png}" alt="">
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a th:href="@{/board/english}">
                         <div class="category">
                             <span>
                                 <img th:src="@{/img/main/category_icon_eng.png}" alt="">
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a th:href="@{/board/math}">
                         <div class="category">
                             <span>
                                 <img th:src="@{/img/main/category_icon_math.png}" alt="">
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a th:href="@{/board/science}">
                         <div class="category">
                             <span>
                                 <img th:src="@{/img/main/category_icon_si.png}" alt="">
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a th:href="@{/board/society}">
                         <div class="category">
                             <span>
                                 <img th:src="@{/img/main/category_icon_so.png}" alt="">
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a th:href="@{/board/history}">
                         <div class="category">
                             <span>
                                 <img th:src="@{/img/main/category_icon_his.png}" alt="">
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a th:href="@{/board/foreign}">
                         <div class="category">
                             <span>
                                 <img th:src="@{/img/main/category_icon_for.png}" alt="">
@@ -133,7 +133,7 @@
         <!-- 회원가입 배너 -->
         <div class="css-section">
             <!-- url 달아야함 -->
-            <a href="" class="css-0">
+            <a th:href="@{/member/join}" class="css-0">
                 <div class="css-join-event">
                     <span>
                         <img th:src="@{/img/main/join_event_banner.png}" alt="">
@@ -146,7 +146,7 @@
             <h1 class="css-section-title">1위는 다 모아놨어!</h1>
             <div class="rankings">
                 <div class="ranking-wrapper">
-                    <a href="">
+                    <a th:href="@{/ranking/list}">
                         <div class="user-ranking">
                             <span>유저 랭킹</span>
                         </div>
@@ -157,10 +157,10 @@
                                 <img th:src="@{/img/main/medal.png}" alt="">
                             </span>
                             <div class="user-wrapper">
-                                <span class="userInfo-Id" id="rankingUserId">
+                                <span class="userInfo-Id" id="rankingUserId1">
                                     1위유저아이디
                                 </span>
-                                <span class="userInfo-Point" id="rankingUserPoint">
+                                <span class="userInfo-Point" id="rankingUserPoint1">
                                     누적 포인트 : 10000
                                 </span>
                             </div>
@@ -177,10 +177,10 @@
                                 <img th:src="@{/img/main/coin.png}" alt="">
                             </span>
                             <div class="user-wrapper">
-                                <span class="userInfo-Id" id="rankingUserId">
+                                <span class="userInfo-Id" id="rankingUserId2">
                                     2위유저아이디
                                 </span>
-                                <span class="userInfo-Point" id="rankingUserPoint">
+                                <span class="userInfo-Point" id="rankingUserPoint2">
                                     누적 포인트 : 10000
                                 </span>
                             </div>
@@ -195,10 +195,10 @@
                                 <img th:src="@{/img/main/coin.png}" alt="">
                             </span>
                             <div class="user-wrapper">
-                                <span class="userInfo-Id" id="rankingUserId">
+                                <span class="userInfo-Id" id="rankingUserId3">
                                     3위유저아이디
                                 </span>
-                                <span class="userInfo-Point" id="rankingUserPoint">
+                                <span class="userInfo-Point" id="rankingUserPoint3">
                                     누적 포인트 : 10000
                                 </span>
                             </div>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
                 <div class="ranking-wrapper">
-                    <a href="">
+                    <a th:href="@{/board/popular}">
                         <div class="user-ranking">
                             <span>인기 게시글</span>
                         </div>

@@ -42,7 +42,7 @@
 
         <!-- 글쓰기 양식 -->
         <div class="form">
-          <form id="new-write" class="write-form" method="post" th:action="@{/board/write}" th:object="${board}">
+          <form id="new-write" class="write-form" method="post" th:action="@{/board/writePage}" th:object="${board}">
             <!-- 카테고리 체크박스 -->
             <div class="category-radio fields">
               <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'국어'}" checked /> 국어</div>
@@ -95,9 +95,7 @@
   <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
   <script>
     $("input[type=submit]").on("click", function(e){
-      e.preventDefault();
       alert("게시글이 등록되었습니다.");
-      location.href = "/board/boardMain";
     });
 
   </script>

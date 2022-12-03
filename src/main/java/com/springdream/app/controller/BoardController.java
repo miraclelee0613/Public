@@ -24,7 +24,7 @@ public class BoardController {
         model.addAttribute("boards", boardService.recentPost());
     }
 
-//    게시글 등록
+    //    게시글 등록
     @GetMapping("/writePage")
     public void write(Model model){
         model.addAttribute("board", new BoardVO());
@@ -32,13 +32,14 @@ public class BoardController {
 
     @PostMapping("/writePage")
     public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
+        boardVO.setMemberNumber(23L);
         boardService.register(boardVO);
         redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());
         return new RedirectView("/board/boardMain");
     }
 
 //    게시글 상세보기
-    @GetMapping("/read")
+    @GetMapping("/page")
     public String read(Long boardNumber, Model model){
        model.addAttribute("board", boardService.show(boardNumber));
        return "/board/page";

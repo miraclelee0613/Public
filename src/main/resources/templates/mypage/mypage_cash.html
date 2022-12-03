@@ -9,7 +9,9 @@
     <link rel='stylesheet' type='text/css' th:href="@{/css/mypage/mypage.css}">
     <link rel="stylesheet" th:href="@{/webfonts/metro-sans-medium.otf}">
 
+    <link rel="stylesheet" th:href="@{/css/mypage/my_info.css}">
     <link rel="stylesheet" th:href="@{/css/mypage/my_cash.css}">
+
 </head>
 <body>
     <header th:replace="/fix/header.html::.header"></header>
@@ -76,8 +78,13 @@
                     </div>
                 </div>
                 <div class="view-stage">
-                    <div class="title">
-                        <span>내 충전내역</span>
+                    <div class="myInfo-main">
+                        <div class="userId">
+                            테스트용 유저네임1
+                        </div>
+                        <div class="userRank">
+                            유저 등급 : 태양신
+                        </div>
                     </div>
                     <!-- 게시글 리스트 -->
                     <main class="grow-1">
@@ -85,47 +92,54 @@
                             <div class="con">
                                 <div class="article-list">
                                     <header class="">
+                                        <h1 style="margin-bottom: 20px;">내 충전내역</h1>
                                         <div>
+                                            <div class="boardId">번호</div>
                                             <div class="boardDate">날짜</div>
-                                            <div class="boardTitle">
+                                            <div class="boardTitle" style="font-weight: normal;">
                                                 <span>충전금액</span>
                                             </div>
                                         </div>
                                     </header>
                                     <main class="">
                                         <div>
+                                            <div id="boardId" class="boardId">1</div>
                                             <div id="boardDate" class="boardDate">2020-12-12 12:12:12</div>
                                             <div id="boardTitle" class="boardTitle">
-                                                <!-- 게시글 주소 -->
-                                                <a href="#">3000</a>
+                                                <!-- 충전금액 -->
+                                                20000
                                             </div>
                                         </div>
                                         <div>
+                                            <div id="boardId" class="boardId">2</div>
                                             <div id="boardDate" class="boardDate">2020-12-12 12:12:12</div>
                                             <div id="boardTitle" class="boardTitle">
-                                                <!-- 게시글 주소 -->
-                                                <a href="#">4000</a>
+                                                <!-- 충전금액 -->
+                                                20000
                                             </div>
                                         </div>
                                         <div>
+                                            <div id="boardId" class="boardId">3</div>
                                             <div id="boardDate" class="boardDate">2020-12-12 12:12:12</div>
                                             <div id="boardTitle" class="boardTitle">
-                                                <!-- 게시글 주소 -->
-                                                <a href="#">5000</a>
+                                                <!-- 충전금액 -->
+                                                20000
                                             </div>
                                         </div>
                                         <div>
+                                            <div id="boardId" class="boardId">4</div>
                                             <div id="boardDate" class="boardDate">2020-12-12 12:12:12</div>
                                             <div id="boardTitle" class="boardTitle">
-                                                <!-- 게시글 주소 -->
-                                                <a href="#">6000</a>
+                                                <!-- 충전금액 -->
+                                                20000
                                             </div>
                                         </div>
                                         <div>
+                                            <div id="boardId" class="boardId">5</div>
                                             <div id="boardDate" class="boardDate">2020-12-12 12:12:12</div>
                                             <div id="boardTitle" class="boardTitle">
-                                                <!-- 게시글 주소 -->
-                                                <a href="#">7000</a>
+                                                <!-- 충전금액 -->
+                                                20000
                                             </div>
                                         </div>
                                     </main>
@@ -157,7 +171,5 @@
         inputWrapper.style.borderColor = 'transparent';
     });
 </script>
-<script type="text/javascript" th:src="@{/js/main/main-banner-transition.js}"></script>
-<script type="text/javascript" th:src="@{/js/main/main-banner-typingEffect.js}"></script>
 <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
 </html>

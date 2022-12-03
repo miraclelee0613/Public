@@ -13,8 +13,16 @@ public class ReplyVO {
     private String replyContent;
     private int replyAdopt;
     private int replyReport;
-    private int replyDate;
-    private int replyUpdateDate;
+    private String replyDate;
+    private String replyUpdateDate;
     private Long memberNumber;
     private Long boardNumber;
+
+    public void create( String replyTitle, String replyContent, Long boardNumber, Long memberNumber) {
+        this.replyTitle = replyTitle;
+        this.replyContent = replyContent;
+        this.boardNumber = boardNumber;
+        this.memberNumber = memberNumber;
+
+    }
 }

@@ -21,7 +21,7 @@ public class ReportController {
     private final ReportService reportService;
 
     @GetMapping("")
-    public String main(Model model){
+    public String main(Model model, Long boardNumber){
         model.addAttribute("report", new ReportVO());
         return "report/reportPage";
     }

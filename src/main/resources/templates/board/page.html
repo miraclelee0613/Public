@@ -21,7 +21,7 @@
             <nav class="sub-nav">
                 <ol class="breadcrumbs">
                     <li title="국어 게시판">
-                        <a href="">국어 게시판</a>
+                        <a th:href="@{/board/page(boardNumber=*{boardNumber})}" th:text="${board.boardCategory} + ' 게시판'"></a>
                     </li>
                     <li title="국어게시판 내용">
                         <a href="">글 상세 페이지</a>
@@ -32,38 +32,18 @@
                 <!-- 사이드바 -->
                 <section class="article-sidebar">
                     <section class="collapsible-sidebar">
-                        <h3 class="collapsible-sidebar-title sidenav-title">국어 게시글 목록</h3>
+                        <h3 class="collapsible-sidebar-title sidenav-title" th:text="${board.boardCategory} + ' 질문'"></h3>
                         <ul>
-                            <li>
-                                <!-- 현재 글 -->
-                                <a href="" class="sidebar-item current-article">
-                                    <p class="sidebar-item-text">국어 질문</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="sidebar-item">
-                                    <p class="sidebar-item-text">문학 인강 추천해주세요</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="sidebar-item">
-                                    <p class="sidebar-item-text">재수할려고 그러는데</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="sidebar-item">
-                                    <p class="sidebar-item-text">동생예비고1인데 국어
-                                        <br>공부 미리좀 시키고싶은데
-                                    </p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="sidebar-item">
-                                    <p class="sidebar-item-text">모고 풀 때 집중력
-                                        <br>떨어지는 건 어떡하나요?
-                                    </p>
-                                </a>
-                            </li>
+                            <!-- 현재 글 -->
+                            <th:block th:each="list:${boardlist}">
+                                <div th:object="${list}">
+                                    <li>
+                                        <a th:href="@{/board/page(boardNumber=*{boardNumber})}" class="sidebar-item current-article">
+                                            <p class="sidebar-item-text" th:text="*{boardTitle}"></p>
+                                        </a>
+                                    </li>
+                                </div>
+                            </th:block>
                         </ul>
                         <a href="" class="article-sidebar-item">더보기</a>
                     </section>
@@ -72,38 +52,29 @@
                     <!-- 글 -->
                     <article class="article">
                         <div class="article-header">
-                            <h1 class="article-title">국어 질문</h1> <!-- 글 제목 -->
+                            <h1 class="article-title" th:text="${board.boardTitle}"></h1> <!-- 글 제목 -->
                         </div>
                         <div class="user-profile-area">
                             <img th:src="@{/img/board/user_icon.png}" alt="유저 이미지" class="profile-image">
-                            <div class="profile-info">
-                                <span class="user-name">강민구</span>   <!-- 작성자 이름 -->
+                            <div class="profile-info" th:object="${board}">
+                                <span class="user-name" th:text="*{memberName}"></span>   <!-- 작성자 이름 -->
                                 <div class="created-at">
-                                    <span class="time">22.9.13</span>   <!-- 작성 날짜 -->
+                                    <span class="time" th:text="*{boardUpdateDate}">22.9.13</span>   <!-- 작성 날짜 -->
                                     <span class="divider-dot">·</span>
-                                    <span class="views">조회수</span>   <!-- 조회수 -->
+                                    <span class="views" th:text="*{boardViewcount}"></span>   <!-- 조회수 -->
                                     <span class="divider-dot">·</span>
                                     <span class="report">               <!-- 신고 -->
-                                        <img th:src="@{/img/board/report.png}" class="report-button" alt="">
+                                        <a th:href="@{/report(boardNumber=*{boardNumber})}" class="page-report-button">신고하기</a>
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="article-content">
+                        <div class="article-content" th:object="${board}">
                             <div class="article-attachments">
                                 <img th:src="@{/img/board/test1.png}" alt="글 이미지">
                             </div>
                             <div class="article-body">   <!-- 글 내용 -->
-                                <p>
-                                    대성마이맥패스 샀는데 작년엔 유대종쌤 들었는데 뭔가 유대종쌤 독해법보단 구조독해하는게 잘 맞는 것 같아서요.
-                                    <br>
-                                    이번엔 다른 선생님 들어보고싶은데 김승리쌤은 책이 너무 비싸서 김승리t,유대종t빼고 들어보려 합니다.
-                                    <br>
-                                    김상훈 선생님 독서도 괜찮나요?
-                                    <br>
-                                    파이널강의 때 대부분 독서문학 같이 다뤄주셔서 문학도 김상훈쌤 들으니까 독서도 같이 들어보려 합니다.
-                                    <br>
-                                    나머지 대성인강중에 괜찮은 분들도 추천해주세요..</p>
+                                <p th:text="*{boardContent}"></p>
                             </div>
                         </div>
                     </article>
@@ -115,122 +86,36 @@
                         <button type="button" class="comment-write-button">작성</button>
                     </div>
                     <!-- 답글 리스트 -->
-                    <ul class="comment-list">
-                        <li class="comment">
-                            <div class="comment-wrapper">
-                                <div class="profile-image">
-                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
-                                </div>
-                                <div class="comment-info">
-                                    <div class="user-info">
-                                        <div class="user">
-                                            <span class="user-name">김민지</span>   <!-- 답글 작성자 이름 -->
-                                        </div>
-                                        <button>
-                                            <img th:src="@{/img/board/like_icon.png}" alt="">
-                                        </button>
-                                        <button>
-                                            <img th:src="@{/img/board/report.png}" alt="">
-                                        </button>
-                                    </div>
-                                    <div class="comment-contents">
-                                        <p class="text">
-                                            <span>독서는 자기 맘에 드는 거 빨리 끝내고 혼자 기출 보는게 추천</span>   <!-- 댓글 내용 -->
-                                        </p>
-                                    </div>
-                                    <div class="comment-time">
-                                        <span class="text">22.10.27</span>   <!-- 댓글 작성 시간 -->
+                    <th:block th:each="reply:${boardlist}">
+                        <article class="article" th:object="${reply}">
+                            <div class="article-header">
+                                <h1 class="article-title" th:text="*{boardTitle}"></h1> <!-- 글 제목 -->
+                            </div>
+                            <div class="user-profile-area">
+                                <img th:src="@{/img/board/user_icon.png}" alt="유저 이미지" class="profile-image">
+                                <div class="profile-info">
+                                    <span class="user-name" th:text="*{memberName}"></span>   <!-- 작성자 이름 -->
+                                    <div class="created-at">
+                                        <span class="time" th:text="*{boardUpdateDate}">22.9.13</span>   <!-- 작성 날짜 -->
+                                        <span class="divider-dot">·</span>
+                                        <span class="views" th:text="*{boardViewcount}"></span>   <!-- 조회수 -->
+                                        <span class="divider-dot">·</span>
+                                        <span class="report">               <!-- 신고 -->
+                                        <img th:src="@{/img/board/report.png}" class="report-button" alt="">
+                                    </span>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="comment">
-                            <div class="comment-wrapper">
-                                <div class="profile-image">
-                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
+                            <div class="article-content">
+                                <div class="article-attachments">
+                                    <img th:src="@{/img/board/test1.png}" alt="글 이미지">
                                 </div>
-                                <div class="comment-info">
-                                    <div class="user-info">
-                                        <div class="user">
-                                            <span class="user-name">문성준</span>   <!-- 답글 작성자 이름 -->
-                                        </div>
-                                        <button>
-                                            <img th:src="@{/img/board/like_icon.png}" alt="">
-                                        </button>
-                                        <button>
-                                            <img th:src="@{/img/board/report.png}" alt="">
-                                        </button>
-                                    </div>
-                                    <div class="comment-contents">
-                                        <p class="text">
-                                            <span>김상흔쌤 유네스코로 체화하는것도 좋아보이더라구요</span>   <!-- 댓글 내용 -->
-                                        </p>
-                                    </div>
-                                    <div class="comment-time">
-                                        <span class="text">22.11.03</span>   <!-- 댓글 작성 시간 -->
-                                    </div>
+                                <div class="article-body">   <!-- 글 내용 -->
+                                    <p th:text="*{boardContent}"></p>
                                 </div>
                             </div>
-                        </li>
-                        <li class="comment">
-                            <div class="comment-wrapper">
-                                <div class="profile-image">
-                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
-                                </div>
-                                <div class="comment-info">
-                                    <div class="user-info">
-                                        <div class="user">
-                                            <span class="user-name">문승현</span>   <!-- 답글 작성자 이름 -->
-                                        </div>
-                                        <button>
-                                            <img th:src="@{/img/board/like_icon.png}" alt="">
-                                        </button>
-                                        <button>
-                                            <img th:src="@{/img/board/report.png}" alt="">
-                                        </button>
-                                    </div>
-                                    <div class="comment-contents">
-                                        <p class="text">
-                                            <span>유네스코 좋아보이긴 하던데 4등급이 바로 가기엔 살짝 무리인거같고
-                                                <br> 김젬마쌤 독서 강의 들어보시는거 추천
-                                            </span>   <!-- 댓글 내용 -->
-                                        </p>
-                                    </div>
-                                    <div class="comment-time">
-                                        <span class="text">22.11.13</span>   <!-- 댓글 작성 시간 -->
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="comment">
-                            <div class="comment-wrapper">
-                                <div class="profile-image">
-                                    <img th:src="@{/img/board/user_icon.png}" alt="유저 사진" class="image">
-                                </div>
-                                <div class="comment-info">
-                                    <div class="user-info">
-                                        <div class="user">
-                                            <span class="user-name">이준상</span>   <!-- 답글 작성자 이름 -->
-                                        </div>
-                                        <button>
-                                            <img th:src="@{/img/board/like_icon.png}" alt="">
-                                        </button>
-                                        <button>
-                                            <img th:src="@{/img/board/report.png}" alt="">
-                                        </button>
-                                    </div>
-                                    <div class="comment-contents">
-                                        <p class="text">
-                                            <span>다른건 모르겠고 수특 수완 독서 꼭 하세요</span>   <!-- 댓글 내용 -->
-                                        </p>
-                                    </div>
-                                    <div class="comment-time">
-                                        <span class="text">22.11.22</span>   <!-- 댓글 작성 시간 -->
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                        </article>
+                    </th:block>
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@
         <typeAlias type="com.springdream.app.domain.MemberVO" alias="memberVO"/>
         <typeAlias type="com.springdream.app.domain.PointVO" alias="pointVO"/>
         <typeAlias type="com.springdream.app.domain.ReplyVO" alias="replyVO"/>
+        <typeAlias type="com.springdream.app.domain.ReplyVO" alias="replyDTO"/>
         <typeAlias type="com.springdream.app.domain.SupportVO" alias="supportVO"/>
     </typeAliases>
 </configuration>

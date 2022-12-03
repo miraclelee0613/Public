@@ -88,7 +88,9 @@
                         </span>
                         <!-- 글 정보 -->
                         <div class="article-main">
-                            <h2 class="article-title" th:text="*{boardTitle}"></h2>     <!-- 글 제목 -->
+                            <a th:href="@{/board/read(boardNumber=*{boardNumber})}">
+                                <h2 class="article-title" th:text="*{boardTitle}"></h2> <!-- 글 제목 -->
+                            </a>
                             <div class="article-contents" th:text="*{boardContent}"></div>
                             <!-- 글 내용 -->
                             <div class="article-category">

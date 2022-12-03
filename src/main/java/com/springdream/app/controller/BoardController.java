@@ -21,6 +21,8 @@ public class BoardController {
 //    게시글 목록
     @GetMapping("/boardMain")
     public void main(Model model) {
+
+        model.addAttribute("boardCount", boardService.recentPost().size());
         model.addAttribute("boards", boardService.recentPost());
     }
 

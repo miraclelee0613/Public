@@ -12,7 +12,6 @@ import java.util.List;
 public class MemberDAO {
 
     private final MemberMapper memberMapper;
-
     //  회원가입
     public void join(MemberVO memberVO){
         memberMapper.insert(memberVO);
@@ -48,4 +47,11 @@ public class MemberDAO {
 
     //  로그인
     public int login(MemberVO memberVO) {return memberMapper.login(memberVO);}
+
+
+//    로그아웃
+
+//    아이디 찾기
+
+//     비밀번호 찾기
 }

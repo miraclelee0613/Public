@@ -1,41 +1,46 @@
 package com.springdream.app.controller;
 
 import com.springdream.app.domain.MemberVO;
-import com.springdream.app.service.MemberService;
+import com.springdream.app.service.AdminMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/member/*")
 public class MemberController {
 
+    private final AdminMemberService MemberService;
+
     //    회원가입
     @GetMapping("/join")
     public String join() {
         return "member/join.html";
     }
-
-    //    회원가입성공
-//    @PostMapping("/joinOk")
-//    public RedirectView joinOk(MemberVO memberVO, RedirectAttributes redirectAttributes){
-//        MemberService.register(memberVO);
-//        redirectAttributes.addFlashAttribute("memberNumber", memberVO.getMemberNumber());
-//        return new RedirectView("/member/login");
-//    }
+    @PostMapping("/join")
+    public String join(MemberVO member) throws Exception {
+        MemberService.register(member);
+        return "member/login.html";
+    }
 
     //    아이디 중복 체크
 //    @PostMapping("/checkId")
-//    public RedirectView checkId(MemberVO memberVO, RedirectAttributes redirectAttributes){
-//        MemberService.register(memberVO);
-////        redirectAttributes.addFlashAttribute("boardNumber", boardDTO.getBoardNumber());
-//        return new RedirectView("/member/join");
+//    public String checkId(String memberId) throws Exception{
+//        MemberService.checkId(memberId);
+//        return null;
+//    }
+//    @GetMapping("/checkId_sample")
+//    public void checkId_sample(MemberVO memberVO) throws JSONException {
+//
+//        //String resultVal = String.valueOf();
+//        //model.addAttribute("checkId", resultVal);
+//
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("checkId", MemberService.checkId(memberVO.getMemberId()));
+//        //return resultVal;
 //    }
 
     //    로그인
@@ -43,15 +48,11 @@ public class MemberController {
     public String login() {
         return "member/login.html";
     }
-
-    //    로그인성공
-//    @LogStatus
-//    @PostMapping("/loginOk")
-//    public RedirectView loginOk(MemberVO memberVO, RedirectAttributes redirectAttributes){
-//        MemberService.register(memberVO);
-////        redirectAttributes.addFlashAttribute("boardNumber", boardDTO.getBoardNumber());
-//        return new RedirectView("main/index");
-//    }
+    @PostMapping("/login")
+    public String login(MemberVO memberVO) throws Exception {
+        MemberService.login(memberVO);
+        return "main/index.html";
+    }
 
     //    마이페이지 내 정보 수정
     @GetMapping("/myinfo")
@@ -62,7 +63,7 @@ public class MemberController {
 //    @PostMapping("/update")
 //    public RedirectView update(BoardDTO boardDTO, RedirectAttributes redirectAttributes){
 //        boardService.modify(boardDTO);
-//        redirectAttributes.addAttribute("boardNumber", boardDTO.getBoardNumber());
+//        redirectAttributes.addFlashAttribute("boardNumber", boardDTO.getBoardNumber());
 //        return new RedirectView("/board/read");
 //    }
 
@@ -129,5 +130,3 @@ public class MemberController {
 
 
 }
-
-

@@ -4,59 +4,143 @@
 // }
 
 
-//비밀번호 확인
-$(function(){
-  $('#pw2-check').blur(function(){
-    if($('#pw-check').val() != $('#pw2-check').val()){
-      if($('#pw2-check').val()!=''){
-        alert("비밀번호가 일치하지 않습니다.");
-        $('#pw2-check').val('');
-        $('#pw2-check').focus();
-      }
-    }
-  })
-});
-
-
-//정규식 표현
-let joinForm;
-joinForm.memberPw = undefined;
-
-function send(){
-  //비밀번호 정규식 : 최소 8 자, 최소 하나의 문자 및 하나의 숫자
-  let pwRegex ="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$";
-  //핸드폰번호 정규식
-  let phoneNumberRegex ="/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/";
-  //이메일 정규식
-  let emailRegex="/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i";
-
-  let joinForm;
-  if(!pwRegex.test(joinForm.memberPw)){
+//이름
+$("#name-check").on("blur",function(){inputName($(this).val());});
+function inputName(memberName){
+  check = false;
+  if(!memberName){
+    $("#name-alert").text("이름을 입력해주세요.");
+    $("#name-alert").css("color", "red");
     return;
+  }else {
+    $("#name-alert").text("");
   }
-
-  let check;
-  if(!check){
-    return;
-  }
-
-  alert("회원가입 성공!");
-
-  joinForm.submit();
 }
 
-// verifyEmail = function() {
-//   // 이메일 검증 스크립트 작성
-//   let emailVal = $("#mail-check").val();
-//
-//   // 검증에 사용할 정규식 변수 regExp에 저장
-//   let regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-//
-//   if (emailVal.match(regExp) == null) {
-//     //정규식에 맞지않으면 return null
-//     alert('Error');
-//   }
-//   else {
-//     alert('Good!');
-//   }
-// };
+//닉네임
+$("#nick-check").on("blur",function(){inputNick($(this).val());});
+function inputNick(memberNickname){
+  check = false;
+  if(!memberNickname){
+    $("#nick-alert").text("닉네임을 입력해주세요.");
+    $("#nick-alert").css("color", "red");
+    return;
+  }else {
+    $("#nick-alert").text("");
+  }
+}
+
+//아이디
+$("#id-check").on("blur", function(){checkId($(this).val());});
+
+let check = false;
+function checkId(memberId){
+  check = false;
+  if(!memberId){
+    $("#id-alert").text("아이디를 입력해주세요.");
+    $("#id-alert").css("color", "red");
+    return;
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "/member/checkId_sample",
+    data: {"memberId": memberId},
+    dataType : 'json',
+    success: function(result){
+      let message, color;
+      // alert(result);
+      let str = JSON.stringify(result);
+      str = replaceXSS(str);
+      result = JSON.parse(str);
+
+      alert(result.get(1));
+      if(result == "true"){
+        message = "사용 가능한 아이디입니다.";
+        color = "blue";
+        check = true;
+      }else{
+        message = "중복된 아이디입니다.";
+        color = "red";
+      }
+
+      $("#id-alert").css("color", color);
+      $("#id-alert").text(message);
+    },
+    error: function(a, b, c){
+      console.log(a, b, c);
+    }
+  });
+}
+
+//비밀번호
+$("#pw-check").on("blur",function(){inputPW1($(this).val());});
+function inputPW1(memberPW){
+  check = false;
+  if(!memberPW){
+    $("#pw-alert").text("비밀번호를 입력해주세요.");
+    $("#pw-alert").css("color", "red");
+    return;
+  }else {
+    $("#pw-alert").text("");
+  }
+}
+
+//비밀번호 확인
+$("#pw2-check").on("blur",function(){inputPW2($(this).val());});
+function inputPW2(memberPW){
+  check = false;
+  if(!memberPW){
+    $("#pw2-alert").text("비밀번호를 입력해주세요.");
+    $("#pw2-alert").css("color", "red");
+    return;
+  }else {
+    $("#pw2-alert").text("");
+  }
+}
+
+//이메일
+$("#mail-check").on("blur",function(){inputEmail($(this).val());});
+function inputEmail(memberEmail){
+  check = false;
+  if(!memberEmail){
+    $("#mail-alert").text("이메일을 입력해주세요.");
+    $("#mail-alert").css("color", "red");
+    return;
+  }else {
+    $("#mail-alert").text("");
+  }
+}
+
+//휴대폰 번호
+$("#phone-check").on("blur",function(){inputMobile($(this).val());});
+function inputMobile(memberMobile){
+  check = false;
+  if(!memberMobile){
+    $("#phone-alert").text("휴대폰번호를 입력해주세요.");
+    $("#phone-alert").css("color", "red");
+    return;
+  }else {
+    $("#phone-alert").text("");
+  }
+}
+
+//회원가입
+$(document).ready(function(){
+  $(".join-btn").click(function(){
+    $("#join-form").attr("action", "/member/join");
+    $("#join-form").submit();
+  });
+});
+
+//로그인
+$(document).ready(function(){
+  $(".login-btn").click(function(){
+    $("#login-form").attr("action", "/member/login");
+    $("#login-form").submit();
+  });
+});
+
+// 아이디 중복 체크
+
+// 이메일 휴대폰번호 비밀번호 정규식

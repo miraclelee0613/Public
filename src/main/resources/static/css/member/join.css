@@ -26,7 +26,7 @@ input {
 @font-face {
   font-family: "KOTRAHOPE";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2")
-    format("woff2");
+  format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -390,10 +390,10 @@ p.site-explain {
 }
 
 /* 블러 처리 */
-.check-alert {
-  font-size: 13px;
-  color: red;
-}
+/*.check-alert {*/
+/*  font-size: 13px;*/
+/*  color: red;*/
+/*}*/
 
 #agree-alert {
   margin-top: -10px;

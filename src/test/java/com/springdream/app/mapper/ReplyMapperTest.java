@@ -20,16 +20,16 @@ public class ReplyMapperTest {
     @Test
     public void insertTest() {
         ReplyVO replyVO = new ReplyVO();
-        replyVO.create("답글 매퍼 테스트1", "답글 테스트중 ", 81L, 21L);
+        replyVO.create("답글 매퍼 테스트1", "답글 테스트중 ", 25L, 25L);
         replyMapper.insert(replyVO);
     }
 
-//    @Test
-//    public void updateTest(){
-//        ReplyDTO replyDTO = replyMapper.select(1L);
-//        replyDTO.setReplyTitle("답글 매퍼 업데이트 테스트");
-//        replyMapper.update(replyDTO);
-//    }
+    @Test
+    public void updateTest(){
+        ReplyDTO replyDTO = replyMapper.select(1L);
+        replyDTO.setReplyTitle("답글 매퍼 업데이트 테스트");
+        replyMapper.update(replyDTO);
+    }
 
     @Test
     public void delete() {

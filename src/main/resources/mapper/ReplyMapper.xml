@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="com.springdream.app.mapper.ReplyMapper">
-
-
     <insert id="insert">
         INSERT INTO TBL_REPLY(REPLY_NUMBER, REPLY_TITLE, REPLY_CONTENT, BOARD_NUMBER, MEMBER_NUMBER)
         VALUES(SEQ_REPLY.NEXTVAL, #{replyTitle}, #{replyContent}, #{boardNumber}, #{memberNumber})

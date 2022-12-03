@@ -1,19 +1,25 @@
 package com.springdream.app.controller;
 
 import com.springdream.app.domain.MemberVO;
-import com.springdream.app.service.AdminMemberService;
+import com.springdream.app.service.MainMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/member/*")
 public class MemberController {
 
-    private final AdminMemberService MemberService;
+    private final MainMemberService memberService;
 
     //    회원가입
     @GetMapping("/join")
@@ -22,14 +28,14 @@ public class MemberController {
     }
     @PostMapping("/join")
     public String join(MemberVO member) throws Exception {
-        MemberService.register(member);
+        memberService.register(member);
         return "member/login.html";
     }
 
     //    아이디 중복 체크
 //    @PostMapping("/checkId")
 //    public String checkId(String memberId) throws Exception{
-//        MemberService.checkId(memberId);
+//        memberService.checkId(memberId);
 //        return null;
 //    }
 //    @GetMapping("/checkId_sample")
@@ -39,7 +45,7 @@ public class MemberController {
 //        //model.addAttribute("checkId", resultVal);
 //
 //        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("checkId", MemberService.checkId(memberVO.getMemberId()));
+//        jsonObject.put("checkId", memberService.checkId(memberVO.getMemberId()));
 //        //return resultVal;
 //    }
 
@@ -48,16 +54,26 @@ public class MemberController {
     public String login() {
         return "member/login.html";
     }
+
     @PostMapping("/login")
-    public String login(MemberVO memberVO) throws Exception {
-        MemberService.login(memberVO);
-        return "main/index.html";
+    public RedirectView login(MemberVO memberVO, HttpServletRequest request) throws Exception {
+        int memberNumber = memberService.login(memberVO);
+
+        // 로그인 실패
+        if(memberNumber == 0){
+            return new RedirectView("/main/login");
+        } else {
+            // 로그인 성공
+            HttpSession session = request.getSession();
+            session.setAttribute("memberNumber", memberNumber);
+        }
+        return new RedirectView("/main/index");
     }
 
     //    마이페이지 내 정보 수정
     @GetMapping("/myinfo")
     public String myinfo() {
-        return "mypage/mypage_info.html";
+        return "mypage/mypage_info";
     }
 //    @LogStatus
 //    @PostMapping("/update")

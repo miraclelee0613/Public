@@ -6,14 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/main/*")
 public class MainController {
 
     @GetMapping("index")
-    public String index(Model model){
-        model.addAttribute("loginOK", true);
+    public String index(Model model, HttpServletRequest request){
+        if(request.getSession().getAttribute("memberNumber") == null){
+            return "main/index";
+        } else {
+            model.addAttribute("loginOK", true);
+        }
         return "main/index";
     }
 

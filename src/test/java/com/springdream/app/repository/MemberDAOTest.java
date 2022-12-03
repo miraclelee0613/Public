@@ -29,4 +29,12 @@ class MemberDAOTest {
         memberVO.create("ljs2345", "1234", "lsj1234@gmail.com", "이준상", "LJS19931", "01012342345", 1, 1);
         memberDAO.join(memberVO);
     }
+
+    @Test
+    public void loginTest(){
+        MemberVO memberVO = new MemberVO();
+        memberVO.setMemberId("msj4264");
+        memberVO.setMemberPw("1111");
+        log.info("login : " + memberDAO.login(memberVO));
+    }
 }

@@ -21,6 +21,8 @@ public class BoardController {
 //    게시글 목록
     @GetMapping("/boardMain")
     public void main(Model model) {
+
+        model.addAttribute("boardCount", boardService.recentPost().size());
         model.addAttribute("boards", boardService.recentPost());
     }
 
@@ -41,6 +43,9 @@ public class BoardController {
 //    게시글 상세보기
     @GetMapping("/page")
     public String read(Long boardNumber, Model model){
+       String category = boardService.show(boardNumber).getBoardCategory();
+//       model.addAttribute("replylist", replyService.showList());
+       model.addAttribute("boardlist", boardService.categoryPost(category));
        model.addAttribute("board", boardService.show(boardNumber));
        return "/board/page";
     }

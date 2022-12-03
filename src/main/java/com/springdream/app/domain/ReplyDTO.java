@@ -17,11 +17,7 @@ public class ReplyDTO {
     private int replyUpdateDate;
     private Long memberNumber;
     private Long boardNumber;
-    private int boardViewcount;
     private String memberId;
     private String memberName;
     private String memberRank;
-    private String fileName;
-    private String fileUploadPath;
-    private String fileUUID;
 }

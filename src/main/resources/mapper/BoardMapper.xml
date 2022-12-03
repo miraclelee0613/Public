@@ -9,7 +9,7 @@
             SELECT SEQ_BOARD.NEXTVAL FROM DUAL
         </selectKey>
         INSERT INTO TBL_BOARD(BOARD_NUMBER, BOARD_CATEGORY, BOARD_TITLE, BOARD_CONTENT, BOARD_REWARD, MEMBER_NUMBER)
-        VALUES(#{boardNumber},  #{boardCategory}, #{boardTitle}, #{boardContent}, #{boardReward}, 41)
+        VALUES(#{boardNumber},  #{boardCategory}, #{boardTitle}, #{boardContent}, #{boardReward}, #{memberNumber})
     </insert>
 
 <!--  게시글 수정  -->
@@ -100,7 +100,7 @@
         ) D2
         JOIN TBL_MEMBER m2
         ON D2.MEMBER_NUMBER = m2.MEMBER_NUMBER
-        WHERE R <![CDATA[>]]> 3
+        WHERE R <![CDATA[>]]> 0
     </select>
 
     <!--  카테고리별 조회  -->

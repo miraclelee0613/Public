@@ -11,13 +11,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 class MemberServiceTest {
 
     @Autowired
-    private AdminMemberService memberService;
+    private MemberService memberService;
 
     @Test
     void register() {
         MemberVO memberVO = new MemberVO();
-        memberVO.create("rkdalsrn1111", "1111", "msj1111@gmail.com",
-                "문성준", "문성준123", "01011111111", 1, 1);
+        memberVO.create("anstjdwns1234", "1111", "msj1234@gmail.com",
+                "문성준", "문성준321", "01011111111", 1, 1);
         memberService.register(memberVO);
     }
 

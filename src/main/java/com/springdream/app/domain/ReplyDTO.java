@@ -13,8 +13,8 @@ public class ReplyDTO {
     private String replyContent;
     private int replyAdopt;
     private int replyReport;
-    private int replyDate;
-    private int replyUpdateDate;
+    private String replyDate;
+    private String replyUpdateDate;
     private Long memberNumber;
     private Long boardNumber;
     private String memberId;

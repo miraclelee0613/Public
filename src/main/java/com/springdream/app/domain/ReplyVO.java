@@ -11,8 +11,6 @@ public class ReplyVO {
     private Long replyNumber;
     private String replyTitle;
     private String replyContent;
-    private int replyAdopt;
-    private int replyReport;
     private String replyDate;
     private String replyUpdateDate;
     private Long memberNumber;

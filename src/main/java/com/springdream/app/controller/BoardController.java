@@ -24,7 +24,7 @@ public class BoardController {
         model.addAttribute("boards", boardService.recentPost());
     }
 
-//    게시글 등록
+    //    게시글 등록
     @GetMapping("/writePage")
     public void write(Model model){
         model.addAttribute("board", new BoardVO());
@@ -37,7 +37,7 @@ public class BoardController {
     }
 
 //    게시글 상세보기
-    @GetMapping("/read")
+    @GetMapping("/page")
     public String read(Long boardNumber, Model model){
        model.addAttribute("board", boardService.show(boardNumber));
        return "/board/page";

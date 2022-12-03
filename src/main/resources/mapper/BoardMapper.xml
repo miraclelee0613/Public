@@ -66,15 +66,41 @@
         ORDER BY BOARD_VIEWCOUNT DESC
     </select>
 
-    <!--  최신글 조회  -->
+<!--&lt;!&ndash;    &lt;!&ndash;  최신글 조회  &ndash;&gt;&ndash;&gt;-->
+<!--    <select id="recentBoard" resultType="boardDTO">-->
+<!--        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,-->
+<!--        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,-->
+<!--        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK-->
+<!--        FROM TBL_BOARD b-->
+<!--        INNER JOIN TBL_MEMBER m-->
+<!--        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER-->
+<!--        ORDER BY BOARD_UPDATE_DATE DESC-->
+<!--    </select>-->
+
+<!--  최신글 로우넘 정렬  -->
     <select id="recentBoard" resultType="boardDTO">
-        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
-        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
-        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
-        FROM TBL_BOARD b
-        INNER JOIN TBL_MEMBER m
-        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
-        ORDER BY BOARD_UPDATE_DATE DESC
+        SELECT D2.BOARD_NUMBER, D2.BOARD_TITLE, D2.BOARD_CONTENT, D2.BOARD_REWARD, D2.BOARD_CATEGORY,
+        D2.BOARD_DATE, D2.BOARD_UPDATE_DATE, D2.BOARD_VIEWCOUNT, D2.MEMBER_NUMBER, m2.MEMBER_ID, m2.MEMBER_NAME, m2.MEMBER_RANK
+        FROM
+        (
+            SELECT ROWNUM R, D1.BOARD_NUMBER, D1.BOARD_TITLE, D1.BOARD_CONTENT, D1.BOARD_REWARD, D1.BOARD_CATEGORY,
+            D1.BOARD_DATE, D1.BOARD_UPDATE_DATE, D1.BOARD_VIEWCOUNT, D1.MEMBER_NUMBER, m1.MEMBER_ID, m1.MEMBER_NAME, m1.MEMBER_RANK
+            FROM
+            (
+                SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+                b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+                FROM TBL_BOARD b
+                INNER JOIN TBL_MEMBER m
+                ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
+                ORDER BY BOARD_UPDATE_DATE DESC
+            ) D1
+            JOIN TBL_MEMBER m1
+            ON D1.MEMBER_NUMBER = m1.MEMBER_NUMBER
+            WHERE ROWNUM <![CDATA[<]]> 6
+        ) D2
+        JOIN TBL_MEMBER m2
+        ON D2.MEMBER_NUMBER = m2.MEMBER_NUMBER
+        WHERE R <![CDATA[>]]> 3
     </select>
 
     <!--  카테고리별 조회  -->

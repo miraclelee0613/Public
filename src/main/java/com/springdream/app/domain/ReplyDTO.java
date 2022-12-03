@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class ReplyVO {
+public class ReplyDTO {
     private Long replyNumber;
     private String replyTitle;
     private String replyContent;
@@ -17,4 +17,11 @@ public class ReplyVO {
     private int replyUpdateDate;
     private Long memberNumber;
     private Long boardNumber;
+    private int boardViewcount;
+    private String memberId;
+    private String memberName;
+    private String memberRank;
+    private String fileName;
+    private String fileUploadPath;
+    private String fileUUID;
 }

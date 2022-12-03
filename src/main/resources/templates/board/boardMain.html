@@ -86,7 +86,7 @@
                         </span>
                         <!-- 글 정보 -->
                         <div class="article-main">
-                            <a th:href="@{/board/read(boardNumber=*{boardNumber})}">
+                            <a th:href="@{/board/page(boardNumber=*{boardNumber})}">
                                 <h2 class="article-title" th:text="*{boardTitle}"></h2> <!-- 글 제목 -->
                             </a>
                             <div class="article-contents" th:text="*{boardContent}"></div>
@@ -160,6 +160,11 @@
     <div th:insert="~{/fix/footer :: footer}"></div>
 </body>
 <script th:src="@{/js/fix/header.js}"></script>
+<script th:inline="javascript">
+    function goRead() {
+
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
 

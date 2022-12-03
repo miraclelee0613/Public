@@ -18,7 +18,7 @@ public class BoardDAOTest {
     @Test
     public void saveTest(){
         BoardVO boardVO = new BoardVO();
-        boardVO.create("한국사", "한국사 다오 테스트1", "한2", 500, 41L);
+        boardVO.create("한국사", "한국사 다오 테스트1", "한2", 500, 23L);
         boardDAO.save(boardVO);
     }
 

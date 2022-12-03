@@ -1,6 +1,5 @@
 package com.springdream.app.service;
 
-import com.springdream.app.domain.MemberDTO;
 import com.springdream.app.domain.MemberVO;
 import org.springframework.stereotype.Service;
 

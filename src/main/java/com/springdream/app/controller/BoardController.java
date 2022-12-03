@@ -31,8 +31,10 @@ public class BoardController {
     public void write(Model model){
         model.addAttribute("board", new BoardVO());
     }
+
     @PostMapping("/writePage")
     public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
+        boardVO.setMemberNumber(23L);
         boardService.register(boardVO);
         redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());
         return new RedirectView("/board/boardMain");
@@ -41,10 +43,12 @@ public class BoardController {
 //    게시글 상세보기
     @GetMapping("/page")
     public String read(Long boardNumber, Model model){
+       String category = boardService.show(boardNumber).getBoardCategory();
+//       model.addAttribute("replylist", replyService.showList());
+       model.addAttribute("boardlist", boardService.categoryPost(category));
        model.addAttribute("board", boardService.show(boardNumber));
        return "/board/page";
     }
-
 
 //    게시글 수정
     @PostMapping("/update")

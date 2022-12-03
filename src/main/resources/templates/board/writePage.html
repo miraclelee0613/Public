@@ -42,7 +42,7 @@
 
         <!-- 글쓰기 양식 -->
         <div class="form">
-          <form id="new-write" class="write-form" method="post" th:action="@{/board/write}" th:object="${board}">
+          <form id="new-write" class="write-form" th:action="@{/board/writePage}" method="post" th:object="${board}">
             <!-- 카테고리 체크박스 -->
             <div class="category-radio fields">
               <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'국어'}" checked /> 국어</div>

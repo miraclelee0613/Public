@@ -40,7 +40,7 @@ class BoardControllerTest {
             .param("boardTitle", "한국사 컨트롤러 테스트1")
             .param("boardContent", "한한")
             .param("boardReward", "400")
-        .param("memberNumber", "41")).andReturn().getFlashMap());
+        .param("memberNumber", "23")).andReturn().getFlashMap());
     }
 
     @Test

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <!-- worker: Lee JunSang -->
 <head>
     <meta charset="UTF-8">
@@ -13,20 +13,6 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-<!-- header/footer load를 위한 스크립트 -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        // $("#header").load("../headerfooter/header.html")
-        $("#footer").load("../headerfooter/footer.html")
-
-        /* header로드
-        id 지정을 통해서도 가능합니다. 
-         $("#header").load("header.html #navbar")
-         */
-    });
-</script>
-
 <script src="/js/support/index.js"></script>
 
 <style>
@@ -89,72 +75,54 @@
             <div class="page-title">게시글 신고하기</div>
         </h1>
 
-        <form id="new_request" class="request-form" action="" accept-charset="UTF-8" method="post">
+        <form id="new_request" class="request-form" th:action="@{/report}" th:object="${report}"
+              accept-charset="UTF-8" method="post" onsubmit="return checkSubmit()">
             <input name="utf8" type="hidden" value="✓" autocomplete="off">
             <!-- <input type="hidden" name="authenticity_token" value=""> -->
 
             <div class="form-field required">
-                <label for="request_board_address">게시글 주소</label>
-                <input type="text" name="" id="request_board_address" aria-required="true">
-            </div>
-
-            <div class="form-field required">
+                <div class="form-field required request_subject">
+                    <label id="request_subject_label" for="reportTitle">제목</label>
+                    <input th:field="*{reportTitle}" type="text" name="request[subject]" id="reportTitle" maxlength="150" size="150"
+                           aria-required="true" aria-labelledby="request_subject_label">
+                    <p id="alertMsg1">필수 입력사항 입니다.</p>
+                </div>
+                <br>
                 <label id="support_type" for="">신고사유</label>
                 <div class="">
-                    <input type="radio" name="type" id="discomfort" class=""
+                    <input th:field="*{reportType}" th:value="${'불건전하거나 불쾌감을 주는 내용'}" type="radio" name="type" id="discomfort" class="reportType"
                            style="display: inline-block; max-width: min-content;">
                     <label for="discomfort" style="display: inline-block;">불건전하거나 불쾌감을 주는 내용</label>
                 </div>
                 <div class="">
-                    <input type="radio" name="type" id="papering" class=""
+                    <input th:field="*{reportType}" th:value="${'도배성 게시글'}" type="radio" name="type" id="papering" class="reportType"
                            style="display: inline-block; max-width: min-content;">
                     <label for="papering" style="display: inline-block;">도배성 게시글</label>
                 </div>
                 <div class="">
-                    <input type="radio" name="type" id="category_missmatch" class=""
+                    <input th:field="*{reportType}" th:value="${'게시판 카테고리에 맞지 않는 내용'}" type="radio" name="type" id="category_missmatch" class="reportType"
                            style="display: inline-block; max-width: min-content;">
                     <label for="category_missmatch" style="display: inline-block;">게시판 카테고리에 맞지 않는 내용</label>
                 </div>
+                <p id="alertMsg2">필수 입력사항 입니다.</p>
             </div>
 
-            <div class="form-field required request_subject">
-                <label id="request_subject_label" for="request_subject">제목</label>
-                <input type="text" name="request[subject]" id="request_subject" maxlength="150" size="150"
-                       aria-required="true" aria-labelledby="request_subject_label">
-            </div>
 
             <div class="form-field required">
-                <label id="text_area_label" for="text_area">설명</label>
-                <textarea name="text_area_" id="text_area" aria-required="true"></textarea>
+                <label id="text_area_label" for="reportContent">설명</label>
+                <textarea th:field="*{reportContent}" name="text_area_" id="reportContent" aria-required="true"></textarea>
                 <input type="hidden" name="text_area_input" id="" value="text/plain" style="display: none;"
                        autocomplete="off">
-
+                <p id="alertMsg3">필수 입력사항 입니다.</p>
                 <p id="">요청에 관한 세부 정보를 입력하세요. 저희 지원 스태프가 가능한 한 빨리 자세한 답변을 드리도록 하겠습니다.</p>
             </div>
             <div class="container-divider"></div>
-            <div class="form-field">
-                <label class="is-block">
-                    첨부 파일
-                </label>
-                <div style="height: 10px;"></div>
-
-                <div class="filebox">
-                    <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
-                    <label for="file">파일찾기</label>
-                    <input type="file" id="file" onchange="readURL(this);" multiple="true">
-                    <img id="preview"/>
-                </div>
-                <div style="height: 10px;"></div>
-            </div>
-
             <footer><input type="submit" name="commit" value="제출"></footer>
-
-
         </form>
     </div>
 </main>
 <div class="container-divider mt-3"></div>
 <footer id="footer"></footer>
 </body>
-
+<script src="/js/report/report.js"></script>
 </html>

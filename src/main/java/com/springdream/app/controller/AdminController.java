@@ -1,9 +1,13 @@
 package com.springdream.app.controller;
 
 import com.springdream.app.domain.MemberDTO;
+//import com.springdream.app.service.AdminReportService;
 import com.springdream.app.service.BoardService;
 import com.springdream.app.service.AdminMemberService;
+import com.springdream.app.service.ReportService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +25,11 @@ import java.util.Map;
 @RequestMapping("/admin/*")
 public class AdminController {
 
+//    private final AdminReportService adminreportService;
+
     private final BoardService boardService;
     private final AdminMemberService adminMemberService;
+
 
     @GetMapping("main")
     public String main(Model model){
@@ -48,11 +55,6 @@ public class AdminController {
 //        return "admin/adminPage-userlist";
 //    }
 
-    @GetMapping("support")
-    public String support(){
-        return "admin/adminPage-support";
-    }
-
     // 게시글 목록
     @GetMapping("boards")
     public String boards(Model model){
@@ -63,7 +65,8 @@ public class AdminController {
     }
 
     @GetMapping("report")
-    public String report(){
+    public String report(Model model){
+//        model.addAttribute("reports", adminreportService.showAll());
         return "admin/adminPage-report";
     }
 }

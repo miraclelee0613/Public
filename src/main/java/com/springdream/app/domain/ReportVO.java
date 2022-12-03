@@ -15,11 +15,13 @@ public class ReportVO {
     private String reportContent;
     private String reportType;
     private Long memberNumber;
+    private Long boardNumber;
 
-    public void create(String reportTitle, String reportContent, String reportType, Long memberNumber) {
+    public void create(String reportTitle, String reportContent, String reportType, Long memberNumber, Long boardNumber) {
         this.reportTitle = reportTitle;
         this.reportContent = reportContent;
         this.reportType = reportType;
         this.memberNumber = memberNumber;
+        this.boardNumber = boardNumber;
     }
 }

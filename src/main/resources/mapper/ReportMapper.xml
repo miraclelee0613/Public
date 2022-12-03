@@ -5,8 +5,8 @@
         <selectKey keyProperty="reportNumber" order="BEFORE" resultType="long">
             SELECT SEQ_REPORT.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO TBL_REPORT(REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, MEMBER_NUMBER)
-        VALUES(#{reportNumber}, #{reportTitle}, #{reportContent}, #{reportType}, #{memberNumber})
+        INSERT INTO TBL_REPORT(REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, MEMBER_NUMBER, BOARD_NUMBER)
+        VALUES(#{reportNumber}, #{reportTitle}, #{reportContent}, #{reportType}, #{memberNumber}, #{boardNumber})
     </insert>
     <select id="select" resultType="reportVO">
         SELECT REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, REPORT_DATE, MEMBER_NUMBER

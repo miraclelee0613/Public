@@ -1,11 +1,9 @@
 package com.springdream.app.controller;
 
+import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.MemberVO;
-import com.springdream.app.mapper.MemberMapper;
-import com.springdream.app.repository.BoardDAO;
-import com.springdream.app.service.BoardService;
-import com.springdream.app.service.MainMemberService;
-import com.springdream.app.service.ReplyService;
+import com.springdream.app.domain.ReplyDTO;
+import com.springdream.app.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,12 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,8 +21,8 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
 
     private final MainMemberService memberService;
-    private final BoardService boardService;
-    private final ReplyService replyService;
+    private final MypageBoardService boardService;
+    private final MypageReplyService replyService;
 
 
     //    회원가입
@@ -65,7 +60,7 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(String memberId, String memberPw, HttpServletRequest request, Model model) {
+    public String login(String memberId, String memberPw, HttpServletRequest request, HttpServletResponse response, Model model) {
         String url = "redirect:/main/index";
 
         if(request.getSession().getAttribute("memberNumber") != null){
@@ -83,6 +78,9 @@ public class MemberController {
         } else {
             // 로그인 성공
             HttpSession session = request.getSession();
+            Cookie cookie = new Cookie("memberNumber", String.valueOf(memberNumber));
+            cookie.setMaxAge(60*60*6);
+            response.addCookie(cookie);
             session.setAttribute("memberNumber", memberNumber);
         }
         return url;
@@ -92,11 +90,22 @@ public class MemberController {
     @GetMapping("/findId")
     public String findId() { return "member/findId"; }
 
+    @PostMapping("/findId")
+    public String findId(String memberName, String memberMobile){
+        return "member/findId";
+    }
+
     //    로그아웃
     @GetMapping("/logout")
-    public ModelAndView logout(HttpServletRequest request){
+    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
         session.removeAttribute("memberNumber");
+
+        // 회원번호 쿠키 제거
+        Cookie cookie = new Cookie("memberNumber", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/main/index");
         mav.addObject("msg", "logout");
@@ -112,7 +121,7 @@ public class MemberController {
         } else {
             int memberNumber = (Integer) session.getAttribute("memberNumber");
             MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
-            model.addAttribute("memberVO",memberVO);
+            model.addAttribute("memberVO", memberVO);
             return "/mypage/mypage_info";
         }
     }
@@ -135,7 +144,9 @@ public class MemberController {
         } else {
             int memberNumber = (Integer) session.getAttribute("memberNumber");
             MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
-            model.addAttribute("memberVO",memberVO);
+            model.addAttribute("memberVO", memberVO);
+            List<BoardDTO> boards = boardService.showMemberBoardAll(Long.parseLong(String.valueOf(memberNumber)));
+            model.addAttribute("boards", boards);
             return "mypage/mypage_boards.html";
         }
     }
@@ -152,6 +163,8 @@ public class MemberController {
         int memberNumber = (Integer) session.getAttribute("memberNumber");
         MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
         model.addAttribute("memberVO",memberVO);
+        List<ReplyDTO> replies = replyService.showMemberReplyAll(Long.parseLong(String.valueOf(memberNumber)));
+        model.addAttribute("replies", replies);
         return "mypage/mypage_reply.html";
     }
     @PostMapping("/myreply")

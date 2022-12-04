@@ -42,13 +42,14 @@
           <div class="panel-heading">아이디 찾기</div>
           <div class="panel-body">
             <!-- 폼 -->
-            <form class="margin-bottom-0">
+            <form class="margin-bottom-0" method="post">
               <div class="multi-form-group margin-top-0 margin-bottom-0">
                 <!-- 이름 입력 -->
                 <div class="form-group">
                   <input
                           type="text"
                           id="fullname"
+                          name="memberName"
                           class="form-control id-find-modal"
                           placeholder="이름"
                           required
@@ -57,8 +58,9 @@
                 <!-- 휴대폰 번호 입력 -->
                 <div class="form-group">
                   <input
-                          type="number"
+                          type="text"
                           id="mobile"
+                          name="memberMobile"
                           class="form-control id-find-modal"
                           placeholder="휴대폰 번호"
                           required
@@ -89,7 +91,7 @@
             <!-- 폼 -->
             <form class="margin-bottom-0">
               <div class="multi-form-group margin-top-0 margin-bottom-0">
-                <!-- 이름 입력 -->
+                <!-- 아이디 입력 -->
                 <div class="form-group">
                   <input
                           type="text"
@@ -102,8 +104,8 @@
                 <!-- 휴대폰 번호 입력 -->
                 <div class="form-group">
                   <input
-                          type="number"
-                          id="mobile"
+                          type="text"
+                          id="text"
                           class="form-control pw-find-modal"
                           placeholder="휴대폰 번호"
                           required
@@ -196,6 +198,7 @@
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="/js/fix/header.js"></script>
 <script>
   // 아이디 찾기 버튼
   $(function () {

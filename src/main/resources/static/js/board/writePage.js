@@ -1,6 +1,6 @@
-const title = $('#reportTitle');
-const content = $('#reportContent');
-const type = $('.reportType');
+const categoryRadio = $('.category-radio');
+const writeTitle = $('#write-title');
+const writeContent = $('#write-content');
 
 const alertMsg1 = $('#alertMsg1')
 const alertMsg2 = $('#alertMsg2')
@@ -10,16 +10,16 @@ alertMsg1.hide();
 alertMsg2.hide();
 alertMsg3.hide();
 
-// 신고제목
-title.focusin(function () {
-    if(!title.val()){
+// 카테고리 라디오
+categoryRadio.focusin(function () {
+    if(!categoryRadio.val()){
         alertMsg1.css('color', '#ff0000');
         alertMsg1.show();
     }
 });
 
-title.focusout(function () {
-    if(title.val()){
+categoryRadio.focusout(function () {
+    if(categoryRadio.val()){
         alertMsg1.css('color', '#008000');
     }
 
@@ -27,15 +27,15 @@ title.focusout(function () {
 })
 
 // 신고 타입
-type.focusin(function () {
-    if(!type.val()){
+writeTitle.focusin(function () {
+    if(!writeTitle.val()){
         alertMsg2.css('color', '#ff0000');
         alertMsg2.show();
     }
 });
 
-type.focusout(function () {
-    if(type.val()){
+writeTitle.focusout(function () {
+    if(writeTitle.val()){
         alertMsg2.css('color', '#008000');
     }
 
@@ -43,15 +43,15 @@ type.focusout(function () {
 })
 
 // 신고 내용
-content.focusin(function () {
-    if(!content.val()){
+writeContent.focusin(function () {
+    if(!writeContent.val()){
         alertMsg3.css('color', '#ff0000');
         alertMsg3.show();
     }
 });
 
-content.focusout(function () {
-    if(content.val()){
+writeContent.focusout(function () {
+    if(writeContent.val()){
         alertMsg3.css('color', '#008000');
     }
 
@@ -59,7 +59,7 @@ content.focusout(function () {
 })
 
 function checkSubmit() {
-    if(!title.val() || !type.val() || !content.val()){
+    if(!categoryRadio.val() || !writeTitle.val() || !writeContent.val()){
         alert("입력이 안 된 사항이 있습니다.");
         return false;
     }

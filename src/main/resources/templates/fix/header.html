@@ -3,6 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <link rel="stylesheet" th:href="@{/webfonts/metro-sans-medium.otf}">
+    <link rel="stylesheet" href="../../static/css/fix/header.css">
 </head>
 <body>
 <div th:fragment="header" class="css-header header">
@@ -34,9 +35,9 @@
         </form>
         <!-- 버튼 -->
         <div class="css-buttons">
-<!--            <button class="css-button" id="button-payment" th:onclick="|location.href='@{/charge}'|">-->
-<!--                <span>결제하기</span>-->
-<!--            </button>-->
+            <button class="css-button" id="button-payment" th:onclick="|location.href='@{/charge}'|">
+                <span>결제하기</span>
+            </button>
 <!--            <button class="css-button" id="button-mypage" th:onclick="|location.href='@{/member/myinfo}'|">-->
 <!--                <span>마이페이지</span>-->
 <!--            </button>-->

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
-    <link rel="stylesheet" type="text/css" href="header.css">
-    <link rel="stylesheet" type="text/css" href="footer.css">
-    <link rel="stylesheet" type="text/css" href="notice.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/fix/header.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/fix/footer.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/notice/notice.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
-    <!-- 헤더 필요 -->
+<!--    <div th:insert="~{/fix/header :: header}"></div>-->
+<!--    <div th:insert="~{/admin/adminPage-sider :: sider}"></div>-->
     <div class="css-header header">
         <div class="css-header-main">
             <!-- 로고 -->
@@ -24,14 +31,14 @@
             <form action="" class="css-search">
                 <div class="css-input-wrapper" id="inputWrapper">
                     <input class="css-input" id="input"
-                    placeholder="서비스, 전문가를 검색해 보세요" maxlength="15"
-                    autocomplete="off" autocorrect="off" 
-                    autocapitalize="off" type="text">
+                           placeholder="서비스, 전문가를 검색해 보세요" maxlength="15"
+                           autocomplete="off" autocorrect="off"
+                           autocapitalize="off" type="text">
                     <div class="suffix-wrapper">
                         <span role="img" rotate="0" class="css-aah4od e181xm9y1">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0">
-                                <path xmlns="http://www.w3.org/2000/svg" 
-                                d="M11.2307008,3.5 C15.5002489,3.5 18.9614015,6.96828437 18.9614015,11.24663 C18.9614015,13.0978372 18.3133954,14.7973826 17.2322825,16.1299241 L20.2742127,19.178378 C20.5762688,19.4810023 20.5764739,19.9714482 20.2746708,20.2738195 C19.9728678,20.5761908 19.4833433,20.5759857 19.1812873,20.2733614 L19.1812873,20.2733614 L16.1426973,17.2288066 C14.8071694,18.3312107 13.0960911,18.9932599 11.2307008,18.9932599 C6.96115262,18.9932599 3.5,15.5249756 3.5,11.24663 C3.5,6.96828437 6.96115262,3.5 11.2307008,3.5 Z M11.2307008,5.04932599 C7.81506225,5.04932599 5.04614015,7.82395349 5.04614015,11.24663 C5.04614015,14.6693064 7.81506225,17.4439339 11.2307008,17.4439339 C14.6463393,17.4439339 17.4152614,14.6693064 17.4152614,11.24663 C17.4152614,7.82395349 14.6463393,5.04932599 11.2307008,5.04932599 Z">
+                                <path xmlns="http://www.w3.org/2000/svg"
+                                      d="M11.2307008,3.5 C15.5002489,3.5 18.9614015,6.96828437 18.9614015,11.24663 C18.9614015,13.0978372 18.3133954,14.7973826 17.2322825,16.1299241 L20.2742127,19.178378 C20.5762688,19.4810023 20.5764739,19.9714482 20.2746708,20.2738195 C19.9728678,20.5761908 19.4833433,20.5759857 19.1812873,20.2733614 L19.1812873,20.2733614 L16.1426973,17.2288066 C14.8071694,18.3312107 13.0960911,18.9932599 11.2307008,18.9932599 C6.96115262,18.9932599 3.5,15.5249756 3.5,11.24663 C3.5,6.96828437 6.96115262,3.5 11.2307008,3.5 Z M11.2307008,5.04932599 C7.81506225,5.04932599 5.04614015,7.82395349 5.04614015,11.24663 C5.04614015,14.6693064 7.81506225,17.4439339 11.2307008,17.4439339 C14.6463393,17.4439339 17.4152614,14.6693064 17.4152614,11.24663 C17.4152614,7.82395349 14.6463393,5.04932599 11.2307008,5.04932599 Z">
                                 </path>
                             </svg>
                         </span>
@@ -94,6 +101,7 @@
             </div>
         </div>
     </div>
+
     <!-- 헤더와 바디 사이 공간 -->
     <div class="container-divider"></div>
 

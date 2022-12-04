@@ -11,12 +11,17 @@ import java.util.List;
 @Mapper
 public interface ReplyMapper {
 
-//    추가
+    //    추가
     public void insert(ReplyVO replyVO);
-//    수정
+    //    수정
     public void update(ReplyDTO replyDTO);
-//    삭제
+    //    삭제
     public void delete(Long replyNumber);
-//    조회
+    //    조회
     public ReplyDTO select(Long replyNumber);
+
+    // 마이페이지 회원 댓글 전체 조회
+    public List<ReplyDTO> selectMemberReplyAll(Long memberNumber);
+
+
 }

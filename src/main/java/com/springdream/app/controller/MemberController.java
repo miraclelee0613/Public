@@ -2,7 +2,10 @@ package com.springdream.app.controller;
 
 import com.springdream.app.domain.MemberVO;
 import com.springdream.app.mapper.MemberMapper;
+import com.springdream.app.repository.BoardDAO;
+import com.springdream.app.service.BoardService;
 import com.springdream.app.service.MainMemberService;
+import com.springdream.app.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +26,9 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
 
     private final MainMemberService memberService;
+    private final BoardService boardService;
+    private final ReplyService replyService;
+
 
     //    회원가입
     @GetMapping("/join")
@@ -114,65 +120,47 @@ public class MemberController {
             return "main/index";
         } else {
             int memberNumber = (Integer) session.getAttribute("memberNumber");
-//            MemberVO memberVO = boar
-//            model.addAttribute("memberVO",memberVO);
-            return "mypage/mypage_info";
+            MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
+            model.addAttribute("memberVO",memberVO);
+            return "mypage/mypage_boards.html";
         }
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
+    @PostMapping("/myboard")
+    public void popular(Model model, Long memberNumber) {
+        model.addAttribute("selectMemberBoardAll", boardService.showMemberBoardAll(memberNumber));
+    }
+
+
+
+
 
     //    마이페이지 나의 답글 목록
     @GetMapping("/myreply")
-    public String myreply() {
+    public String myreply(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        int memberNumber = (Integer) session.getAttribute("memberNumber");
+        MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
+        model.addAttribute("memberVO",memberVO);
         return "mypage/mypage_reply.html";
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
+    @PostMapping("/myreply")
+    public void popular(Long memberNumber, Model model) {
+        model.addAttribute("selectMemberReplyAll", replyService.showMemberReplyAll(memberNumber));
+    }
+
+
 
     //    마이페이지 내 포인트
     @GetMapping("/mypoints")
     public String mypoints() {
         return "mypage/mypage_points.html";
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
 
     //    마이페이지 충전내역 확인
     @GetMapping("/mycash")
     public String mycash() {
         return "mypage/mypage_cash.html";
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
 
 
 }

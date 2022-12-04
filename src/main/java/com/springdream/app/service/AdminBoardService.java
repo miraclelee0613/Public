@@ -38,6 +38,11 @@ public class AdminBoardService implements BoardService{
     }
 
     @Override
+    public List<BoardDTO> showMemberBoardAll(Long memberNumber) {
+        return null;
+    }
+
+    @Override
     public List<BoardDTO> showAll() {
         return boardDAO.findAll();
     }

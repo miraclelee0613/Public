@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="com.springdream.app.mapper.BoardMapper">
-<!-- 게시글 추가 -->
-<!--  keyProperty에 boardNumber를 가져와도 value값에서 똑같이 쓰는게 아니다  -->
-<!--  작성한 VO값에 덮어씌워지고 다시 불러와 insert문의 boardNumber값에 들어간다.  -->
+    <!-- 게시글 추가 -->
+    <!--  keyProperty에 boardNumber를 가져와도 value값에서 똑같이 쓰는게 아니다  -->
+    <!--  작성한 VO값에 덮어씌워지고 다시 불러와 insert문의 boardNumber값에 들어간다.  -->
     <insert id="insert">
         <selectKey keyProperty="boardNumber" order="BEFORE" resultType="long">
             SELECT SEQ_BOARD.NEXTVAL FROM DUAL
@@ -12,14 +12,14 @@
         VALUES(#{boardNumber},  #{boardCategory}, #{boardTitle}, #{boardContent}, #{boardReward}, #{memberNumber})
     </insert>
 
-<!--  게시글 수정  -->
+    <!--  게시글 수정  -->
     <update id="update" parameterType="boardDTO">
         UPDATE TBL_BOARD
         SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, BOARD_UPDATE_DATE = SYSDATE
         WHERE BOARD_NUMBER = #{boardNumber}
     </update>
 
-<!--  게시글 삭제  -->
+    <!--  게시글 삭제  -->
     <delete id="delete">
         DELETE FROM TBL_BOARD
         WHERE BOARD_NUMBER = #{boardNumber}
@@ -45,7 +45,7 @@
         ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
     </select>
 
-<!--  회원 게시글 전체 조회  -->
+    <!--  마이페이지 회원 게시글 전체 조회  -->
     <select id="selectMemberAll" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -76,18 +76,18 @@
         ORDER BY BOARD_VIEWCOUNT DESC
     </select>
 
-<!--&lt;!&ndash;    &lt;!&ndash;  최신글 조회  &ndash;&gt;&ndash;&gt;-->
-<!--    <select id="recentBoard" resultType="boardDTO">-->
-<!--        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,-->
-<!--        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,-->
-<!--        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK-->
-<!--        FROM TBL_BOARD b-->
-<!--        INNER JOIN TBL_MEMBER m-->
-<!--        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER-->
-<!--        ORDER BY BOARD_UPDATE_DATE DESC-->
-<!--    </select>-->
+    <!--&lt;!&ndash;    &lt;!&ndash;  최신글 조회  &ndash;&gt;&ndash;&gt;-->
+    <!--    <select id="recentBoard" resultType="boardDTO">-->
+    <!--        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,-->
+    <!--        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,-->
+    <!--        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK-->
+    <!--        FROM TBL_BOARD b-->
+    <!--        INNER JOIN TBL_MEMBER m-->
+    <!--        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER-->
+    <!--        ORDER BY BOARD_UPDATE_DATE DESC-->
+    <!--    </select>-->
 
-<!--  최신글 로우넘 정렬  -->
+    <!--  최신글 로우넘 정렬  -->
     <select id="recentBoard" resultType="boardDTO">
         SELECT D2.BOARD_NUMBER, D2.BOARD_TITLE, D2.BOARD_CONTENT, D2.BOARD_REWARD, D2.BOARD_CATEGORY,
         D2.BOARD_DATE, D2.BOARD_UPDATE_DATE, D2.BOARD_VIEWCOUNT, D2.MEMBER_NUMBER, m2.MEMBER_ID, m2.MEMBER_NAME, m2.MEMBER_RANK
@@ -114,7 +114,7 @@
     </select>
 
     <!--  카테고리별 조회  -->
-<!--  #{boardCategory}  -->
+    <!--  #{boardCategory}  -->
     <select id="categoryBoard" parameterType="String" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -125,7 +125,7 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-<!--   국어 -->
+    <!--   국어 -->
     <select id="koreanBoard" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -136,7 +136,7 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-<!--   수학 -->
+    <!--   수학 -->
     <select id="mathBoard" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -147,7 +147,7 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-<!--   영어 -->
+    <!--   영어 -->
     <select id="englishBoard" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -158,7 +158,7 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-<!--   사탐 -->
+    <!--   사탐 -->
     <select id="societyBoard" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -169,7 +169,7 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-<!--   과탐 -->
+    <!--   과탐 -->
     <select id="scienceBoard" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -180,7 +180,7 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-<!--   한국사 -->
+    <!--   한국사 -->
     <select id="historyBoard" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
@@ -191,7 +191,7 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-<!--   제2외국어 -->
+    <!--   제2외국어 -->
     <select id="foreignBoard" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
         b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,

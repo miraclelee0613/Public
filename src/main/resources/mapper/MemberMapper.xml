@@ -15,30 +15,30 @@
     <update id="update" parameterType="memberVO">
         UPDATE TBL_MEMBER
         <trim prefix="SET" suffixOverrides=",">
-        <if test="memberId != null and memberId != ''">
-        MEMBER_ID = #{memberId},
-        </if>
-        <if test="memberPw != null and memberPw != ''">
-        MEMBER_PW = #{memberPw},
-        </if>
-        <if test="memberEmail != null and memberEmail != ''">
-        MEMBER_EMAIL = #{memberEmail},
-        </if>
-        <if test="memberName != null and memberName != ''">
-        MEMBER_NAME = #{memberName},
-        </if>
-        <if test="memberNickname != null and memberNickname != ''">
-        MEMBER_NICKNAME = #{memberNickname},
-        </if>
-        <if test="memberMobile != null and memberMobile != ''">
-        MEMBER_MOBILE = #{memberMobile},
-        </if>
+            <if test="memberId != null and memberId != ''">
+                MEMBER_ID = #{memberId},
+            </if>
+            <if test="memberPw != null and memberPw != ''">
+                MEMBER_PW = #{memberPw},
+            </if>
+            <if test="memberEmail != null and memberEmail != ''">
+                MEMBER_EMAIL = #{memberEmail},
+            </if>
+            <if test="memberName != null and memberName != ''">
+                MEMBER_NAME = #{memberName},
+            </if>
+            <if test="memberNickname != null and memberNickname != ''">
+                MEMBER_NICKNAME = #{memberNickname},
+            </if>
+            <if test="memberMobile != null and memberMobile != ''">
+                MEMBER_MOBILE = #{memberMobile},
+            </if>
         </trim>
         WHERE MEMBER_NUMBER = #{memberNumber}
     </update>
-<!--    <if test="memberRank != null and memberRank != ''">-->
-<!--        MEMBER_RANK = #{memberRank}-->
-<!--    </if>-->
+    <!--    <if test="memberRank != null and memberRank != ''">-->
+    <!--        MEMBER_RANK = #{memberRank}-->
+    <!--    </if>-->
 
     <!--  회원삭제  -->
     <delete id="delete">
@@ -65,7 +65,7 @@
     <select id="selectAll" resultType="memberVO">
         SELECT MEMBER_NUMBER, MEMBER_NAME, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_MOBILE, MEMBER_RANK, MEMBER_STATUS FROM TBL_MEMBER
     </select>
-    
+
     <select id="selectRecent" parameterType="_int" resultType="memberVO">
         SELECT MEMBER_NUMBER, MEMBER_NAME, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_MOBILE, MEMBER_RANK, MEMBER_STATUS
         FROM (SELECT * FROM TBL_MEMBER ORDER BY MEMBER_NUMBER DESC)
@@ -83,24 +83,11 @@
     <!--  SELECT [GROUP BY 절에 지정된 컬럼1] [GROUP BY별로 집계할 값]
           FROM [테이블 명]
           GROUP BY [ 그룹으로 묶을 컬럼 값 ]  -->
-<!--    NVL(MAX(MEMBER_NUMBER||COUNT(1)), 0)-->
+    <!--    NVL(MAX(MEMBER_NUMBER||COUNT(1)), 0)-->
     <select id="login" parameterType="memberVO" resultType="_int">
 		SELECT NVL(MAX(MEMBER_NUMBER), 0) FROM TBL_MEMBER WHERE MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw} GROUP BY MEMBER_NUMBER
 	</select>
 
-    <!--  게시글 전체 조회  -->
-<!--    <select id="selectAll" resultType="boardDTO">-->
-<!--        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,-->
-<!--        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,-->
-<!--        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK-->
-<!--        FROM TBL_BOARD b-->
-<!--        INNER JOIN TBL_MEMBER m-->
-<!--        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER-->
-<!--        <if test="memberNumber != '' and memberNumber != null">-->
-<!--            WHERE b.MEMBER_NUMBER = #{memberNumber}-->
-<!--        </if>-->
-<!--    </select>-->
-    
 </mapper>
 
 

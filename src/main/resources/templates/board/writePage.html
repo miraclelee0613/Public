@@ -53,15 +53,18 @@
               <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'한국사'}" /> 한국사</div>
               <div class="field"><input th:field="*{boardCategory}" type="radio" name="subject" th:value="${'제2외국어'}" /> 제2외국어</div>
             </div>
+            <p id="alertMsg1">필수 입력사항 입니다.</p>
             <!-- 글 제목 -->
             <div class="write-title field">
               <label for=""> 제목 </label>
               <input th:field="*{boardTitle}" type="text" maxlength="20" placeholder="" />
+              <p id="alertMsg2">필수 입력사항 입니다.</p>
             </div>
             <!-- 글 내용-->
             <div class="write-content field">
               <label for=""> 설명 </label>
               <input th:field="*{boardContent}" type="text" maxlength="500" placeholder="" />
+              <p id="alertMsg3">필수 입력사항 입니다.</p>
             </div>
             <!-- 이미지 파일 -->
             <div class="write-title field">
@@ -93,6 +96,7 @@
   </body>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
+  <script type="text/javascript" th:src="@{/js/board/writePage.js}"></script>
   <script>
     $("input[type=submit]").on("click", function(e){
       alert("게시글이 등록되었습니다.");

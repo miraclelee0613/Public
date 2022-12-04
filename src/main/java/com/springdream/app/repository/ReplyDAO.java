@@ -22,4 +22,10 @@ public class ReplyDAO {
     public void delete(Long replyNumber) { replyMapper.delete(replyNumber); }
     //    답글 조회
     public ReplyDTO select(Long replyNumber) { return replyMapper.select(replyNumber); }
+
+    // 회원 댓글 전체 조회
+    public List<ReplyDTO> findMemberReplyAll(Long memberNumber) {
+        return replyMapper.selectMemberReplyAll(memberNumber);
+    }
+
 }

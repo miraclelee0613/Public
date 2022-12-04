@@ -28,6 +28,11 @@ public class BoardDAO {
     public BoardDTO findByBoard(Long boardNumber){
         return boardMapper.select(boardNumber);
     }
+
+    // 회원 게시글 전체 조회
+    public List<BoardDTO> findMemberBoardAll(Long memberNumber){
+        return boardMapper.selectMemberAll(memberNumber);}
+
     //    전체 조회
     public List<BoardDTO> findAll(){
         return boardMapper.selectAll();

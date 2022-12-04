@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,5 +69,10 @@ public class MainMemberService implements MemberService{
     //  로그인 성공 시 memberNumber, 실패 시 0 출력
     @Override
     public int login(MemberVO memberVO) { return memberDAO.login(memberVO); }
+
+    //    로그아웃
+    public void logout(HttpSession session) {
+        session.invalidate();
+    }
 
 }

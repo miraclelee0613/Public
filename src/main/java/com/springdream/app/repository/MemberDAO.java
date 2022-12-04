@@ -5,6 +5,7 @@ import com.springdream.app.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Repository
@@ -49,9 +50,9 @@ public class MemberDAO {
     public int login(MemberVO memberVO) {return memberMapper.login(memberVO);}
 
 
-//    로그아웃
+    //    로그아웃
+    public void logout(HttpSession session) {
 
-//    아이디 찾기
+    }
 
-//     비밀번호 찾기
 }

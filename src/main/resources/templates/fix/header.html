@@ -44,12 +44,26 @@
 <!--            <button class="css-button" id="button-logout" th:onclick="|location.href='@{/member/logout}'|">-->
 <!--                <span>로그아웃</span>-->
 <!--            </button>-->
-            <button class="css-button" id="button-login" th:onclick="|location.href='@{/member/login}'|">
-                <span>로그인</span>
-            </button>
-            <button class="css-button" id="button-join" th:onclick="|location.href='@{/member/join}'|">
-                <span>무료 회원가입</span>
-            </button>
+            <div th:if="${session.memberNumber != null}">
+                <button class="css-button" id="button-login" th:onclick="|location.href='@{/member/logout}'|">
+                    <span>로그아웃</span>
+                </button>
+            </div>
+            <div th:if="${session.memberNumber == null}">
+                <button class="css-button" id="button-login" th:onclick="|location.href='@{/member/login}'|">
+                    <span>로그인</span>
+                </button>
+            </div>
+            <div th:if="${session.memberNumber == null}">
+                <button class="css-button" id="button-join" th:onclick="|location.href='@{/member/join}'|">
+                    <span>무료 회원가입</span>
+                </button>
+            </div>
+            <div th:if="${session.memberNumber != null}">
+                <button class="css-button" id="button-join" th:onclick="|location.href='@{/member/myinfo}'|">
+                    <span>마이 페이지</span>
+                </button>
+            </div>
         </div>
     </div>
     <!-- 카테고리 -->

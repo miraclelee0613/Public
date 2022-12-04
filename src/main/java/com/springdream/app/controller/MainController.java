@@ -15,11 +15,7 @@ public class MainController {
 
     @GetMapping("index")
     public String index(Model model, HttpServletRequest request){
-        if(request.getSession().getAttribute("memberNumber") == null){
-            return "main/index";
-        } else {
-            model.addAttribute("loginOK", true);
-        }
+        model.addAttribute("memberNumber", request.getSession().getAttribute("memberNumber"));
         return "main/index";
     }
 

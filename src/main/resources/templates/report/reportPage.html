@@ -75,7 +75,7 @@
             <div class="page-title">게시글 신고하기</div>
         </h1>
 
-        <form id="new_request" class="request-form" th:action="@{/report}" th:object="${report}"
+        <form id="new_request" class="request-form" th:action="@{/report/submit(boardNumber=${boardNumber})}" th:object="${report}"
               accept-charset="UTF-8" method="post" onsubmit="return checkSubmit()">
             <input name="utf8" type="hidden" value="✓" autocomplete="off">
             <!-- <input type="hidden" name="authenticity_token" value=""> -->

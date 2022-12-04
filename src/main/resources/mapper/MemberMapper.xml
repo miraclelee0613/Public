@@ -81,11 +81,10 @@
     <!--  로그인 실패 시 0 출력  -->
     <!--  NVL(a, b) : 조회된 값 Null 이면 b 출력  -->
     <!--  SELECT [GROUP BY 절에 지정된 컬럼1] [GROUP BY별로 집계할 값]
-          FROM [테이블 명]
-          GROUP BY [ 그룹으로 묶을 컬럼 값 ]  -->
-    <!--    NVL(MAX(MEMBER_NUMBER||COUNT(1)), 0)-->
+          FROM [테이블 명] -->
+    <!--    NVL(MAX(MEMBER_NUMBER), 0)-->
     <select id="login" parameterType="memberVO" resultType="_int">
-		SELECT NVL(MAX(MEMBER_NUMBER), 0) FROM TBL_MEMBER WHERE MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw} GROUP BY MEMBER_NUMBER
+		SELECT NVL(MAX(MEMBER_NUMBER), 0) FROM TBL_MEMBER WHERE MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw}
 	</select>
 
 </mapper>

@@ -65,27 +65,36 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public RedirectView login(MemberVO memberVO, HttpServletRequest request) throws Exception {
+    public String login(String memberId, String memberPw, HttpServletRequest request, Model model) {
+        String url = "redirect:/main/index";
+
+        if(request.getSession().getAttribute("memberNumber") != null){
+            return url;
+        }
+
+        MemberVO memberVO = new MemberVO();
+        memberVO.setMemberId(memberId);
+        memberVO.setMemberPw(memberPw);
         int memberNumber = memberService.login(memberVO);
-        String url = "/main/index";
         // 로그인 실패
         if(memberNumber == 0){
+            model.addAttribute("loginFail", "로그인 실패. 아이디 혹은 비밀번호를 확인해주세요.");
             url = "/member/login";
         } else {
             // 로그인 성공
             HttpSession session = request.getSession();
             session.setAttribute("memberNumber", memberNumber);
         }
-        return new RedirectView(url);
+        return url;
     }
 
     //    로그아웃
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public ModelAndView logout(HttpServletRequest request){
         HttpSession session = request.getSession();
         session.removeAttribute("memberNumber");
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/member/login");
+        mav.setViewName("/main/index");
         mav.addObject("msg", "logout");
         return mav;
     }
@@ -95,16 +104,17 @@ public class MemberController {
     public String myinfo(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         if(session.getAttribute("memberNumber") == null){
-            return "main/index";
+            return "/main/index";
         } else {
             int memberNumber = (Integer) session.getAttribute("memberNumber");
             MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
             model.addAttribute("memberVO",memberVO);
-            return "mypage/mypage_info";
+            return "/mypage/mypage_info";
         }
     }
+
     @PostMapping("/myinfo")
-    public String myinfo(MemberVO memberVO, HttpServletRequest request) throws Exception {
+    public String myinfo(MemberVO memberVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         int memberNumber = (Integer) session.getAttribute("memberNumber");
         memberVO.setMemberNumber(Long.parseLong(String.valueOf(memberNumber)));
@@ -125,6 +135,7 @@ public class MemberController {
             return "mypage/mypage_boards.html";
         }
     }
+
     @PostMapping("/myboard")
     public void popular(Model model, Long memberNumber) {
         model.addAttribute("selectMemberBoardAll", boardService.showMemberBoardAll(memberNumber));

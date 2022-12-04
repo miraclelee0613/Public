@@ -12,7 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/mypage/my_info.css}">
 </head>
 <body>
-<header th:replace="/fix/header.html::.header"></header>
+<div th:insert="/fix/header :: header" class="header"></div>
 <main>
     <div class="main-view">
         <div class="view">
@@ -142,23 +142,5 @@
 </body>
 <script type="text/javascript" th:src="@{/js/mypage/mypage.js}"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script type="text/javascript">
-    let headerInput = document.querySelector(".css-input");
-    let inputWrapper = document.querySelector("#inputWrapper");
-
-    $('.header').load('../header_footer/header.html');
-
-    headerInput.addEventListener('focus', function () {
-        inputWrapper.style.width = '90%';
-        inputWrapper.style.borderColor = '#2e2e2e';
-    });
-
-    headerInput.addEventListener('focusout', function () {
-        inputWrapper.style.width = '65%';
-        inputWrapper.style.borderColor = 'transparent';
-    });
-</script>
-<script type="text/javascript" th:src="@{/js/main/main-banner-transition.js}"></script>
-<script type="text/javascript" th:src="@{/js/main/main-banner-typingEffect.js}"></script>
 <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
 </html>

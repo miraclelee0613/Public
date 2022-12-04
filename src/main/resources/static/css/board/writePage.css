@@ -115,7 +115,10 @@ input {
   outline: none;
   line-height: normal;
   transition: border 0.12s ease-in-out;
-  margin-bottom: 15px;
+}
+
+.form-title{
+  margin: 10px 0 10px 0;
 }
 
 /* 글 제목 */
@@ -147,6 +150,7 @@ label {
   width: 100%;
   color: #333333;
   font-weight: 400;
+  margin: 15px 0 15px 0;
 }
 
 .write-content textarea {
@@ -184,6 +188,7 @@ label {
   height: 200px;
   color: #333333;
   font-weight: 400;
+  margin: 15px 0 15px 0;
 }
 
 /* 첨부 파일 */
@@ -240,6 +245,7 @@ label {
   text-align: right;
   color: #333333;
   font-weight: 400;
+  margin: 15px 0 15px 0;
 }
 
 .point-deal p {
@@ -261,7 +267,6 @@ input[type="submit"] {
   color: #333333;
   font-size: 14px;
   font-weight: 400;
-  line-height: 2.72;
   min-width: 240px;
   padding: 10px 50px 10px 50px;
   width: 30%;

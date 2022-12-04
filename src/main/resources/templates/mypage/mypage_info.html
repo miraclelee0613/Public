@@ -12,7 +12,7 @@
     <link rel="stylesheet" th:href="@{/css/mypage/my_info.css}">
 </head>
 <body>
-<header th:replace="/fix/header.html::.header"></header>
+<div th:insert="/fix/header :: header" class="header"></div>
 <main>
     <div class="main-view">
         <div class="view">
@@ -22,11 +22,7 @@
                     <div class="profile-img">
                         <img th:src='@{/img/member/user_profile01.png}' alt="">
                     </div>
-                    <div class="username-wrapper">
-                        <a href="">
-                            테스트 유저네임1
-                        </a>
-                    </div>
+                    <div class="username-wrapper" th:text="${memberVO.memberId}"></div>
                     <div class="logout">
                         <button class="logout-btn" id="logout-btn" th:onclick="|location.href='@{/member/login}'|">로그아웃</button>
                     </div>
@@ -76,14 +72,12 @@
                 </div>
             </div>
             <div class="view-stage">
-                <form class="user-info" id="update-form" method="post">
+                <form class="user-info" id="update-form" method="post" th:object="${memberVO}">
                     <div>
                         <div class="myInfo-main">
-                            <div class="userId">
-                                테스트용 유저네임1
-                            </div>
+                            <div class="userId" th:text="*{memberNickname}"></div>
                             <div class="userRank">
-                                유저 등급 : 태양신
+                                <div th:if="*{memberRank} == 1">유저 등급 : 1등급</div>
                             </div>
                             <div class="changeprofile">
                                 <button
@@ -97,7 +91,7 @@
                         <div class="infos">
                             <span>아이디</span>
                             <div class="input">
-                                <input type="text" id="userId" placeholder="변경하실 아이디를 입력하세요." name="memberId">
+                                <input type="text" th:field="*{memberId}" id="userId" placeholder="변경하실 아이디를 입력하세요.">
                                 <ul class="warnings">
                                     <li>* 아이디는 영어, 숫자 등으로 이루어져야 합니다.</li>
                                     <li>* 아이디는 최대 12자를 넘어갈 수 없습니다.</li>
@@ -107,13 +101,13 @@
                         <div class="infos">
                             <span>비밀번호</span>
                             <div class="input">
-                                <input type="password" id="userPw" placeholder="변경하실 비밀번호를 입력하세요." name="memberPw">
+                                <input type="password" th:field="*{memberPw}" id="userPw" placeholder="변경하실 비밀번호를 입력하세요.">
                             </div>
                         </div>
                         <div class="infos">
                             <span>닉네임</span>
                             <div class="input">
-                                <input type="text" id="userNickname" placeholder="변경하실 닉네임을 입력하세요." name="memberNickname">
+                                <input type="text" th:field="*{memberNickname}" id="userNickname" placeholder="변경하실 닉네임을 입력하세요.">
                                 <ul class="warnings">
                                     <li>* 닉네임은 특수문자를 사용할 수 없습니다.</li>
                                     <li>* 회원 약관에 위배되는 닉네임을 사용하실 경우 경고 없이 닉네임이 변경될 수 있습니다.</li>
@@ -123,13 +117,13 @@
                         <div class="infos">
                             <span>이메일</span>
                             <div class="input">
-                                <input type="email" id="userEmail" placeholder="변경하실 이메일을 입력하세요." name="memberEmail">
+                                <input type="email" th:field="*{memberEmail}" id="userEmail" placeholder="변경하실 이메일을 입력하세요.">
                             </div>
                         </div>
                         <div class="infos">
                             <span>휴대전화</span>
                             <div class="input">
-                                <input type="text" id="userPhonenumber" placeholder="변경하실 휴대전화 번호를 입력하세요." name="memberMobile">
+                                <input type="text" th:field="*{memberMobile}" id="userPhonenumber" placeholder="변경하실 휴대전화 번호를 입력하세요.">
                             </div>
                         </div>
                     </div>
@@ -142,23 +136,5 @@
 </body>
 <script type="text/javascript" th:src="@{/js/mypage/mypage.js}"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script type="text/javascript">
-    let headerInput = document.querySelector(".css-input");
-    let inputWrapper = document.querySelector("#inputWrapper");
-
-    $('.header').load('../header_footer/header.html');
-
-    headerInput.addEventListener('focus', function () {
-        inputWrapper.style.width = '90%';
-        inputWrapper.style.borderColor = '#2e2e2e';
-    });
-
-    headerInput.addEventListener('focusout', function () {
-        inputWrapper.style.width = '65%';
-        inputWrapper.style.borderColor = 'transparent';
-    });
-</script>
-<script type="text/javascript" th:src="@{/js/main/main-banner-transition.js}"></script>
-<script type="text/javascript" th:src="@{/js/main/main-banner-typingEffect.js}"></script>
 <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
 </html>

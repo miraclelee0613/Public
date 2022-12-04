@@ -2,6 +2,7 @@ package com.springdream.app.service;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
+import com.springdream.app.repository.BoardDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
@@ -13,6 +14,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @Qualifier("admin")
 public class AdminBoardService implements BoardService{
+
+    private final BoardDAO boardDAO;
 
     @Override
     public void register(BoardVO boardVO) {
@@ -26,17 +29,22 @@ public class AdminBoardService implements BoardService{
 
     @Override
     public void remove(Long boardNumber) {
-
+        boardDAO.remove(boardNumber);
     }
 
     @Override
     public BoardDTO show(Long boardNumber) {
+        return boardDAO.findByBoard(boardNumber);
+    }
+
+    @Override
+    public List<BoardDTO> showMemberBoardAll(Long memberNumber) {
         return null;
     }
 
     @Override
     public List<BoardDTO> showAll() {
-        return null;
+        return boardDAO.findAll();
     }
 
     @Override
@@ -51,7 +59,7 @@ public class AdminBoardService implements BoardService{
 
     // 카테고리별 조회
     @Override
-    public List<BoardDTO> categoryPost(String category) { return null; }
+    public List<BoardDTO> categoryPost(String category) { return boardDAO.categoryPost(category); }
 
     public List<BoardDTO> koreanPost() {
         return null;

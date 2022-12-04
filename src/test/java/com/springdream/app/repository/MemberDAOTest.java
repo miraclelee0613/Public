@@ -24,6 +24,11 @@ class MemberDAOTest {
     }
 
     @Test
+    public void selectAllTest(){
+        log.info("select all : " + memberDAO.selectAll());
+    }
+
+    @Test
     public void joinTest() {
         MemberVO memberVO = new MemberVO();
         memberVO.create("ljs2345", "1234", "lsj1234@gmail.com", "이준상", "LJS19931", "01012342345", 1, 1);
@@ -34,7 +39,7 @@ class MemberDAOTest {
     public void loginTest(){
         MemberVO memberVO = new MemberVO();
         memberVO.setMemberId("msj4264");
-        memberVO.setMemberPw("1111");
+        memberVO.setMemberPw("11112");
         log.info("login : " + memberDAO.login(memberVO));
     }
 }

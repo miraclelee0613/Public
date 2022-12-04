@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/img/admin/customer-service.png" />
-    <link rel="stylesheet" th:href="@{/css/admin/adminPage-userlist.css}" />
+    <link rel="stylesheet" th:href="@{/css/admin/adminPage-report.css}" />
     <link rel="stylesheet" th:href="@{/css/admin/adminPage-interface.css}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,31 +66,26 @@
                         <table class="type03">
                             <thead>
                                 <tr>
-                                    <th scope="cols" class="total-name" style="min-width: 67px !important;">게시글 제목</th>
-                                    <th scope="cols">나이</th>
-                                    <th scope="cols" style="min-width: 67px !important;">아이디</th>
-                                    <!-- <th scope="cols" style="min-width: 130px !important;">전화 번호</th> -->
-                                    <th scope="cols">이메일</th>
-                                    <th scope="cols">가입 날짜</th>
-                                    <th scope="cols">마지막 정지 날짜</th>
-                                    <th scope="cols">신고<br>건수</th>
-                                    <th scope="cols">정지<br>여부</th>
-                                    <th scope="cols">정지</th>
+                                    <th scope="cols" class="total-name">회원 번호</th>
+                                    <th scope="cols">게시글 번호</th>
+                                    <th scope="cols">신고 유형</th>
+                                    <th scope="cols">신고 날짜</th>
+                                    <th scope="cols">신고제목</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">이준상</th>
-                                    <td>26</td>
-                                    <td>ljs1324</td>
-
-                                    <td>ljs1324@gmail.com</td>
-                                    <td>2022/10/25</td>
-                                    <td>2022/10/25</td>
-                                    <td>2</td>
-                                    <td>X</td>
-                                    <td><button class="secession">정지</button></td>
-                                </tr>
+                                <th:block th:each="report:${reports}">
+                                    <tr class="tBody" th:object="${report}">
+                                        <th scope="row"
+                                            th:onclick="|javascript:searchMember('*{memberNumber}', 'memberNumber')|"th:text="*{memberNumber}"></th>
+                                            <td class="boardNumber"
+                                                th:onclick="|javascript:searchBoard('*{boardNumber}', 'boardNumber')|" th:text="*{boardNumber}"></td>
+                                            <td th:text="*{reportType}"></td>
+                                            <td th:text="*{reportDate}"></td>
+                                            <td th:text="*{reportTitle}"></td>
+                                        </td>
+                                    </tr>
+                                </th:block>
                             </tbody>
                         </table>
                         <!-- 페이지 버튼 -->
@@ -127,6 +122,6 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<script src="../js/adminPage-main.js"></script>
+<script src="/js/admin/admin-report.js"></script>
 
 </html>

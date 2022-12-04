@@ -9,11 +9,11 @@
         VALUES(#{reportNumber}, #{reportTitle}, #{reportContent}, #{reportType}, #{memberNumber}, #{boardNumber})
     </insert>
     <select id="select" resultType="reportVO">
-        SELECT REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, REPORT_DATE, MEMBER_NUMBER
+        SELECT REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, REPORT_DATE, MEMBER_NUMBER, BOARD_NUMBER
         FROM TBL_REPORT WHERE REPORT_NUMBER = #{reportNumber}
     </select>
     <select id="selectAll" resultType="reportVO">
-        SELECT REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, REPORT_DATE, MEMBER_NUMBER
-        FROM TBL_REPORT
+        SELECT REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, REPORT_DATE, MEMBER_NUMBER, BOARD_NUMBER
+        FROM TBL_REPORT ORDER BY REPORT_DATE DESC 
     </select>
 </mapper>

@@ -2,6 +2,26 @@
     list-style: none;
 }
 
+div.title-box form{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.category-label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.submit{
+    margin-left: 20px;
+}
+
+.category-btn{
+    display: flex;
+    align-items: center;
+}
+
 .container {
     flex-grow: 1;
     margin: 0 auto;

@@ -1,8 +1,9 @@
 package com.springdream.app.controller;
 
+import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.MemberVO;
-import com.springdream.app.mapper.MemberMapper;
-import com.springdream.app.service.MainMemberService;
+import com.springdream.app.domain.ReplyDTO;
+import com.springdream.app.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,12 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,6 +21,9 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
 
     private final MainMemberService memberService;
+    private final MypageBoardService boardService;
+    private final MypageReplyService replyService;
+
 
     //    회원가입
     @GetMapping("/join")
@@ -59,27 +60,54 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public RedirectView login(MemberVO memberVO, HttpServletRequest request) throws Exception {
+    public String login(String memberId, String memberPw, HttpServletRequest request, HttpServletResponse response, Model model) {
+        String url = "redirect:/main/index";
+
+        if(request.getSession().getAttribute("memberNumber") != null){
+            return url;
+        }
+
+        MemberVO memberVO = new MemberVO();
+        memberVO.setMemberId(memberId);
+        memberVO.setMemberPw(memberPw);
         int memberNumber = memberService.login(memberVO);
-        String url = "/main/index";
         // 로그인 실패
         if(memberNumber == 0){
+            model.addAttribute("loginFail", "로그인 실패. 아이디 혹은 비밀번호를 확인해주세요.");
             url = "/member/login";
         } else {
             // 로그인 성공
             HttpSession session = request.getSession();
+            Cookie cookie = new Cookie("memberNumber", String.valueOf(memberNumber));
+            cookie.setMaxAge(60*60*6);
+            response.addCookie(cookie);
             session.setAttribute("memberNumber", memberNumber);
         }
-        return new RedirectView(url);
+        return url;
+    }
+
+    //    아이디/비밀번호 찾기
+    @GetMapping("/findId")
+    public String findId() { return "member/findId"; }
+
+    @PostMapping("/findId")
+    public String findId(String memberName, String memberMobile){
+        return "member/findId";
     }
 
     //    로그아웃
-    @PostMapping("/logout")
-    public ModelAndView logout(HttpSession session){
-        //memberService.logout(session);
+    @GetMapping("/logout")
+    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
         session.removeAttribute("memberNumber");
+
+        // 회원번호 쿠키 제거
+        Cookie cookie = new Cookie("memberNumber", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/member/login");
+        mav.setViewName("/main/index");
         mav.addObject("msg", "logout");
         return mav;
     }
@@ -88,13 +116,18 @@ public class MemberController {
     @GetMapping("/myinfo")
     public String myinfo(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
-        int memberNumber = (Integer) session.getAttribute("memberNumber");
-        MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
-        model.addAttribute("memberVO",memberVO);
-        return "mypage/mypage_info";
+        if(session.getAttribute("memberNumber") == null){
+            return "/main/index";
+        } else {
+            int memberNumber = (Integer) session.getAttribute("memberNumber");
+            MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
+            model.addAttribute("memberVO", memberVO);
+            return "/mypage/mypage_info";
+        }
     }
+
     @PostMapping("/myinfo")
-    public String myinfo(MemberVO memberVO, HttpServletRequest request) throws Exception {
+    public String myinfo(MemberVO memberVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         int memberNumber = (Integer) session.getAttribute("memberNumber");
         memberVO.setMemberNumber(Long.parseLong(String.valueOf(memberNumber)));
@@ -104,63 +137,54 @@ public class MemberController {
 
     //    마이페이지 나의 글 목록
     @GetMapping("/myboard")
-    public String myboard() {
-        return "mypage/mypage_boards.html";
+    public String myboard(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        if(session.getAttribute("memberNumber") == null){
+            return "main/index";
+        } else {
+            int memberNumber = (Integer) session.getAttribute("memberNumber");
+            MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
+            model.addAttribute("memberVO", memberVO);
+            List<BoardDTO> boards = boardService.showMemberBoardAll(Long.parseLong(String.valueOf(memberNumber)));
+            model.addAttribute("boards", boards);
+            return "mypage/mypage_boards.html";
+        }
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
+
+    @PostMapping("/myboard")
+    public void popular(Model model, Long memberNumber) {
+        model.addAttribute("selectMemberBoardAll", boardService.showMemberBoardAll(memberNumber));
+    }
 
     //    마이페이지 나의 답글 목록
     @GetMapping("/myreply")
-    public String myreply() {
+    public String myreply(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        int memberNumber = (Integer) session.getAttribute("memberNumber");
+        MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
+        model.addAttribute("memberVO",memberVO);
+        List<ReplyDTO> replies = replyService.showMemberReplyAll(Long.parseLong(String.valueOf(memberNumber)));
+        model.addAttribute("replies", replies);
         return "mypage/mypage_reply.html";
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
+    @PostMapping("/myreply")
+    public void popular(Long memberNumber, Model model) {
+        model.addAttribute("selectMemberReplyAll", replyService.showMemberReplyAll(memberNumber));
+    }
+
+
 
     //    마이페이지 내 포인트
     @GetMapping("/mypoints")
     public String mypoints() {
         return "mypage/mypage_points.html";
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
 
     //    마이페이지 충전내역 확인
     @GetMapping("/mycash")
     public String mycash() {
         return "mypage/mypage_cash.html";
     }
-//    @LogStatus
-//    @GetMapping("/list")
-//    public void list(Criteria criteria, Model model){
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 10);
-//        }
-//        model.addAttribute("boards", boardService.showAll(criteria));
-//        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
 
 
 }

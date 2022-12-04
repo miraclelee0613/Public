@@ -3,6 +3,8 @@ package com.springdream.app.controller;
 import com.springdream.app.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,8 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NoticeController {
     private final NoticeService noticeService;
 
-    @PostMapping("all")
+    @GetMapping("all")
     public String noticeAll() {
+        return "notice/notice-all.html";
+    }
+
+    @PostMapping("all")
+    public String noticeAll(Model model) {
         return "notice/notice-all.html";
     }
 

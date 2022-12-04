@@ -79,6 +79,10 @@ public class MemberController {
         return new RedirectView(url);
     }
 
+    //    아이디/비밀번호 찾기
+    @GetMapping("/findId")
+    public String findId() { return "member/findId"; }
+
     //    로그아웃
     @PostMapping("/logout")
     public ModelAndView logout(HttpServletRequest request){
@@ -129,10 +133,6 @@ public class MemberController {
     public void popular(Model model, Long memberNumber) {
         model.addAttribute("selectMemberBoardAll", boardService.showMemberBoardAll(memberNumber));
     }
-
-
-
-
 
     //    마이페이지 나의 답글 목록
     @GetMapping("/myreply")

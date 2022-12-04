@@ -1,12 +1,15 @@
 package com.springdream.app.controller;
 
 import com.springdream.app.domain.MemberVO;
+import com.springdream.app.mapper.MemberMapper;
 import com.springdream.app.service.MainMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -58,31 +61,46 @@ public class MemberController {
     @PostMapping("/login")
     public RedirectView login(MemberVO memberVO, HttpServletRequest request) throws Exception {
         int memberNumber = memberService.login(memberVO);
-
+        String url = "/main/index";
         // 로그인 실패
         if(memberNumber == 0){
-            return new RedirectView("/main/login");
+            url = "/member/login";
         } else {
             // 로그인 성공
             HttpSession session = request.getSession();
             session.setAttribute("memberNumber", memberNumber);
         }
-        return new RedirectView("/main/index");
+        return new RedirectView(url);
+    }
+
+    //    로그아웃
+    @PostMapping("/logout")
+    public ModelAndView logout(HttpSession session){
+        //memberService.logout(session);
+        session.removeAttribute("memberNumber");
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/member/login");
+        mav.addObject("msg", "logout");
+        return mav;
     }
 
     //    마이페이지 내 정보 수정
     @GetMapping("/myinfo")
-    public String myinfo() {
+    public String myinfo(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        int memberNumber = (Integer) session.getAttribute("memberNumber");
+        MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
+        model.addAttribute("memberVO",memberVO);
         return "mypage/mypage_info";
     }
-//    @LogStatus
-//    @PostMapping("/update")
-//    public RedirectView update(BoardDTO boardDTO, RedirectAttributes redirectAttributes){
-//        boardService.modify(boardDTO);
-//        redirectAttributes.addFlashAttribute("boardNumber", boardDTO.getBoardNumber());
-//        return new RedirectView("/board/read");
-//    }
-
+    @PostMapping("/myinfo")
+    public String myinfo(MemberVO memberVO, HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        int memberNumber = (Integer) session.getAttribute("memberNumber");
+        memberVO.setMemberNumber(Long.parseLong(String.valueOf(memberNumber)));
+        memberService.modify(memberVO);
+        return "mypage/mypage_info";
+    }
 
     //    마이페이지 나의 글 목록
     @GetMapping("/myboard")

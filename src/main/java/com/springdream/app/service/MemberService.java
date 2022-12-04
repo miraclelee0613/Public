@@ -3,6 +3,7 @@ package com.springdream.app.service;
 import com.springdream.app.domain.MemberVO;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -30,4 +31,7 @@ public interface MemberService {
     //  로그인
     //  로그인 성공 시 memberNumber, 실패 시 0 출력
     public int login(MemberVO memberVO);
+
+    //    로그아웃
+    public void logout(HttpSession session);
 }

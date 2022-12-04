@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,6 +85,12 @@ public class AdminMemberService implements MemberService{
     //  로그인 성공 시 memberNumber, 실패 시 0 출력
     @Override
     public int login(MemberVO memberVO) { return memberDAO.login(memberVO); }
+
+//    로그아웃
+    @Override
+    public void logout(HttpSession session) {
+        session.invalidate();
+    }
 
 
     private MemberDTO createMemberDTO(MemberVO memberVO){

@@ -54,7 +54,7 @@ public class AdminBoardService implements BoardService{
 
     // 카테고리별 조회
     @Override
-    public List<BoardDTO> categoryPost(String category) { return null; }
+    public List<BoardDTO> categoryPost(String category) { return boardDAO.categoryPost(category); }
 
     public List<BoardDTO> koreanPost() {
         return null;

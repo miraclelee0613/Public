@@ -5,6 +5,7 @@ import com.springdream.app.repository.ReportDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor @Qualifier("board")
+@RequiredArgsConstructor @Qualifier("board") @Primary
 public class BoardReportService implements ReportService{
 
     private final ReportDAO reportDAO;

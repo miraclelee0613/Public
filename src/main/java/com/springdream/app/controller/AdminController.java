@@ -2,10 +2,7 @@ package com.springdream.app.controller;
 
 import com.springdream.app.domain.MemberDTO;
 //import com.springdream.app.service.AdminReportService;
-import com.springdream.app.service.AdminBoardService;
-import com.springdream.app.service.BoardService;
-import com.springdream.app.service.AdminMemberService;
-import com.springdream.app.service.ReportService;
+import com.springdream.app.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,6 +25,7 @@ public class AdminController {
 
     private final AdminBoardService adminBoardService;
     private final AdminMemberService adminMemberService;
+    private final AdminReportService adminReportService;
 
 
     @GetMapping("main")
@@ -44,6 +42,24 @@ public class AdminController {
         model.addAttribute("members", adminMemberService.selectAllDTO());
         model.addAttribute("memberTotal", totalMemberCount);
         return "admin/adminPage-userlist";
+    }
+
+    @PostMapping("userlist")
+    public String searchMember(String memberNumber, Model model){
+        if (!memberNumber.equals("")) {
+            Long num = Long.parseLong(memberNumber);
+            int totalMemberCount = adminMemberService.selectAllDTO().size();
+            model.addAttribute("members", adminMemberService.selectDTO(num));
+            model.addAttribute("memberTotal", totalMemberCount);
+        }
+        else {
+            int totalMemberCount = adminMemberService.selectAllDTO().size();
+            model.addAttribute("members", adminMemberService.selectAllDTO());
+            model.addAttribute("memberTotal", totalMemberCount);
+        }
+
+        return "admin/adminPage-userlist";
+
     }
 
     @ResponseBody
@@ -67,8 +83,22 @@ public class AdminController {
         return "admin/adminPage-post";
     }
 
-    @PostMapping("boards")
-    public String searchBoards(String boardNumber, Model model){
+    @PostMapping("boards/search.category")
+    public String searchBoardByCategory(String boardCategory, Model model){
+
+        int totalBoardCount = adminBoardService.showAll().size();
+        if (!boardCategory.equals("")) {
+            model.addAttribute("boards", adminBoardService.categoryPost(boardCategory));
+
+        } else {
+            model.addAttribute("boards", null);
+        }
+        model.addAttribute("totalBoardCount", totalBoardCount);
+        return "admin/adminPage-post";
+    }
+
+    @PostMapping("boards/search.number")
+    public String searchBoardByNum(String boardNumber, Model model){
         if (!boardNumber.equals("")) {
             Long num = Long.parseLong(boardNumber);
             int totalBoardCount = adminBoardService.showAll().size();
@@ -92,7 +122,7 @@ public class AdminController {
 
     @GetMapping("report")
     public String report(Model model){
-//        model.addAttribute("reports", adminreportService.showAll());
+        model.addAttribute("reports", adminReportService.showAll());
         return "admin/adminPage-report";
     }
 }

@@ -35,12 +35,32 @@ public class AdminMemberService implements MemberService{
         memberDAO.quit(memberNumber);
     }
 
+    @Override
+    public MemberVO select(Long memberNumber) {
+        return null;
+    }
+
     //  회원삭제
     public void remove(Long memberNumber) { memberDAO.delete(memberNumber); }
 
     //  회원조회
-    public MemberVO select(Long memberNumber){
-        return memberDAO.select(memberNumber);
+    public MemberDTO selectDTO(Long memberNumber){
+
+        if(memberDAO.select(memberNumber) == null){
+            return null;
+        }
+
+        MemberDTO memberDTO = new MemberDTO();
+        MemberVO memberVO = memberDAO.select(memberNumber);
+        memberDTO.setMemberNumber(memberVO.getMemberNumber());
+        memberDTO.setMemberId(memberVO.getMemberId());
+        memberDTO.setMemberName(memberVO.getMemberName());
+        memberDTO.setMemberMobile(memberVO.getMemberMobile());
+        memberDTO.setMemberEmail(memberVO.getMemberEmail());
+        memberDTO.setMemberStatus(memberVO.getMemberStatus());
+        memberDTO.setMemberBoardCount(memberDAO.getBoardNum(memberVO.getMemberNumber()));
+
+        return memberDTO;
     }
 
     //  전체 회원조회

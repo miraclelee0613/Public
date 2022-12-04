@@ -8,8 +8,18 @@ div.title-box form{
     align-items: center;
 }
 
-div.title-box form input{
-    margin-right: 20px;
+.category-label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.submit{
+    margin-left: 20px;
+}
+
+.category-btn{
+    display: flex;
+    align-items: center;
 }
 
 .container {

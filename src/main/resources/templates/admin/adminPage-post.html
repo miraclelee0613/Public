@@ -56,9 +56,26 @@
                     <div class="title-box">
                         <h2>게시글 목록</h2>
                         <p th:text="${totalBoardCount}"></p>
-                        <form action="/admin/boards" method="post">
+                        <form action="/admin/boards/search.number" method="post">
                             <input name="boardNumber" type="text">
-                            <input type="submit" value="검색하기">
+                            <input class="submit" type="submit" value="검색하기">
+                        </form>
+                        <form action="/admin/boards/search.category" method="post">
+                            <input type="radio" id="kor" name="boardCategory" value="국어">
+                            <label for="kor" class="category-label">국어</label>
+                            <input type="radio" id="eng" name="boardCategory" value="영어">
+                            <label for="eng" class="category-label">영어</label>
+                            <input type="radio" id="math" name="boardCategory" value="수학">
+                            <label for="math" class="category-label">수학</label>
+                            <input type="radio" id="si" name="boardCategory" value="과탐">
+                            <label for="si" class="category-label">과탐</label>
+                            <input type="radio" id="so" name="boardCategory" value="사탐">
+                            <label for="so" class="category-label">사탐</label>
+                            <input type="radio" id="his" name="boardCategory" value="한국사">
+                            <label for="his" class="category-label">한국사</label>
+                            <input type="radio" id="for" name="boardCategory" value="제2외국어">
+                            <label for="for" class="category-label">제2 외국어</label>
+                            <input class="submit" type="submit" value="검색하기">
                         </form>
                     </div>
                     <div class="request-box">
@@ -78,18 +95,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <th:block th:each="board:${boards}">
-                                <tr class="tBody" th:object="${board}">
-                                    <th scope="row" th:text="*{memberId}"></th>
-                                    <td th:text="*{boardNumber}"></td>
-                                    <td th:text="*{boardDate}"></td>
-                                    <td th:text="*{boardUpdateDate}"></td>
-                                    <td th:text="*{boardViewcount}"></td>
-                                    <td><button class="secession"
-                                                th:onclick="|javascript:removeBoard('*{boardNumber}')|">삭제</button>
-                                    </td>
-                                </tr>
-                            </th:block>
+                                <th:block th:each="board:${boards}">
+                                    <tr class="tBody" th:object="${board}">
+                                        <th scope="row" th:text="*{memberId}"></th>
+                                        <td th:text="*{boardNumber}"></td>
+                                        <td th:text="*{boardDate}"></td>
+                                        <td th:text="*{boardUpdateDate}"></td>
+                                        <td th:text="*{boardViewcount}"></td>
+                                        <td><button class="secession"
+                                                    th:onclick="|javascript:removeBoard('*{boardNumber}')|">삭제</button>
+                                        </td>
+                                    </tr>
+                                </th:block>
                             </tbody>
                         </table>
                         <!-- 페이지 버튼 -->
@@ -127,5 +144,4 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="/js/admin/admin-post.js"></script>
-
 </html>

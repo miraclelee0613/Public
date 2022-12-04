@@ -70,6 +70,10 @@
           <div class="title-box">
             <h2>회원 목록</h2>
             <p th:text="${memberTotal}"></p>
+            <form action="/admin/userlist" method="post">
+              <input name="memberNumber" type="text">
+              <input type="submit" value="검색하기">
+            </form>
           </div>
           <div class="request-box">
             <!-- 테이블 -->

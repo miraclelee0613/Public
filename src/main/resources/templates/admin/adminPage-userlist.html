@@ -70,6 +70,10 @@
           <div class="title-box">
             <h2>회원 목록</h2>
             <p th:text="${memberTotal}"></p>
+            <form action="/admin/userlist" method="post">
+              <input name="memberNumber" type="text">
+              <input type="submit" value="검색하기">
+            </form>
           </div>
           <div class="request-box">
             <!-- 테이블 -->
@@ -80,8 +84,8 @@
                   <th scope="cols">아이디</th>
                   <th scope="cols">전화 번호</th>
                   <th scope="cols">이메일</th>
+                  <th scope="cols">회원상태</th>
                   <th scope="cols">질문 수</th>
-<!--                  <th scope="cols">답변 수</th>-->
                   <th scope="cols">삭제</th>
                   <th scope="cols">탈퇴</th>
                 </tr>
@@ -93,9 +97,19 @@
                     <td th:text="*{memberId}"></td>
                     <td th:text="*{memberMobile}"></td>
                     <td th:text="*{memberEmail}"></td>
+                    <td>
+                      <span th:if="*{memberStatus} == 1">일반회원</span>
+                      <span th:if="*{memberStatus} == 0">탈퇴회원</span>
+                      <span th:if="*{memberStatus} == 2">관리자회원</span>
+                    </td>
                     <td th:text="*{memberBoardCount}"></td>
-                    <td><button class="secession">삭제</button></td>
-                    <td><button class="secession">탈퇴</button></td>
+                    <td>
+                      <button class="secession"
+                              th:onclick="|javascript:removeMember('*{memberNumber}')|">삭제</button>
+                    </td>
+                    <td><button class="secession"
+                              th:onclick="|javascript:quitMember('*{memberNumber}')|">탈퇴</button>
+                    </td>
                   </tr>
                 </th:block>
               </tbody>
@@ -134,6 +148,6 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<script src="../js/adminPage-main.js"></script>
-<script
+<script src="/js/admin/admin-main.js"></script>
+<script src="/js/admin/admin-userlist.js"></script>
 </html>

@@ -18,7 +18,11 @@ class MemberServiceTest {
         MemberVO memberVO = new MemberVO();
         memberVO.create("anstjdwns1234", "1111", "msj1234@gmail.com",
                 "문성준", "문성준321", "01011111111", 1, 1);
-        memberService.register(memberVO);
+        for (int i = 0; i < 10; i++) {
+            String memberId = "deleteTestId" + i;
+            memberVO.setMemberId(memberId);
+            memberService.register(memberVO);
+        }
     }
 
     @Test

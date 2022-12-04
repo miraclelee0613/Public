@@ -1,6 +1,5 @@
 package com.springdream.app.repository;
 
-import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.ReplyDTO;
 import com.springdream.app.domain.ReplyVO;
 import com.springdream.app.mapper.ReplyMapper;
@@ -16,29 +15,17 @@ public class ReplyDAO {
     private final ReplyMapper replyMapper;
 
     //    답글 추가
-    public void insert(ReplyVO replyVO) {
-        replyMapper.insert(replyVO);
-    }
-
+    public void insert(ReplyVO replyVO) { replyMapper.insert(replyVO); }
     //    답글 수정
-    public void update(ReplyDTO replyDTO) {
-        replyMapper.update(replyDTO);
-    }
-
+    public void update(ReplyDTO replyDTO) { replyMapper.update(replyDTO); }
     //    답글 삭제
-    public void delete(Long replyNumber) {
-        replyMapper.delete(replyNumber);
-    }
-
+    public void delete(Long replyNumber) { replyMapper.delete(replyNumber); }
     //    답글 조회
-    public ReplyDTO select(Long replyNumber) {
-        return replyMapper.select(replyNumber);
-    }
+    public ReplyDTO select(Long replyNumber) { return replyMapper.select(replyNumber); }
 
-    // 마이페이지 회원 댓글 전체 조회
+    // 회원 댓글 전체 조회
     public List<ReplyDTO> findMemberReplyAll(Long memberNumber) {
         return replyMapper.selectMemberReplyAll(memberNumber);
     }
-    //    답글 채택
 
 }

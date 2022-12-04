@@ -17,6 +17,7 @@ public class MemberDAO {
     public void join(MemberVO memberVO){
         memberMapper.insert(memberVO);
     }
+
     //  정보 수정
     public void update(MemberVO memberVO){
         memberMapper.update(memberVO);
@@ -26,6 +27,9 @@ public class MemberDAO {
     public void quit(Long memberNumber){
         memberMapper.quit(memberNumber);
     }
+
+    //  회원삭제
+    public void delete(Long memberNumber) { memberMapper.delete(memberNumber); }
 
     //  회원조회
     public MemberVO select(Long memberNumber){
@@ -48,7 +52,6 @@ public class MemberDAO {
 
     //  로그인
     public int login(MemberVO memberVO) {return memberMapper.login(memberVO);}
-
 
     //    로그아웃
     public void logout(HttpSession session) {

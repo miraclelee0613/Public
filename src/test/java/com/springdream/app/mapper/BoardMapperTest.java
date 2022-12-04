@@ -31,6 +31,10 @@ public class BoardMapperTest {
         boardMapper.update(boardDTO);
     }
 
+    @Test void selectMemberAllTest(){
+        log.info("selectMemberAll : " + boardMapper.selectMemberAll(23L));
+    }
+
     //    게시글 조회 테스트
     @Test
     public void selectTest(){

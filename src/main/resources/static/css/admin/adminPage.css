@@ -2,6 +2,16 @@
     list-style: none;
 }
 
+div.title-box form{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+div.title-box form input{
+    margin-right: 20px;
+}
+
 .container {
     flex-grow: 1;
     margin: 0 auto;

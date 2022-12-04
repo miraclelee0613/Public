@@ -45,6 +45,16 @@
         ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
     </select>
 
+<!--  회원 게시글 전체 조회  -->
+    <select id="selectMemberAll" resultType="boardDTO">
+        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
+        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+        FROM TBL_BOARD b
+        INNER JOIN TBL_MEMBER m
+        ON b.MEMBER_NUMBER = #{memberNumber} AND b.MEMBER_NUMBER = m.MEMBER_NUMBER
+    </select>
+
     <!--  신고 제외한 전체 조회  -->
     <select id="selectUnreportAll" resultType="boardDTO">
         SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,

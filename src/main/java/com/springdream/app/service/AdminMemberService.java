@@ -35,6 +35,9 @@ public class AdminMemberService implements MemberService{
         memberDAO.quit(memberNumber);
     }
 
+    //  회원삭제
+    public void remove(Long memberNumber) { memberDAO.delete(memberNumber); }
+
     //  회원조회
     public MemberVO select(Long memberNumber){
         return memberDAO.select(memberNumber);
@@ -50,7 +53,15 @@ public class AdminMemberService implements MemberService{
     public List<MemberDTO> selectAllDTO(){
         List<MemberDTO> members = new ArrayList<>();
         memberDAO.selectAll().forEach(memberVO -> {
-            members.add(createMemberDTO(memberVO));
+            MemberDTO memberDTO = new MemberDTO();
+            memberDTO.setMemberNumber(memberVO.getMemberNumber());
+            memberDTO.setMemberId(memberVO.getMemberId());
+            memberDTO.setMemberName(memberVO.getMemberName());
+            memberDTO.setMemberMobile(memberVO.getMemberMobile());
+            memberDTO.setMemberEmail(memberVO.getMemberEmail());
+            memberDTO.setMemberStatus(memberVO.getMemberStatus());
+            memberDTO.setMemberBoardCount(memberDAO.getBoardNum(memberVO.getMemberNumber()));
+            members.add(memberDTO);
         });
         return members;
     }
@@ -65,6 +76,7 @@ public class AdminMemberService implements MemberService{
             memberDTO.setMemberName(memberVO.getMemberName());
             memberDTO.setMemberMobile(memberVO.getMemberMobile());
             memberDTO.setMemberEmail(memberVO.getMemberEmail());
+            memberDTO.setMemberStatus(memberVO.getMemberStatus());
             memberDTO.setMemberBoardCount(memberDAO.getBoardNum(memberVO.getMemberNumber()));
             members.add(memberDTO);
         });

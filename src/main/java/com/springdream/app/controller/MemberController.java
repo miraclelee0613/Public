@@ -75,8 +75,8 @@ public class MemberController {
 
     //    로그아웃
     @PostMapping("/logout")
-    public ModelAndView logout(HttpSession session){
-        //memberService.logout(session);
+    public ModelAndView logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
         session.removeAttribute("memberNumber");
         ModelAndView mav = new ModelAndView();
         mav.setViewName("/member/login");
@@ -88,10 +88,14 @@ public class MemberController {
     @GetMapping("/myinfo")
     public String myinfo(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
-        int memberNumber = (Integer) session.getAttribute("memberNumber");
-        MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
-        model.addAttribute("memberVO",memberVO);
-        return "mypage/mypage_info";
+        if(session.getAttribute("memberNumber") == null){
+            return "main/index";
+        } else {
+            int memberNumber = (Integer) session.getAttribute("memberNumber");
+            MemberVO memberVO = memberService.select(Long.parseLong(String.valueOf(memberNumber)));
+            model.addAttribute("memberVO",memberVO);
+            return "mypage/mypage_info";
+        }
     }
     @PostMapping("/myinfo")
     public String myinfo(MemberVO memberVO, HttpServletRequest request) throws Exception {
@@ -104,8 +108,16 @@ public class MemberController {
 
     //    마이페이지 나의 글 목록
     @GetMapping("/myboard")
-    public String myboard() {
-        return "mypage/mypage_boards.html";
+    public String myboard(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        if(session.getAttribute("memberNumber") == null){
+            return "main/index";
+        } else {
+            int memberNumber = (Integer) session.getAttribute("memberNumber");
+//            MemberVO memberVO = boar
+//            model.addAttribute("memberVO",memberVO);
+            return "mypage/mypage_info";
+        }
     }
 //    @LogStatus
 //    @GetMapping("/list")

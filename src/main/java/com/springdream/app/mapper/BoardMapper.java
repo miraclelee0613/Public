@@ -18,6 +18,9 @@ public interface BoardMapper {
 //    조회
     public BoardDTO select(Long boardNumber);
 
+    // 회원 게시글 전체 조회
+    public List<BoardDTO> selectMemberAll(Long memberNumber);
+
 //    신고 제외한 전체 조회
     public List<BoardDTO> selectUnreportAll();
 

@@ -26,8 +26,8 @@ public class BoardMapperTest {
     //    게시글 수정 테스트
     @Test
     public void updateTest(){
-        BoardDTO boardDTO = boardMapper.select(81L);
-        boardDTO.setBoardTitle("보드 매퍼테스트");
+        BoardDTO boardDTO = boardMapper.select(104L);
+        boardDTO.setBoardTitle("보드 수정 매퍼 테스트");
         boardMapper.update(boardDTO);
     }
 

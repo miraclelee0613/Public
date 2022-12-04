@@ -20,7 +20,7 @@
     </delete>
 
     <!--  조회  -->
-    <select id="select" resultType="replyDTO">
+    <select id="selectAll" resultType="replyDTO">
         SELECT D2.REPLY_NUMBER, D2.REPLY_TITLE, D2.REPLY_CONTENT, D2.REPLY_UPDATE_DATE, D2.MEMBER_NUMBER, D2.BOARD_NUMBER, m2.MEMBER_ID, m2.MEMBER_NAME, m2.MEMBER_RANK
         FROM
         (
@@ -39,8 +39,16 @@
         ) D2
         JOIN TBL_MEMBER m2
         ON D2.MEMBER_NUMBER = m2.MEMBER_NUMBER
-        WHERE R <![CDATA[>]]> 0
     </select>
+
+<!--    <select id="select" resultType="replyDTO">-->
+<!--        SELECT R.REPLY_NUMBER, R.REPLY_TITLE, R.REPLY_CONTENT, R.REPLY_UPDATE_DATE, R.REPLY_ADOPT, R.MEMBER_NUMBER, R.BOARD_NUMBER, M.MEMBER_ID, M.MEMBER_NAME, M.MEMBER_RANK FROM TBL_REPLY R-->
+<!--        INNER JOIN TBL_MEMBER M-->
+<!--        ON R.MEMBER_NUMBER = M.MEMBER_NUMBER-->
+<!--        WHERE REPLY_NUMBER = #{replyNumber}-->
+<!--    </select>-->
+
+    <!--  답글 채택 -->
 </mapper>
 
 

@@ -18,5 +18,6 @@ public interface ReplyMapper {
 //    삭제
     public void delete(Long replyNumber);
 //    조회
+    public List<ReplyDTO> selectAll(Long replyNumber);
     public ReplyDTO select(Long replyNumber);
 }

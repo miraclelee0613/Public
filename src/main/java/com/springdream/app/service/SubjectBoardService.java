@@ -32,6 +32,11 @@ public class SubjectBoardService implements BoardService{
     }
 
     @Override
+    public List<BoardDTO> showMemberBoardAll(Long memberNumber) {
+        return boardDAO.findMemberBoardAll(memberNumber);
+    }
+
+    @Override
     public BoardDTO show(Long boardNumber) {
         return boardDAO.findByBoard(boardNumber);
     }

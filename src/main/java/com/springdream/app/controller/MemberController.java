@@ -22,7 +22,7 @@ public class MemberController {
 
     private final MainMemberService memberService;
     private final MypageBoardService boardService;
-    private final MypageReplyService replyService;
+    private final MypageBoardReplyService replyService;
 
 
     //    회원가입

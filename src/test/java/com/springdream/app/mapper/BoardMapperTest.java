@@ -3,6 +3,7 @@ package com.springdream.app.mapper;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
+import com.springdream.app.domain.Criteria;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class BoardMapperTest {
     //    게시글 목록 전체 조회
     @Test
     public void selectAllTest(){
-        boardMapper.selectAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+        boardMapper.selectAll(new Criteria().create(1, 5)).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
 
     //    신고 안된사람 조회

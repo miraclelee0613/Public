@@ -17,7 +17,16 @@ public interface ReplyService {
     //    조회
     public ReplyDTO show(Long replyNumber);
 
+    // 전체조회
+    public List<ReplyDTO> showAll();
+
+    // 답글채택
+    public void adopt(ReplyDTO replyDTO);
+
     // 마이페이지 회원 게시글 전체 조회
     public List<ReplyDTO> showMemberReplyAll(Long memberNumber);
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> dd280059531fe48f83c7829ffe1dd9af756bd2e6

@@ -2,8 +2,10 @@ package com.springdream.app.service;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
+import com.springdream.app.domain.Criteria;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -21,28 +23,30 @@ public interface BoardService {
     public List<BoardDTO> showMemberBoardAll(Long memberNumber);
 
     //    전체 조회
-    public List<BoardDTO> showAll();
+    public List<BoardDTO> showAll(Criteria criteria);
     //    인기글 조회
-    public List<BoardDTO> popularPost();
+    public List<BoardDTO> popularPost(Criteria criteria);
     //    최신글 조회
-    public List<BoardDTO> recentPost();
+    public List<BoardDTO> recentPost(Criteria criteria);
     //    카테고리별 조회
     public List<BoardDTO> categoryPost(String category);
 
     ////    카테고리별 조회
 //    국어
-    public List<BoardDTO> koreanPost();
+    public List<BoardDTO> koreanPost(Criteria criteria);
     //    수학
-    public List<BoardDTO> mathPost();
+    public List<BoardDTO> mathPost(Criteria criteria);
     //    영어
-    public List<BoardDTO> englishPost();
+    public List<BoardDTO> englishPost(Criteria criteria);
     //    사탐
-    public List<BoardDTO> societyPost();
+    public List<BoardDTO> societyPost(Criteria criteria);
     //    과탐
-    public List<BoardDTO> sciencePost();
+    public List<BoardDTO> sciencePost(Criteria criteria);
     //    한국사
-    public List<BoardDTO> historyPost();
+    public List<BoardDTO> historyPost(Criteria criteria);
     //    제2외국어
-    public List<BoardDTO> foreignPost();
+    public List<BoardDTO> foreignPost(Criteria criteria);
 
+//    페이징 전체 개수
+    public int getTotal();
 }

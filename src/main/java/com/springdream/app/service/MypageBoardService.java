@@ -2,6 +2,7 @@ package com.springdream.app.service;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
+import com.springdream.app.domain.Criteria;
 import com.springdream.app.repository.BoardDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,17 +41,17 @@ public class MypageBoardService implements BoardService{
     }
 
     @Override
-    public List<BoardDTO> showAll() {
+    public List<BoardDTO> showAll(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> popularPost() {
+    public List<BoardDTO> popularPost(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> recentPost() {
+    public List<BoardDTO> recentPost(Criteria criteria) {
         return null;
     }
 
@@ -60,37 +61,44 @@ public class MypageBoardService implements BoardService{
     }
 
     @Override
-    public List<BoardDTO> koreanPost() {
+    public List<BoardDTO> koreanPost(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> mathPost() {
+    public List<BoardDTO> mathPost(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> englishPost() {
+    public List<BoardDTO> englishPost(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> societyPost() {
+    public List<BoardDTO> societyPost(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> sciencePost() {
+    public List<BoardDTO> sciencePost(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> historyPost() {
+    public List<BoardDTO> historyPost(Criteria criteria) {
         return null;
     }
 
     @Override
-    public List<BoardDTO> foreignPost() {
+    public List<BoardDTO> foreignPost(Criteria criteria) {
         return null;
     }
+
+    @Override
+    public int getTotal() {
+        return 0;
+    }
+
+
 }

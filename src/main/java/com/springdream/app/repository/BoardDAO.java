@@ -81,4 +81,10 @@ public class BoardDAO {
     public List<BoardDTO> foreignPost() {
         return boardMapper.foreignBoard();
     }
+
+//    페이징 처리
+    public int findCountAll(){
+        return boardMapper.getTotal();
+    }
+
 }

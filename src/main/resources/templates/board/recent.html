@@ -126,34 +126,48 @@
                 </th:block>
 
                 <!-- 메인 푸터 -->
-                <div class="main-footer">
-                    <ul class="page-list">
-                        <li class="page">
-                            <button class="page-button">
-                                <span class="page-num"> < </span>
-                            </button>
-                        </li>
-                        <li class="page">
-                            <button class="page-button selected">
-                                <span class="page-num"> 1 </span>
-                            </button>
-                        </li>
-                        <li class="page">
-                            <button class="page-button">
-                                <span class="page-num"> 2 </span>
-                            </button>
-                        </li>
-                        <li class="page">
-                            <button class="page-button">
-                                <span class="page-num"> 3 </span>
-                            </button>
-                        </li>
-                        <li class="page">
-                            <button class="page-button">
-                                <span class="page-num"> > </span>
-                            </button>
-                        </li>
-                    </ul>
+<!--                <div class="main-footer">-->
+<!--                    <ul class="page-list">-->
+<!--                        <li class="page">-->
+<!--                            <button class="page-button">-->
+<!--                                <span class="page-num"> < </span>-->
+<!--                            </button>-->
+<!--                        </li>-->
+<!--                        <li class="page">-->
+<!--                            <button class="page-button selected">-->
+<!--                                <span class="page-num"> 1 </span>-->
+<!--                            </button>-->
+<!--                        </li>-->
+<!--                        <li class="page">-->
+<!--                            <button class="page-button">-->
+<!--                                <span class="page-num"> 2 </span>-->
+<!--                            </button>-->
+<!--                        </li>-->
+<!--                        <li class="page">-->
+<!--                            <button class="page-button">-->
+<!--                                <span class="page-num"> 3 </span>-->
+<!--                            </button>-->
+<!--                        </li>-->
+<!--                        <li class="page">-->
+<!--                            <button class="page-button">-->
+<!--                                <span class="page-num"> > </span>-->
+<!--                            </button>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+                <div th:object="${pagination}">
+                    <div style="text-align: center">
+                        <a class="changePage" th:href="*{startPage - 1}" th:if="*{prev}"><code><</code></a>
+                        <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                            <a class="changePage" th:href="${page}" th:if="${pagination.criteria.page != page}"><code th:text="${page}"></code></a>
+                            <code th:unless="${pagination.criteria.page != page}" th:text="${page}"></code>
+                        </th:block>
+                        <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}"><code>></code></a>
+                    </div>
+                    <form th:action="@{/board/list}" th:object="${criteria}" name="pageForm">
+                        <input type="hidden" th:field="*{page}">
+                        <input type="hidden" th:field="*{amount}">
+                    </form>
                 </div>
             </section>
         </section>

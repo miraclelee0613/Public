@@ -106,13 +106,11 @@
             ) D1
             JOIN TBL_MEMBER m1
             ON D1.MEMBER_NUMBER = m1.MEMBER_NUMBER
-        <![CDATA[
-            WHERE ROWNUM <= ${page} * #{amount}
+            WHERE ROWNUM <![CDATA[<]]> 6
         ) D2
         JOIN TBL_MEMBER m2
         ON D2.MEMBER_NUMBER = m2.MEMBER_NUMBER
-        WHERE R > (#{page} - 1) * #{amount}
-        ]]>
+        WHERE R <![CDATA[>]]> 0
     </select>
 
     <!--  카테고리별 조회  -->
@@ -205,9 +203,6 @@
     </select>
 
 
-    <select id="getTotal" resultType="_int">
-        SELECT COUNT(BOARD_NUMBER) FROM TBL_BOARD
-    </select>
 </mapper>
 
 

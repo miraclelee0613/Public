@@ -2,7 +2,6 @@ package com.springdream.app.service;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
-import com.springdream.app.domain.Criteria;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,19 +40,19 @@ public class SubjectBoardServiceTest {
     //    게시글 목록 전체 조회
     @Test
     public void showAllTest(){
-        boardService.showAll(new Criteria().create(1, 5)).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+        boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
     
     //    인기글
     @Test
     public void popularPost(){
-        boardService.showAll(new Criteria()).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+        boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
     
     //    최신글
     @Test
     public void recentPost(){
-        boardService.showAll(new Criteria()).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+        boardService.showAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
     
     //    카테고리별

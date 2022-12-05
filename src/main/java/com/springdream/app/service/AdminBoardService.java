@@ -2,7 +2,6 @@ package com.springdream.app.service;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
-import com.springdream.app.domain.Criteria;
 import com.springdream.app.repository.BoardDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,17 +43,17 @@ public class AdminBoardService implements BoardService{
     }
 
     @Override
-    public List<BoardDTO> showAll(Criteria criteria) {
+    public List<BoardDTO> showAll() {
+        return boardDAO.findAll();
+    }
+
+    @Override
+    public List<BoardDTO> popularPost() {
         return null;
     }
 
     @Override
-    public List<BoardDTO> popularPost(Criteria criteria) {
-        return null;
-    }
-
-    @Override
-    public List<BoardDTO> recentPost(Criteria criteria) {
+    public List<BoardDTO> recentPost() {
         return null;
     }
 
@@ -62,43 +61,38 @@ public class AdminBoardService implements BoardService{
     @Override
     public List<BoardDTO> categoryPost(String category) { return boardDAO.categoryPost(category); }
 
-    @Override
-    public List<BoardDTO> koreanPost(Criteria criteria) {
+    public List<BoardDTO> koreanPost() {
         return null;
     }
 
     @Override
-    public List<BoardDTO> mathPost(Criteria criteria) {
+    public List<BoardDTO> mathPost() {
         return null;
     }
 
     @Override
-    public List<BoardDTO> englishPost(Criteria criteria) {
+    public List<BoardDTO> englishPost() {
         return null;
     }
 
     @Override
-    public List<BoardDTO> societyPost(Criteria criteria) {
+    public List<BoardDTO> societyPost() {
         return null;
     }
 
     @Override
-    public List<BoardDTO> sciencePost(Criteria criteria) {
+    public List<BoardDTO> sciencePost() {
         return null;
     }
 
     @Override
-    public List<BoardDTO> historyPost(Criteria criteria) {
+    public List<BoardDTO> historyPost() {
         return null;
     }
 
     @Override
-    public List<BoardDTO> foreignPost(Criteria criteria) {
+    public List<BoardDTO> foreignPost() {
         return null;
     }
 
-    @Override
-    public int getTotal() {
-        return 0;
-    }
 }

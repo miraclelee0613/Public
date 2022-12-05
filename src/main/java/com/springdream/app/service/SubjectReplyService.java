@@ -17,7 +17,7 @@ public class SubjectReplyService implements ReplyService {
 
     @Override
     public void register(ReplyVO replyVO) {
-        replyDAO.save(replyVO);
+        replyDAO.insert(replyVO);
     }
 
     @Override
@@ -33,16 +33,6 @@ public class SubjectReplyService implements ReplyService {
     @Override
     public ReplyDTO show(Long replyNumber) {
         return replyDAO.select(replyNumber);
-    }
-
-    @Override
-    public List<ReplyDTO> showAll() {
-        return null;
-    }
-
-    @Override
-    public void adopt(ReplyDTO replyDTO) {
-
     }
 
 

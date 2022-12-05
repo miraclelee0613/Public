@@ -14,6 +14,11 @@
     </select>
     <select id="selectAll" resultType="reportVO">
         SELECT REPORT_NUMBER, REPORT_TITLE, REPORT_CONTENT, REPORT_TYPE, REPORT_DATE, MEMBER_NUMBER, BOARD_NUMBER
-        FROM TBL_REPORT ORDER BY REPORT_DATE DESC 
+        FROM TBL_REPORT ORDER BY REPORT_DATE DESC
     </select>
+    <update id="updateAdopt" parameterType="replyDTO">
+        UPDATE TLB_REPLY
+        SET REPLY_ADOPT = #{replyAdopt}
+        WHERE REPLY_NUMBER = #{replyNumber}
+    </update>
 </mapper>

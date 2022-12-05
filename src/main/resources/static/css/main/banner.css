@@ -27,12 +27,13 @@ div.arrow {
     font-size: 3rem;
     width: 80px;
     height: 80px;
-    background-color: #0000002e;
+    /*background-color: #0000002e;*/
     cursor: pointer;
     border-radius: 50%;
     text-align: center;
     top: 43%;
     line-height: 72px;
+    color: gray;
 }
 
 div.next {
@@ -40,7 +41,6 @@ div.next {
 }
 
 div.prev {
-    z-index: 1;
     left: 5%;
 }
 

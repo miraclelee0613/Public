@@ -1,64 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d537247-57c8-49f2-9e60-3018ef452f2a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/member/checkId.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/springdream/app/service/MainMemberServiceTest.java" afterDir="false" />
+    <list default="true" id="adc448d4-621f-49ab-8dac-1e9fc96fca71" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/domain/PointVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/domain/PointVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/ChargeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/ChargeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/BoardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/PointMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/PointMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/BoardDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/BoardDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/MemberDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/MemberDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/PointDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/PointDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/PointService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/SubjectBoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/SubjectBoardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PointMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PointMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/member/join.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/member/join.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/member/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/member/join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/point/point-ranking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/point/point-ranking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/point/point.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/point/point.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/point/point.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/point/point.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/point/point-charge.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/point/point-charge.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/springdream/app/mapper/BoardMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/springdream/app/mapper/BoardMapperTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="Class" />
-        <option value="Interface" />
-        <option value="JavaScript File" />
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2IG6IkpkPmorxitj0jEXnK7I1UV" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2IUgT3KY5kr3b7Qjp4ZEwuvwtBC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -67,43 +34,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="restartRequiresConfirmation" value="false" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.springdream.app.service" />
-      <recent name="com.springdream.app.controller" />
-      <recent name="com.springdream.app.repository" />
-      <recent name="com.springdream.app.mapper" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\templates\mypage" />
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\templates\fix" />
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\static\css\support" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.springdream.app.domain" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\static\js\admin" />
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\mapper" />
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\static\js" />
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\static\css" />
-      <recent name="D:\JAVA07\spring\workspace\app\src\main\resources\static\img" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.springdream.app.service" />
-      <recent name="com.springdream.app.domain" />
-    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AppApplication">
-    <configuration name="BoardMapperTest.selectMemberAllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardMapperTest.selectByKeywordAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -113,62 +47,11 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.springdream.app.mapper" />
       <option name="MAIN_CLASS_NAME" value="com.springdream.app.mapper.BoardMapperTest" />
-      <option name="METHOD_NAME" value="selectMemberAllTest" />
+      <option name="METHOD_NAME" value="selectByKeywordAll" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="MainMemberServiceTest.checkId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.springdream.app.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.springdream.app.service" />
-      <option name="MAIN_CLASS_NAME" value="com.springdream.app.service.MainMemberServiceTest" />
-      <option name="METHOD_NAME" value="checkId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemberDAOTest.loginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.springdream.app.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.springdream.app.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.springdream.app.repository.MemberDAOTest" />
-      <option name="METHOD_NAME" value="loginTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemberServiceTest.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.springdream.app.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.springdream.app.service" />
-      <option name="MAIN_CLASS_NAME" value="com.springdream.app.service.MemberServiceTest" />
-      <option name="METHOD_NAME" value="login" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="point-ranking.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/point/point-ranking.html" useBuiltInWebServerPort="true">
-      <method v="2" />
     </configuration>
     <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="app" />
@@ -179,11 +62,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MainMemberServiceTest.checkId" />
-        <item itemvalue="JavaScript Debug.point-ranking.html" />
-        <item itemvalue="JUnit.MemberServiceTest.login" />
-        <item itemvalue="JUnit.MemberDAOTest.loginTest" />
-        <item itemvalue="JUnit.BoardMapperTest.selectMemberAllTest" />
+        <item itemvalue="JUnit.BoardMapperTest.selectByKeywordAll" />
       </list>
     </recent_temporary>
   </component>
@@ -192,189 +71,55 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8d537247-57c8-49f2-9e60-3018ef452f2a" name="Default Changelist" comment="" />
-      <created>1669795494626</created>
+      <changelist id="adc448d4-621f-49ab-8dac-1e9fc96fca71" name="Default Changelist" comment="" />
+      <created>1670241579923</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669795494626</updated>
-      <workItem from="1669795501033" duration="8974000" />
-      <workItem from="1669804700004" duration="1498000" />
-      <workItem from="1669808665775" duration="5110000" />
-      <workItem from="1669825240238" duration="3945000" />
-      <workItem from="1669829691968" duration="1203000" />
-      <workItem from="1669831243791" duration="5505000" />
-      <workItem from="1669837081330" duration="6000" />
-      <workItem from="1669880286035" duration="3526000" />
-      <workItem from="1669890094123" duration="910000" />
-      <workItem from="1669891056069" duration="8164000" />
-      <workItem from="1669906310305" duration="1863000" />
-      <workItem from="1669908633757" duration="2412000" />
-      <workItem from="1669911285593" duration="895000" />
-      <workItem from="1669912514660" duration="5254000" />
-      <workItem from="1669926937440" duration="5000" />
-      <workItem from="1669926967004" duration="104000" />
-      <workItem from="1669927097013" duration="22000" />
-      <workItem from="1669927194142" duration="2087000" />
-      <workItem from="1669975187759" duration="1086000" />
-      <workItem from="1669982705594" duration="1700000" />
-      <workItem from="1669984463330" duration="594000" />
-      <workItem from="1669985117438" duration="118000" />
-      <workItem from="1669988800438" duration="4582000" />
-      <workItem from="1670005524923" duration="213000" />
-      <workItem from="1670005835629" duration="88000" />
-      <workItem from="1670005957959" duration="2228000" />
-      <workItem from="1670063858487" duration="189000" />
-      <workItem from="1670064085659" duration="9704000" />
-      <workItem from="1670074161174" duration="540000" />
-      <workItem from="1670075046796" duration="710000" />
-      <workItem from="1670076035725" duration="7396000" />
-      <workItem from="1670083987249" duration="7271000" />
-      <workItem from="1670091409772" duration="495000" />
-      <workItem from="1670152579192" duration="47000" />
-      <workItem from="1670152663276" duration="637000" />
-      <workItem from="1670153360043" duration="13419000" />
-      <workItem from="1670167057459" duration="6205000" />
-      <workItem from="1670173521527" duration="796000" />
-      <workItem from="1670174525126" duration="6483000" />
-      <workItem from="1670181176957" duration="4967000" />
-      <workItem from="1670225905077" duration="2236000" />
-      <workItem from="1670228174705" duration="725000" />
-      <workItem from="1670228942191" duration="142000" />
-      <workItem from="1670231114276" duration="2630000" />
-      <workItem from="1670234301462" duration="1930000" />
-      <workItem from="1670237792804" duration="2436000" />
-      <workItem from="1670240657916" duration="631000" />
-      <workItem from="1670241358705" duration="1669000" />
-      <workItem from="1670243711030" duration="27000" />
-      <workItem from="1670243755231" duration="22000" />
-      <workItem from="1670244126365" duration="84000" />
-      <workItem from="1670244340779" duration="787000" />
-      <workItem from="1670255782031" duration="10358000" />
+      <updated>1670241579923</updated>
+      <workItem from="1670241588475" duration="298000" />
+      <workItem from="1670241922200" duration="1358000" />
+      <workItem from="1670247546730" duration="632000" />
+      <workItem from="1670251389885" duration="14555000" />
+      <workItem from="1670270490301" duration="177000" />
+      <workItem from="1670270707774" duration="948000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="763" y="319" key="#com.intellij.ide.util.MemberChooser" timestamp="1670239616717">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1670271347147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="763" y="319" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1670239616717" />
-    <state x="1017" y="430" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1670227683677" />
-    <state x="941" y="484" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1669809349121">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="941" y="484" key="#com.intellij.ide.util.PackageChooserDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1669809349121" />
-    <state x="753" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1670067579308">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="565" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1669892768880" />
-    <state x="753" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1670067579308" />
-    <state x="795" y="338" key="FileChooserDialogImpl" timestamp="1670244145872">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1670271347147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="795" y="338" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1670244145872" />
-    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1670159974842" />
-    <state width="2517" height="477" key="GridCell.Tab.0.bottom" timestamp="1670270199240">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1670271347147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132927" />
-    <state width="2517" height="477" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199240" />
-    <state width="2517" height="477" key="GridCell.Tab.0.center" timestamp="1670270199240">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1670271347147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132926" />
-    <state width="2517" height="477" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199240" />
-    <state width="2517" height="477" key="GridCell.Tab.0.left" timestamp="1670270199240">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1670271347147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132926" />
-    <state width="2517" height="477" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199240" />
-    <state width="2517" height="477" key="GridCell.Tab.0.right" timestamp="1670270199240">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1670271347147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132927" />
-    <state width="2517" height="477" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199240" />
-    <state width="2517" height="477" key="GridCell.Tab.1.bottom" timestamp="1670270199212">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1670271347147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132927" />
-    <state width="2517" height="477" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199212" />
-    <state width="2517" height="477" key="GridCell.Tab.1.center" timestamp="1670270199212">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
+    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1670271347147">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="335" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132927" />
-    <state width="2517" height="477" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199212" />
-    <state width="2517" height="477" key="GridCell.Tab.1.left" timestamp="1670270199212">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1877" height="335" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132927" />
-    <state width="2517" height="477" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199212" />
-    <state width="2517" height="477" key="GridCell.Tab.1.right" timestamp="1670270199212">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1877" height="335" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1670245132927" />
-    <state width="2517" height="477" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1670270199212" />
-    <state x="890" y="336" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1669990545832">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="890" y="336" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1669990545832" />
-    <state x="983" y="425" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1670264009230">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="737" y="257" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1669894252900" />
-    <state x="983" y="425" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1670264009230" />
-    <state x="936" y="330" key="run.anything.popup" timestamp="1670268890963">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="702" y="245" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1670242177924" />
-    <state x="936" y="330" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1670268890963" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1670071395154">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1670071395154" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/springdream/app/service/SubjectBoardServiceTest.java</url>
-          <line>27</line>
-          <properties class="com.springdream.app.service.SubjectBoardServiceTest" method="modifyTest">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/springdream/app/service/SubjectBoardServiceTest.java</url>
-          <line>35</line>
-          <properties class="com.springdream.app.service.SubjectBoardServiceTest" method="showTest">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/springdream/app/mapper/ReportMapperTest.java</url>
-          <line>18</line>
-          <properties class="com.springdream.app.mapper.ReportMapperTest" method="insert">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
   </component>
 </project>

@@ -53,5 +53,6 @@ public interface BoardMapper {
     //    제2외국어
     public List<BoardDTO> foreignBoard();
 
-
+    //    검색
+    public List<BoardDTO> selectByKeywordAll(String keyword);
 }

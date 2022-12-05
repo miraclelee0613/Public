@@ -19,35 +19,21 @@ import java.util.List;
 public class RankingController {
     private final PointRankingService pointRankingService;
 
-//    //  랭킹 리스트
-//    @GetMapping("/point-ranking")
-//    public void list(Criteria criteria, Model model) {
-//        if(criteria.getPage() == 0){
-//            criteria.create(1, 5);
-//        }
-//        model.addAttribute("points", pointService.list(criteria));
-////        model.addAttribute("pagination",new PageDTO().createPageDTO(criteria, boardService.getTotal()));
-//    }
-
-//    랭킹 리스트
-//    @PostMapping("/list")
-//    public RedirectView rankingListCtrl(PointVO pointVO){
-//        pointRankingService.rankingListService(pointVO);
-//        return new RedirectView("/point/point-ranking");
-//    }
-
-//    누적포인트 랭킹
+    //  누적포인트 랭킹
     @GetMapping("/point-ranking")
     public void totalPointRank(Model model){
         List<PointDTO> p = pointRankingService.rankingListService();
-        model.addAttribute("userRankInfo", p);
+        model.addAttribute("userPointRank", p);
     }
 
-//    채택 랭킹
-//    @GetMapping("/point-ranking")
-//    public void adoptCountRank(Model model){
-//        List<PointDTO> p = pointRankingService.
-//    }
+    //  답변 수 랭킹
+
+    //  채택 랭킹
+    @GetMapping("/adopt-ranking")
+    public void adoptCountRank(Model model){
+        List<PointDTO> p = pointRankingService.countAdoptService();
+        model.addAttribute("userAdoptRank", p);
+    }
 
 
 

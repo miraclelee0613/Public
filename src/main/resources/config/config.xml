@@ -12,5 +12,7 @@
         <typeAlias type="com.springdream.app.domain.ReplyVO" alias="replyVO"/>
         <typeAlias type="com.springdream.app.domain.ReplyDTO" alias="replyDTO"/>
         <typeAlias type="com.springdream.app.domain.ReportVO" alias="reportVO"/>
+        <typeAlias type="com.springdream.app.domain.NoticeVO" alias="noticeVO"/>
+        <typeAlias type="com.springdream.app.domain.NoticeDTO" alias="noticeDTO"/>
     </typeAliases>
 </configuration>

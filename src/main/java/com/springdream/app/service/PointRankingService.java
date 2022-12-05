@@ -1,5 +1,6 @@
 package com.springdream.app.service;
 
+import com.springdream.app.domain.PointDTO;
 import com.springdream.app.domain.PointVO;
 import com.springdream.app.repository.PointDAO;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +21,12 @@ public class PointRankingService {
 //    }
 
     //  포인트 랭킹 리스트
-    public List<PointVO> rankingListService(PointVO pointVO){
+    public List<PointDTO> rankingListService(){
         return pointDAO.findAllOrderByTotalPoint();
     }
 
+    //  채택 랭킹 리스트
+//    public List<PointDTO>
 }
 
 

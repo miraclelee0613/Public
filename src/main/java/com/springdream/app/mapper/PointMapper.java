@@ -1,7 +1,6 @@
 package com.springdream.app.mapper;
 
-import com.springdream.app.domain.Criteria;
-import com.springdream.app.domain.PointVO;
+import com.springdream.app.domain.PointDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -20,5 +19,5 @@ public interface PointMapper {
 //    public List<PointVO> rankList(Criteria criteria);
 
 //    포인트 기반 랭킹조회
-    public List<PointVO> rankingList();
+    public List<PointDTO> selectAllOrderByTotalPoint();
 }

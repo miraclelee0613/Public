@@ -1,7 +1,7 @@
 package com.springdream.app.repository;
 
 
-import com.springdream.app.domain.PointVO;
+import com.springdream.app.domain.PointDTO;
 import com.springdream.app.mapper.PointMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -23,10 +23,11 @@ public class PointDAO {
 //    }
 
 //    랭킹 리스트
-    public List<PointVO> findAllOrderByTotalPoint(){
-        return pointMapper.rankingList();
+    public List<PointDTO> findAllOrderByTotalPoint(){
+        return pointMapper.selectAllOrderByTotalPoint();
     }
 
+//    닉네임
 //    //    누적 포인트
 //    public PointVO totalPointById(Long memberNumber){
 //        return pointMapper.totalPoint(memberNumber);

@@ -1,6 +1,7 @@
 package com.springdream.app.service;
 
 import com.springdream.app.domain.Criteria;
+import com.springdream.app.domain.PointDTO;
 import com.springdream.app.domain.PointVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -25,12 +26,12 @@ class PointRankingServiceTest {
 //    }
 
     @Test
-    public List<PointVO> rankingListServiceTest(){
-        PointVO pointVO = new PointVO();
-        pointVO.setMemberNumber(22);
-        pointVO.setCurrentPoint(1002);
-        pointVO.setPointIndex(22);
-        pointVO.setTotalPoint(2002);
-        return pointRankingService.rankingListService(pointVO);
+    public List<PointDTO> rankingListServiceTest(){
+        PointDTO pointDTO = new PointDTO();
+        pointDTO.setMemberNumber(22);
+        pointDTO.setCurrentPoint(1002);
+        pointDTO.setPointIndex(22);
+        pointDTO.setTotalPoint(2002);
+        return pointRankingService.rankingListService();
     }
 }

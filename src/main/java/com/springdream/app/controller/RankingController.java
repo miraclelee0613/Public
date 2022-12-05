@@ -44,10 +44,10 @@ public class RankingController {
     }
 
 //    채택 랭킹
-    @GetMapping("/point-ranking")
-    public void adoptCountRank(Model model){
+//    @GetMapping("/point-ranking")
+//    public void adoptCountRank(Model model){
 //        List<PointDTO> p = pointRankingService.
-    }
+//    }
 
 
 

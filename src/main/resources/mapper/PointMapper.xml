@@ -33,24 +33,31 @@
         ]]>
     </select>
 
-    채택 수
+    <!--    채택 수-->
     <select id="selectAllOderByAdoptCount" resultType="pointDTO">
-        SELECT P.MEMBER_NUMBER, R.REPLY_ADOPT, M.MEMBER_NICKNAME
-        FROM
-        (
-            SELECT P.MEMBER_NUMBER, R.REPLY_ADOPT, M.MEMBER_NICKNAME
-            FROM
-            (
-                SELECT P.MEMBER_NUMBER, R.REPLY_ADOPT
-                FROM TBL_POINT P
-                    INNER JOIN TBL_REPLY R
-                    ON P.MEMBER_NUMBER = R.MEMBER_NUMBER
-                WHERE REPLY_ADOPT = 1
-            )
-                INNER JOIN TBL_MEMBER M
-                ON P.MEMBER_NUMBER = M.MEMBER_NUMBER
-        )
+        SELECT M.MEMBER_NUMBER, M.MEMBER_NICKNAME, COUNT(M.MEMBER_NUMBER)
+        FROM TBL_MEMBER M
+            INNER JOIN TBL_REPLY R
+            ON M.MEMBER_NUMBER, R.MEMBER_NUMBER
+        WHERE R.REPLY_ADOPT = 1
     </select>
+
+        <!--    채택 수-->
+<!--    <select id="selectAllOderByAdoptCount" resultType="pointDTO">-->
+<!--        SELECT M.MEMBER_NUMBER, R.REPLY_ADOPT, M.MEMBER_NICKNAME-->
+<!--        FROM-->
+<!--        (-->
+<!--            SELECT M.MEMBER_NUMBER, R.REPLY_ADOPT, M.MEMBER_NICKNAME-->
+<!--            FROM-->
+<!--            (-->
+<!--                SELECT COUNT(*) C, M.MEMBER_NUMBER, R.REPLY_ADOPT-->
+<!--                FROM TBL_MEMBER-->
+<!--                    INNER JOIN TBL_REPLY R-->
+<!--                    ON M.MEMBER_NUMBER = R.MEMBER_NUMBER-->
+<!--&#45;&#45;                 WHERE REPLY_ADOPT = 1-->
+<!--            )-->
+<!--        )-->
+<!--    </select>-->
 
 </mapper>
 

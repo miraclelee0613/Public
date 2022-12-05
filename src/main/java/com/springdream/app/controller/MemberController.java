@@ -2,18 +2,19 @@ package com.springdream.app.controller;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.MemberVO;
+import com.springdream.app.domain.PointVO;
 import com.springdream.app.domain.ReplyDTO;
 import com.springdream.app.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,6 +24,7 @@ public class MemberController {
     private final MainMemberService memberService;
     private final MypageBoardService boardService;
     private final MypageReplyService replyService;
+    private final PointService pointService;
 
 
     //    회원가입
@@ -30,28 +32,37 @@ public class MemberController {
     public String join() {
         return "member/join.html";
     }
+
     @PostMapping("/join")
-    public String join(MemberVO member) throws Exception {
+    public String join(MemberVO member) {
         memberService.register(member);
+
+        PointVO pointVO = new PointVO();
+        pointVO.setCurrentPoint(500L);
+        pointVO.setTotalPoint(500L);
+
+        int memberNumber = memberService.login(member);
+
+        pointVO.setMemberNumber(memberNumber);
+        pointService.insert(pointVO);
         return "member/login.html";
     }
 
-    //    아이디 중복 체크
-//    @PostMapping("/checkId")
-//    public String checkId(String memberId) throws Exception{
-//        memberService.checkId(memberId);
-//        return null;
-//    }
-//    @GetMapping("/checkId_sample")
-//    public void checkId_sample(MemberVO memberVO) throws JSONException {
-//
-//        //String resultVal = String.valueOf();
-//        //model.addAttribute("checkId", resultVal);
-//
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("checkId", memberService.checkId(memberVO.getMemberId()));
-//        //return resultVal;
-//    }
+    //  아이디 중복검사
+    @PostMapping("/checkId")
+    @ResponseBody
+    public Map<Object, Object> checkId(HttpServletRequest request) {
+
+        Map<Object, Object> resultMap = new HashMap<>();
+        String memberId = request.getParameter("memberId");
+        if(memberId.equals("")){
+            resultMap.put("count", -1);
+            return resultMap;
+        }
+
+        resultMap.put("count", memberService.checkId(memberId));
+        return resultMap;
+    }
 
     //    로그인
     @GetMapping("/login")

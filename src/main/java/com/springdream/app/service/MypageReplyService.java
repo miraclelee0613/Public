@@ -35,6 +35,16 @@ public class MypageReplyService implements ReplyService{
     }
 
     @Override
+    public List<ReplyDTO> showAll() {
+        return null;
+    }
+
+    @Override
+    public void adopt(ReplyDTO replyDTO) {
+
+    }
+
+    @Override
     public List<ReplyDTO> showMemberReplyAll(Long memberNumber) {
         return replyDAO.findMemberReplyAll(memberNumber);
     }

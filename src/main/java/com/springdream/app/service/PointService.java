@@ -16,14 +16,11 @@ import java.util.List;
 @RequiredArgsConstructor @Qualifier("point") @Primary
 public class PointService {
 
-    //  포인트 보유 리스트
-//    public List<PointVO> showCurrentPoint(Long memberNumber){
-//
-//    };
+    private final PointDAO pointDAO;
 
-    //
-
-
-
+    // 임시로 만듦
+    public void insert(PointVO pointVO){
+        pointDAO.insertPoint(pointVO);
+    }
 }
 

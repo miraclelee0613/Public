@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/charge")
+@RequestMapping("/charge/*")
 public class ChargeController {
+
+    @GetMapping("point")
+    public String charge(){
+        return "/point/point-charge";
+    }
 }

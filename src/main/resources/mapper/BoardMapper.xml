@@ -202,7 +202,15 @@
         ORDER BY BOARD_UPDATE_DATE DESC
     </select>
 
-
+    <select id="selectByKeywordAll" resultType="boardDTO">
+        SELECT b.BOARD_NUMBER, b.BOARD_TITLE, b.BOARD_CONTENT, b.BOARD_REWARD, b.BOARD_CATEGORY,
+        b.BOARD_DATE, b.BOARD_UPDATE_DATE, b.BOARD_VIEWCOUNT,
+        b.BOARD_ADOPT, b.BOARD_REPORT, b.MEMBER_NUMBER, m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_RANK
+        FROM TBL_BOARD b
+        INNER JOIN TBL_MEMBER m
+        ON b.MEMBER_NUMBER = m.MEMBER_NUMBER
+        WHERE b.BOARD_TITLE LIKE '%'||#{keyword}||'%' OR b.BOARD_CONTENT LIKE '%'||#{keyword}||'%'
+    </select>
 </mapper>
 
 

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/board/*")
@@ -28,13 +30,19 @@ public class BoardController {
 
     //    게시글 등록
     @GetMapping("/writePage")
-    public void write(Model model){
+    public String write(Model model, HttpServletRequest request){
+        if(request.getSession().getAttribute("memberNumber") == null){
+            return "redirect:/member/login";
+        }
         model.addAttribute("board", new BoardVO());
+
+        return "board/writePage";
     }
 
     @PostMapping("/writePage")
-    public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
-        boardVO.setMemberNumber(23L);
+    public RedirectView write(BoardVO boardVO, HttpServletRequest request, RedirectAttributes redirectAttributes){
+        Long memberNumber = Long.parseLong(request.getSession().getAttribute("memberNumber").toString());
+        boardVO.setMemberNumber(memberNumber);
         boardService.register(boardVO);
         redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());
         return new RedirectView("/board/boardMain");

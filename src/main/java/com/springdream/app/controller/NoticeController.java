@@ -14,18 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NoticeController {
     private final NoticeService noticeService;
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public String noticeAll() {
-        return "notice/notice-all.html";
+        return "/notice/notice-all";
     }
 
-    @PostMapping("all")
+    @PostMapping("/all")
     public String noticeAll(Model model) {
-        return "notice/notice-all.html";
+        return "notice/notice-all";
     }
 
-    @PostMapping("recent")
-    public String noticeRecent() {
-        return "notice/notice-recent.html";
+    @GetMapping("/recent")
+    public String noticeRecent(Long boardNumber, Model model){
+        model.addAttribute("notice", noticeService.show(boardNumber));
+        return "/notice/notice-recent";
     }
 }

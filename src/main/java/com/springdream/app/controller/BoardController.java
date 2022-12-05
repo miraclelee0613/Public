@@ -3,6 +3,7 @@ package com.springdream.app.controller;
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
 import com.springdream.app.service.BoardService;
+import com.springdream.app.service.SubjectBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/board/*")
 public class BoardController {
     private final BoardService boardService;
+    private final SubjectBoardService subjectBoardService;
 
 //    게시글 목록
     @GetMapping("/boardMain")
@@ -52,6 +54,7 @@ public class BoardController {
     @GetMapping("/page")
     public String read(Long boardNumber, Model model){
        String category = boardService.show(boardNumber).getBoardCategory();
+        subjectBoardService.addViewCount(boardNumber);
 //       model.addAttribute("replylist", replyService.showList());
        model.addAttribute("boardlist", boardService.categoryPost(category));
        model.addAttribute("board", boardService.show(boardNumber));

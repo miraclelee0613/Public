@@ -25,8 +25,8 @@ public class BoardDAOTest {
     //    게시글 수정 테스트
     @Test
     public void setBoardDTOTest(){
-        BoardDTO boardDTO = boardDAO.findByBoard(104L);
-        boardDTO.setBoardTitle("수정 다오 테스트");
+        BoardDTO boardDTO = boardDAO.findByBoard(1L);
+        boardDTO.setBoardTitle("수정된 게시글 제목3");
         boardDAO.setBoardDTO(boardDTO);
     }
 

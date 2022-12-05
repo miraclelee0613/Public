@@ -34,7 +34,7 @@ public class BoardController {
 
     @PostMapping("/writePage")
     public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
-        boardVO.setMemberNumber(41L);
+        boardVO.setMemberNumber(23L);
         boardService.register(boardVO);
         redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());
         return new RedirectView("/board/boardMain");
@@ -51,7 +51,7 @@ public class BoardController {
     }
 
 //    게시글 수정
-    @PostMapping("/modifyPage")
+    @PostMapping("/update")
     public RedirectView update(BoardDTO boardDTO, RedirectAttributes redirectAttributes){
         boardService.modify(boardDTO);
         redirectAttributes.addFlashAttribute("boardNumber", boardDTO.getBoardNumber());

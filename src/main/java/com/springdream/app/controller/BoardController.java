@@ -3,6 +3,7 @@ package com.springdream.app.controller;
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
 import com.springdream.app.service.BoardService;
+import com.springdream.app.service.SubjectBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/board/*")
 public class BoardController {
     private final BoardService boardService;
+    private final SubjectBoardService subjectBoardService;
 
 //    게시글 목록
     @GetMapping("/boardMain")
@@ -28,13 +33,19 @@ public class BoardController {
 
     //    게시글 등록
     @GetMapping("/writePage")
-    public void write(Model model){
+    public String write(Model model, HttpServletRequest request){
+        if(request.getSession().getAttribute("memberNumber") == null){
+            return "redirect:/member/login";
+        }
         model.addAttribute("board", new BoardVO());
+
+        return "board/writePage";
     }
 
     @PostMapping("/writePage")
-    public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
-        boardVO.setMemberNumber(23L);
+    public RedirectView write(BoardVO boardVO, HttpServletRequest request, RedirectAttributes redirectAttributes){
+        Long memberNumber = Long.parseLong(request.getSession().getAttribute("memberNumber").toString());
+        boardVO.setMemberNumber(memberNumber);
         boardService.register(boardVO);
         redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());
         return new RedirectView("/board/boardMain");
@@ -44,6 +55,7 @@ public class BoardController {
     @GetMapping("/page")
     public String read(Long boardNumber, Model model){
        String category = boardService.show(boardNumber).getBoardCategory();
+        subjectBoardService.addViewCount(boardNumber);
 //       model.addAttribute("replylist", replyService.showList());
        model.addAttribute("boardlist", boardService.categoryPost(category));
        model.addAttribute("board", boardService.show(boardNumber));

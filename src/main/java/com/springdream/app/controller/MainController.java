@@ -24,6 +24,7 @@ public class MainController {
         if(memberNumber != null){
             model.addAttribute("memberNumber", Integer.valueOf(memberNumber));
         }
+
         return "main/index";
     }
 

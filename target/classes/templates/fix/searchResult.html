@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/header.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/footer.css}'>
+    <link rel="stylesheet" type='text/css' media='screen' th:href="@{/css/fix/searchResult.css}">
+</head>
+<body>
+<!-- 헤더 -->
+<header th:replace="/fix/header.html::.header"></header>
+<!-- 메인 -->
+<main>
+    <!-- 배너 -->
+    <section class="main-banner">
+        <div class="banner">
+            <h1 class="banner-text"> 내가 모르는 것을
+                <br>
+                <span >질문해보세요!</span>
+            </h1>
+            <div>
+                <span class="banner-img">
+                    <img src="file_icon.png" alt="">
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="main-body">
+        <!-- 메인 헤더 -->
+        <div class="main-header">
+            <div class="main-header-content">
+                "*" 검색결과 : 총 *건
+            </div>
+        </div>
+        <!-- 글 리스트 -->
+        <section class="article-list">
+            <th:block th:each="board:${boards}">
+                <!-- 글 -->
+                <article class="article">
+                    <!-- 이미지 -->
+                    <span class="article-img">
+                    <img src="test1.png" alt="">
+                </span>
+                    <!-- 글 정보 -->
+                    <div class="article-main">
+                        <h2 class="article-title">국어 질문</h2>     <!-- 글 제목 -->
+                        <div class="article-contents">
+                            대성마이맥패스 샀는데 작년엔 유대종쌤 들었는데 뭔가 유대종쌤 독해법보단 구조독해하는게 잘 맞는 것 같아서요.
+                            <!--  -->
+                            이번엔 다른 선생님 들어보고싶은데 김승리쌤은 책이 너무 비싸서 김승리t,유대종t빼고 들어보려 합니다.
+                            <!--  -->
+                            김상훈 선생님 독서도 괜찮나요?
+                            <!--  -->
+                            파이널강의 때 대부분 독서문학 같이 다뤄주셔서 문학도 김상훈쌤 들으니까 독서도 같이 들어보려 합니다.
+                            <!--  -->
+                            나머지 대성인강중에 괜찮은 분들도 추천해주세요..
+                        </div>
+                        <!-- 글 내용 -->
+                        <div class="article-category">
+                            <div class="category">
+                                <div class="selected-category">국어</div>   <!-- 선택된 카테고리 -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 글 작성자 정보 -->
+                    <div class="article-user-info">
+                        <div class="user-info">
+                            <div class="info">
+                                <img src="user_info_icon.png" alt="" class="info-img">
+                                <p class="info-text">강민구</p>   <!-- 유저네임 -->
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="info">
+                                <img src="reward_icon.png" alt="" class="info-img">
+                                <p class="info-text">A+</p> <!-- 유저등급 -->
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="info">
+                                <img src="date_icon.png" alt="" class="info-img">
+                                <p class="info-text">22.09.13</p>    <!-- 게시글 날짜 -->
+                            </div>
+                        </div>
+                    </div>
+                </article>
+<!--                <tr class="tBody" th:object="${board}">-->
+<!--                    <td class="boardNumber" th:text="*{boardNumber}"></td>-->
+<!--                    <td class="boardTitle"><a class="read" th:text="*{boardTitle}" th:href="*{boardNumber}"></a></td>-->
+<!--                    <td class="boardWriter" th:text="*{boardWriter}"></td>-->
+<!--                    <td class="boardRegisterDate" th:text="*{boardRegisterDate}"></td>-->
+<!--                    <td class="boardUpdateDate" th:text="*{boardUpdateDate}"></td>-->
+<!--                </tr>-->
+            </th:block>
+            <!-- 페이징 처리 -->
+<!--            <div th:object="${pagination}">-->
+<!--                <div style="text-align: center">-->
+<!--                    <a class="changePage" th:href="*{startPage - 1}" th:if="*{prev}"><code><</code></a>-->
+<!--                    <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">-->
+<!--                        <a class="changePage" th:href="${page}" th:if="${pagination.criteria.page != page}"><code th:text="${page}"></code></a>-->
+<!--                        <code th:unless="${pagination.criteria.page != page}" th:text="${page}"></code>-->
+<!--                    </th:block>-->
+<!--                    <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}"><code>></code></a>-->
+<!--                </div>-->
+<!--                <form th:action="@{/board/list}" th:object="${criteria}" name="pageForm">-->
+<!--                    <input type="hidden" th:field="*{page}">-->
+<!--                    <input type="hidden" th:field="*{amount}">-->
+<!--                </form>-->
+<!--            </div>-->
+            <div class="main-footer">
+                <ul class="page-list">
+                    <li class="page">
+                        <button class="page-button">
+                            <span class="page-num"> < </span>
+                        </button>
+                    </li>
+                    <li class="page">
+                        <button class="page-button selected">
+                            <span class="page-num"> 1 </span>
+                        </button>
+                    </li>
+                    <li class="page">
+                        <button class="page-button">
+                            <span class="page-num"> 2 </span>
+                        </button>
+                    </li>
+                    <li class="page">
+                        <button class="page-button">
+                            <span class="page-num"> 3 </span>
+                        </button>
+                    </li>
+                    <li class="page">
+                        <button class="page-button">
+                            <span class="page-num"> > </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </section>
+</main>
+<!-- 푸터 -->
+<footer th:replace="/fix/footer.html::.footer"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</html>

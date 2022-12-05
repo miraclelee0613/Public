@@ -13,6 +13,8 @@ public interface BoardMapper {
     public void insert(BoardVO boardVO);
     //    수정
     public void update(BoardDTO boardDTO);
+    //    조회수 증가
+    public void addViewCount(Long boardNumber);
     //    삭제
     public void delete(Long boardNumber);
     //    조회

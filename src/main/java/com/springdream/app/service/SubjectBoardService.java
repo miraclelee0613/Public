@@ -90,4 +90,6 @@ public class SubjectBoardService implements BoardService{
         return boardDAO.foreignPost();
     }
 
+    public void addViewCount(Long boardNumber) { boardDAO.addViewCount(boardNumber); }
+
 }

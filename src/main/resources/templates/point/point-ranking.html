@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
@@ -164,7 +164,7 @@
           <!-- 랭킹 목록 -->
           <div class="ranking-wrapper">
             <!-- 누적 포인트 -->
-            <div class="ranking-content">
+            <div class="ranking-content" th:each="user: {userPointRank}">
               <div class="ranking-title">누적 포인트</div>
               <!-- 1등 유저 -->
               <div class="first-user">
@@ -178,14 +178,13 @@
                   </span>
                   <!-- 수치 -->
                   <div class="user-info">
-                    <p class="price" id="total-point-user1">*{totalPoint}</p>
+                    <p class="price" id="total-point-user1" th:text="${user.totalPoint}"></p>
                     <a href="#" class="user-name-a">
-                      <span class="user-name" id="user-name-1">*{memberId}</span>
+                      <span class="user-name" id="user-name-1" th:text="${user.memberNickname}"></span>
                     </a>
                   </div>
                  </article>
               </div>
-             <!-- 1등 외 유저들 -->
               <div class="top-user">
 
                 <!-- 2등 -->
@@ -199,13 +198,12 @@
                   </span>
                   <!-- 수치 -->
                   <div class="user-info">
-                    <p class="price" id="total-point-user2">*{totalPoint}</p>
+                    <p class="price" id="total-point-user2" th:text="${user.totalPoint}"></p>
                     <a href="#" class="user-name-a">
-                      <span class="user-name" id="user-name-2">*{memberId}</span>
+                      <span class="user-name" id="user-name-2" th:text="${user.memberNickname}"></span>
                     </a>
                   </div>
                 </article>
-
 
                 <!-- 3등 -->
                 <article class="after-user-content">
@@ -218,14 +216,12 @@
                   </span>
                   <!-- 수치 -->
                   <div class="user-info">
-                    <p class="price" id="total-point-user3">*{totalPoint}</p>
+                    <p class="price" id="total-point-user3" th:text="${user.totalPoint}"></p>
                     <a href="#" class="user-name-a">
-                      <span class="user-name" id="user-name-3">*{memberId}</span>
+                      <span class="user-name" id="user-name-3" th:text="${user.memberNickname}"></span>
                     </a>
                   </div>
                 </article>
-
-                <!-- 그 외 유저 -->
 
                 <!-- 4등 -->
                 <article class="after-user-content">
@@ -235,13 +231,12 @@
                   </span>
                   <!-- 수치 -->
                   <div class="user-info">
-                    <p class="price" id="total-point-user4">*{totalPoint}</p>
+                    <p class="price" id="total-point-user4" th:text="${user.totalPoint}"></p>
                     <a href="#" class="user-name-a">
-                      <span class="user-name" id="user-name-4">*{memberId}</span>
+                      <span class="user-name" id="user-name-4" th:text="${user.memberNickname}"></span>
                     </a>
                   </div>
                 </article>
-
 
                 <!-- 5등 -->
                 <article class="after-user-content">
@@ -251,9 +246,9 @@
                   </span>
                   <!-- 수치 -->
                   <div class="user-info">
-                    <p class="price" id="total-point-user5">*{totalPoint}</p>
+                    <p class="price" id="total-point-user5" th:text="${user.totalPoint}"></p>
                     <a href="#" class="user-name-a">
-                      <span class="user-name" id="user-name-5">*{memberId}</span>
+                      <span class="user-name" id="user-name-5" th:text="${user.memberNickname}"></span>
                     </a>
                   </div>
                 </article>
@@ -472,5 +467,5 @@
       </div>
     </div>
   </body>
-  <script src="../../header/header.js"></script>
+  <script src="../../static/js/fix/header.js"></script>
 </html>

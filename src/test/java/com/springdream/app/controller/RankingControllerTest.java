@@ -29,6 +29,6 @@ public class RankingControllerTest {
 
     @Test
     void rankingListCtrl() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("/ranking/list")).andReturn();
+        mockMvc.perform(MockMvcRequestBuilders.post("/ranking/point-rank")).andReturn();
     }
 }

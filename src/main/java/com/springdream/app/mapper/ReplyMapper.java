@@ -17,13 +17,14 @@ public interface ReplyMapper {
     public void update(ReplyDTO replyDTO);
     //    삭제
     public void delete(Long replyNumber);
-<<<<<<< HEAD
-//    조회
-    public List<ReplyDTO> selectAll(Long replyNumber);
-=======
     //    조회
->>>>>>> c06c7192fc0b3c9013a4d1f14b58f68685d8cad7
     public ReplyDTO select(Long replyNumber);
+
+    //    전체조회
+    public List<ReplyDTO> selectAll();
+
+    //  댓글 채택
+    public void updateAdopt(ReplyDTO replyDTO);
 
     // 마이페이지 회원 댓글 전체 조회
     public List<ReplyDTO> selectMemberReplyAll(Long memberNumber);

@@ -51,5 +51,6 @@ public interface BoardMapper {
     //    제2외국어
     public List<BoardDTO> foreignBoard();
 
-
+    //    페이징처리
+    public int getTotal();
 }

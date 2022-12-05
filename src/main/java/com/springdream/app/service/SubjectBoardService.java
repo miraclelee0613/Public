@@ -2,6 +2,7 @@ package com.springdream.app.service;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
+import com.springdream.app.domain.Criteria;
 import com.springdream.app.repository.BoardDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -42,18 +43,18 @@ public class SubjectBoardService implements BoardService{
     }
 
     @Override
-    public List<BoardDTO> showAll() {
-        return boardDAO.findUnreportAll();
+    public List<BoardDTO> showAll(Criteria criteria) {
+        return boardDAO.findUnreportAll(criteria);
     }
 
     @Override
-    public List<BoardDTO> popularPost() {
-        return boardDAO.popularPost();
+    public List<BoardDTO> popularPost(Criteria criteria) {
+        return boardDAO.popularPost(criteria);
     }
 
     @Override
-    public List<BoardDTO> recentPost() {
-        return boardDAO.recentPost();
+    public List<BoardDTO> recentPost(Criteria criteria) {
+        return boardDAO.recentPost(criteria);
     }
 
     @Override
@@ -62,32 +63,38 @@ public class SubjectBoardService implements BoardService{
     }
 
     @Override
-    public List<BoardDTO> koreanPost() {
-        return boardDAO.koreanPost();
+    public List<BoardDTO> koreanPost(Criteria criteria) {
+        return boardDAO.koreanPost(criteria);
     }
     @Override
-    public List<BoardDTO> mathPost() {
-        return boardDAO.mathPost();
+    public List<BoardDTO> mathPost(Criteria criteria) {
+        return boardDAO.mathPost(criteria);
     }
     @Override
-    public List<BoardDTO> englishPost() {
-        return boardDAO.englishPost();
+    public List<BoardDTO> englishPost(Criteria criteria) {
+        return boardDAO.englishPost(criteria);
     }
     @Override
-    public List<BoardDTO> societyPost() {
-        return boardDAO.societyPost();
+    public List<BoardDTO> societyPost(Criteria criteria) {
+        return boardDAO.societyPost(criteria);
     }
     @Override
-    public List<BoardDTO> sciencePost() {
-        return boardDAO.sciencePost();
+    public List<BoardDTO> sciencePost(Criteria criteria) {
+        return boardDAO.sciencePost(criteria);
     }
     @Override
-    public List<BoardDTO> historyPost() {
-        return boardDAO.historyPost();
+    public List<BoardDTO> historyPost(Criteria criteria) {
+        return boardDAO.historyPost(criteria);
     }
     @Override
-    public List<BoardDTO> foreignPost() {
-        return boardDAO.foreignPost();
+    public List<BoardDTO> foreignPost(Criteria criteria) {
+        return boardDAO.foreignPost(criteria);
+    }
+
+//    페이징 처리
+    @Override
+    public int getTotal() {
+        return boardDAO.findCountAll();
     }
 
 }

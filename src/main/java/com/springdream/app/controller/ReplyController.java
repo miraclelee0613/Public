@@ -1,28 +1,22 @@
 package com.springdream.app.controller;
 
-import com.springdream.app.domain.BoardDTO;
-import com.springdream.app.domain.BoardVO;
 import com.springdream.app.domain.ReplyDTO;
 import com.springdream.app.domain.ReplyVO;
-import com.springdream.app.service.ReplyService;
+import com.springdream.app.service.BoardReplyService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/reply/*")
 public class ReplyController {
-    private final ReplyService replyService;
+    private final BoardReplyService replyService;
 
 //    추가
 //    @PostMapping(value = "/new", consumes = "application/json", produces = "text/plain; charset=utf-8")

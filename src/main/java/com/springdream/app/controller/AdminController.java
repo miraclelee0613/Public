@@ -1,6 +1,5 @@
 package com.springdream.app.controller;
 
-import com.springdream.app.domain.Criteria;
 import com.springdream.app.domain.MemberDTO;
 //import com.springdream.app.service.AdminReportService;
 import com.springdream.app.service.*;

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class MypageBoardReplyService implements ReplyService {
+public class MypageReplyService implements ReplyService{
 
     private final ReplyDAO replyDAO;
 
@@ -32,16 +32,6 @@ public class MypageBoardReplyService implements ReplyService {
     @Override
     public ReplyDTO show(Long replyNumber) {
         return null;
-    }
-
-    @Override
-    public List<ReplyDTO> showAll() {
-        return null;
-    }
-
-    @Override
-    public void adopt(ReplyDTO replyDTO) {
-
     }
 
     @Override

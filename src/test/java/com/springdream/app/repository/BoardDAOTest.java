@@ -2,7 +2,6 @@ package com.springdream.app.repository;
 
 import com.springdream.app.domain.BoardDTO;
 import com.springdream.app.domain.BoardVO;
-import com.springdream.app.domain.Criteria;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,7 @@ public class BoardDAOTest {
     //    게시글 목록 전체 조회
     @Test
     public void findAllTest(){
-        boardDAO.findAll(new Criteria().create(1, 5)).stream().map(BoardDTO::getBoardTitle).forEach(log::info);
+        boardDAO.findAll().stream().map(BoardDTO::getBoardTitle).forEach(log::info);
     }
 
     //    신고 제외 전체 조회

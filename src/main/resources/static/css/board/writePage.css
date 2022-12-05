@@ -152,16 +152,6 @@ label {
   font-weight: 400;
   margin: 15px 0 15px 0;
 }
-
-.write-content textarea {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
-  width: 650px;
-  height: 200px;
-  color: #333333;
-  font-weight: 400;
-}
 /* 글 내용 */
 .write-content label {
   display: block;

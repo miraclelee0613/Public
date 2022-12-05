@@ -1,5 +1,6 @@
 package com.springdream.app.controller;
 
+<<<<<<< HEAD
 import com.springdream.app.domain.ReplyDTO;
 import com.springdream.app.domain.ReplyVO;
 import com.springdream.app.service.BoardReplyService;
@@ -11,11 +12,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+=======
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+>>>>>>> dd280059531fe48f83c7829ffe1dd9af756bd2e6
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/reply/*")
+@RequestMapping("/reply")
 public class ReplyController {
+<<<<<<< HEAD
     private final BoardReplyService replyService;
 
 //    추가
@@ -77,5 +84,6 @@ public class ReplyController {
         return new RedirectView("/board/page");
     }
 
+=======
+>>>>>>> dd280059531fe48f83c7829ffe1dd9af756bd2e6
 }
-

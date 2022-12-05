@@ -34,6 +34,7 @@ public class BoardController {
     model.addAttribute("board", new BoardVO());
   }
 
+<<<<<<< HEAD
   @PostMapping("/writePage")
   public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes) {
     boardVO.setMemberNumber(23L);
@@ -41,6 +42,15 @@ public class BoardController {
     redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());
     return new RedirectView("/board/boardMain");
   }
+=======
+    @PostMapping("/writePage")
+    public RedirectView write(BoardVO boardVO, RedirectAttributes redirectAttributes){
+        boardVO.setMemberNumber(23L);
+        boardService.register(boardVO);
+        redirectAttributes.addFlashAttribute("boardNumber", boardVO.getBoardNumber());
+        return new RedirectView("/board/boardMain");
+    }
+>>>>>>> dd280059531fe48f83c7829ffe1dd9af756bd2e6
 
   //    게시글 상세보기
   @GetMapping("/page")
@@ -52,6 +62,7 @@ public class BoardController {
     return "/board/page";
   }
 
+<<<<<<< HEAD
   //    게시글 수정
   @PostMapping("/update")
   public RedirectView update(BoardDTO boardDTO, RedirectAttributes redirectAttributes) {
@@ -59,6 +70,15 @@ public class BoardController {
     redirectAttributes.addFlashAttribute("boardNumber", boardDTO.getBoardNumber());
     return new RedirectView("/board/read");
   }
+=======
+//    게시글 수정
+    @PostMapping("/update")
+    public RedirectView update(BoardDTO boardDTO, RedirectAttributes redirectAttributes){
+        boardService.modify(boardDTO);
+        redirectAttributes.addFlashAttribute("boardNumber", boardDTO.getBoardNumber());
+        return new RedirectView("/board/read");
+    }
+>>>>>>> dd280059531fe48f83c7829ffe1dd9af756bd2e6
 
   //    게시글 삭제
   @GetMapping("/delete")

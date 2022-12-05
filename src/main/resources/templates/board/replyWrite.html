@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/board/writePage.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/header.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{/css/fix/footer.css}'>
+    <title>답글쓰기-스프링드림</title>
+  </head>
+  <body>
+    <!-- 헤더  -->
+    <div th:insert="/fix/header :: header" class="header"></div>
+    <!-- 글쓰기 페이지 -->
+    <main role="main">
+      <div class="container-divider"></div>
+      <div class="container">
+        <!-- 페이지 경로 -->
+        <nav class="sub-nav">
+          <ol class="page-order">
+            <li>
+              <a href="#">게시글 상세보기</a>
+            </li>
+            <li>
+              <a href="#">답글 쓰기</a>
+            </li>
+          </ol>
+        </nav>
+
+        <!-- 타이틀 -->
+        <h1>
+          <div class="page-title">답글 쓰기</div>
+          <div class="caution">
+            <a href="#">
+              <em>
+                <strong>[중요] 잘못된 답이나 허위 답변은 자제해주세요.</strong>
+              </em>
+            </a>
+          </div>
+        </h1>
+
+        <!-- 글쓰기 양식 -->
+        <div class="form">
+          <form id="new-write" class="write-form" method="post" th:action="@{/board/replyWrite}" th:object="${reply}">
+            <!-- 글 제목 -->
+            <div class="write-title field">
+              <label for=""> 제목 </label>
+              <input th:field="*{replyTitle}" type="text" maxlength="20" placeholder="" />
+            </div>
+            <!-- 글 내용-->
+            <div class="write-content field">
+              <label for=""> 설명 </label>
+              <textarea th:field="*{replyContent}" type="text" maxlength="500" placeholder="질문을 입력해주세요."></textarea>
+            </div>
+            <!-- 이미지 파일 -->
+            <div class="write-title field">
+              <label for=""> 문제 이미지 </label>
+              <div id="upload-drop" class="upload-drop">
+<!--                <input type="file" />-->
+                <span>
+                  <a>파일 추가</a>
+                  또는 파일을 여기로 드래그
+                </span>
+              </div>
+            </div>
+            <!-- 등록 버튼 -->
+            <footer>
+              <input type="submit" class="button" value="등록" />
+            </footer>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- 푸터 -->
+    <footer th:replace="/fix/footer.html::.footer"></footer>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script type="text/javascript" th:src="@{/js/fix/header.js}"></script>
+  <script>
+    $("input[type=submit]").on("click", function(e){
+      alert("답글이 등록되었습니다.");
+    });
+
+  </script>
+</html>

@@ -26,8 +26,8 @@ public class SubjectBoardServiceTest {
     //    게시글 수정 테스트
     @Test
     public void modifyTest(){
-        BoardDTO boardDTO = boardService.show(1L);
-        boardDTO.setBoardTitle("수정된 게시글 제목4");
+        BoardDTO boardDTO = boardService.show(104L);
+        boardDTO.setBoardTitle("수정 서비스 테스트");
         boardService.modify(boardDTO);
     }
 

@@ -26,9 +26,9 @@ public class ReplyMapperTest {
 
     @Test
     public void updateTest(){
-        ReplyDTO replyDTO = replyMapper.select(1L);
-        replyDTO.setReplyTitle("답글 매퍼 업데이트 테스트");
-        replyMapper.update(replyDTO);
+//        ReplyDTO replyDTO = replyMapper.selectAll();
+//        replyDTO.setReplyTitle("답글 매퍼 업데이트 테스트");
+//        replyMapper.update(replyDTO);
     }
 
     @Test

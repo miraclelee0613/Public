@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequiredArgsConstructor
@@ -14,18 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NoticeController {
     private final NoticeService noticeService;
 
-    @GetMapping("/all")
-    public String noticeAll() {
-        return "/notice/notice-all";
+
+    @GetMapping("/mainList")
+    public void noticeMain(Model model) {
+        model.addAttribute("notices", noticeService.showAll());
     }
 
-    @PostMapping("/all")
-    public String noticeAll(Model model) {
-        return "notice/notice-all";
-    }
-
-    @GetMapping("/recent")
+    //
+    @GetMapping("/pageList")
     public String noticeRecent(Long boardNumber, Model model){
+        model.addAttribute("notices", noticeService.showAll());
         model.addAttribute("notice", noticeService.show(boardNumber));
         return "/notice/notice-recent";
     }

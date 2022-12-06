@@ -2,9 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springdream.app.mapper.PointMapper">
 
+<!--    &lt;!&ndash;  회원가입  &ndash;&gt;-->
+<!--    <insert id="insert" parameterType="Long">-->
+<!--&#45;&#45;         SELECT M.MEMBER_NUMBER-->
+<!--    INSERT INTO TBL_POINT (MEMBER_NUMBER)-->
+<!--    VALUES (#{memberNumber})-->
+<!--    </insert>-->
+
+
     <!-- 개인 포인트 조회 -->
     <select id="select" resultType="pointVO">
-        SELECT POINT_INDEX, CURRENT_POINT, TOTAL_POINT, MEMBER_NUMBER
+        SELECT CURRENT_POINT, TOTAL_POINT, MEMBER_NUMBER
         FROM TBL_POINT
         WHERE MEMBER_NUMBER = #{memberNumber}
     </select>

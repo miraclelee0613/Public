@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
-@Qualifier("notice") @Primary
+@RequiredArgsConstructor @Qualifier("notice") @Primary
 public class NoticeService{
     private NoticeDAO noticeDAO;
 

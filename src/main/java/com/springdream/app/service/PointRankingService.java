@@ -27,6 +27,8 @@ public class PointRankingService {
 
     //  채택 랭킹 리스트
     public List<PointDTO> countAdoptService() { return pointDAO.findAllOrderByAdoptCount(); }
+
+    public List<PointDTO> countRepliesService() { return pointDAO.countReplies();    }
 }
 
 

@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 //  worker: Lee JunSang
-//  lastUpdate: 221201
+//  lastUpdate: 221206
 @Mapper
 public interface PointMapper {
     //  회원 가입
@@ -27,4 +27,6 @@ public interface PointMapper {
 
 //   insert
     public void insert(PointVO pointVO);
+
+    List<PointDTO> countReplies();
 }

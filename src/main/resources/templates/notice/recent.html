@@ -26,7 +26,7 @@
                 <a href="">공지사항</a>
             </li>
             <li title="전체 공지">
-                <a href="">전체 공지</a>
+                <a th:href="@{/notice/main}">전체 공지</a>
             </li>
             <li>공지 상세</li>
         </ol>
@@ -38,52 +38,32 @@
                 <h3 class="collapsible-sidebar-title sidenav-title">최근 소식</h3>
                 <!-- 최신 10개 띄우기 -->
                 <ul>
-<!--                    <th:block>-->
-                        <li>
-                            <a href="" class="sidenav-item current-article">
-                                <p class="sidenav-item-text">개인정보처리방침 개정 안내 (2021.11.19)</p>
+                    <th:block th:each="notice, i: ${notices}">
+                        <li th:if="${i.count <= 10}">
+                            <a th:href="@{/notice/recent(noticeNumber=${notice.noticeNumber})}" class="sidenav-item current-article">
+                                <p class="sidenav-item-text" th:text="${notice.noticeTitle}"></p>
                             </a>
                         </li>
-<!--                    </th:block>-->
+                    </th:block>
                 </ul>
-                <a href="" class="article-sidebar-item">더보기</a>
+<!--                <a href="" class="article-sidebar-item">더보기</a>-->
             </section>
         </section>
+
         <!-- 글 -->
         <article class="article">
+
             <!-- 글 제목 -->
             <header class="article-header">
-                <h1 class="article-title">개인정보처리방침 개정 안내 (2021.11.19)</h1>
+                <h1 class="article-title" th:text="${notice.noticeNumber} + '◾' + ${notice.noticeTitle}"></h1>
             </header>
+
             <!-- 글 내용 -->
             <section class="article-info">
                 <div class="article-content">
                     <div class="article-body">
                         <p>&nbsp;</p>
-                        <p class="wysiwyg-text-align-center">
-                            <span>안녕하세요, 크몽입니다.</span>
-                            <span>
-                                    <br>
-                                </span>
-                            <span>
-                                    <br>
-                                </span>
-                            <span>
-                                    크몽을 이용해주시는 회원님들께 감사드리며,
-                                </span>
-                            <span>
-                                    <br>
-                                </span>
-                            <span>
-                                    개인정보 처리방침이 아래와 같이 개정될 예정임을 사전 안내해 드립니다.
-                                </span>
-                            <span>
-                                    <br>
-                                </span>
-                            <span>
-                                    <br>
-                                </span>
-                            자세한 정보는 하단에 기재해드린 내용을 참고해주시기 바랍니다.
+                        <p class="wysiwyg-text-align-center" th:text="'◾ ' + ${notice.noticeContent}">
                         </p>
                         <p class="wysiwyg-text-align-center">
                             &nbsp;
@@ -92,13 +72,13 @@
                                 <span class="wysiwyg-color-oragne80">
                                     <strong>❚ </strong>
                                 </span>
-                            <span class="wysiwyg-color-balck">
+                                <span class="wysiwyg-color-balck">
                                     <strong>공지 일자</strong>
                                 </span>
                         </h3>
                         <p class="wysiwyg-text-align-left">
                             <strong>
-                                <span class="wysiwyg-font-size-large">　◾ 2021년 11월 12일 (금)</span>
+                                <span class="wysiwyg-font-size-large" th:text="'　◾ ' + ${notice.noticeDate}"></span>
                             </strong>
                         </p>
                         <p class="wysiwyg-text-align-left">&nbsp;</p>

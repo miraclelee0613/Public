@@ -23,8 +23,9 @@ public class NoticeController {
 
     //
     @GetMapping("/recent")
-    public void noticeRecent(Long boardNumber, Model model){
+    public String noticeRecent(Long noticeNumber, Model model){
         model.addAttribute("notices", noticeService.showAll());
-        model.addAttribute("notice", noticeService.show(boardNumber));
+        model.addAttribute("notice", noticeService.show(noticeNumber));
+        return "/notice/recent";
     }
 }

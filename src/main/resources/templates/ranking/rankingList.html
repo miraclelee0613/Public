@@ -235,88 +235,36 @@
 
                 <!-- 채택 수 -->
                 <div class="ranking-content">
+
                     <div class="ranking-title">채택 수</div>
                     <!-- 1등 유저 -->
-                    <div class="first-user">
-                        <article class="first-user-content">
-                            <!-- 메달 -->
-                            <span>
-                                <img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fdesktop%2Fpages%2Fmain%2Franking-01%403x.png&w=320&q=75">
-                            </span>
-                            <!-- 수치 -->
-                            <div class="user-info">
-                                <p class="price">20 번</p>
-                                <a href="#" class="user-name-a">
-                                    <span class="user-name">강민구</span>
-                                </a>
-                            </div>
-                        </article>
-                    </div>
-                    <!-- 1등 외 유저들 -->
-                    <div class="top-user">
-                        <!-- 2등 -->
-                        <article class="after-user-content">
-                            <!-- 메달 -->
-                            <span>
-                        <img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fdesktop%2Fpages%2Fmain%2Franking-02%403x.png&w=320&q=75"
-                             alt="2등"/>
-                    </span>
-                            <!-- 수치 -->
-                            <div class="user-info">
-                                <p class="price">17 번</p>
-                                <a href="#" class="user-name-a">
-                                    <span class="user-name">문성준</span>
-                                </a>
-                            </div>
-                        </article>
+                    <th:block th:each="adopt, i : ${adopts}">
+                        <div th:class="${i.count eq 1 ? 'first-user' : 'top-user' }">
+                            <article th:class="${i.count eq 1 ? 'first-user-content' : 'after-user-content'}">
 
-                        <!-- 3등 -->
-                        <article class="after-user-content">
-                            <!-- 메달 -->
-                            <span>
-                                <img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fdesktop%2Fpages%2Fmain%2Franking-03%403x.png&w=320&q=75"
-                                     alt="3등"/>
-                            </span>
-                            <!-- 수치 -->
-                            <div class="user-info">
-                                <p class="price">16 번</p>
-                                <a href="#" class="user-name-a">
-                                    <span class="user-name">문승현</span>
-                                </a>
-                            </div>
-                        </article>
+                                <!-- 메달 -->
+                                <span>
+                                    <img th:if="${i.count eq 1}"
+                                         src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fdesktop%2Fpages%2Fmain%2Franking-01%403x.png&w=320&q=75"
+                                         alt="1등">
+                                    <img th:if="${i.count eq 2}"
+                                         src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fdesktop%2Fpages%2Fmain%2Franking-02%403x.png&w=320&q=75"
+                                         alt="2등"/>
+                                    <img th:if="${i.count eq 3}"
+                                         src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fdesktop%2Fpages%2Fmain%2Franking-03%403x.png&w=320&q=75"
+                                         alt="3등"/>
+                                </span>
 
-                        <!-- 그 외 유저 -->
-                        <!-- 4등 -->
-                        <article class="after-user-content">
-                            <!-- 메달 -->
-                            <span>
-                    <p>4</p>
-                  </span>
-                            <!-- 수치 -->
-                            <div class="user-info">
-                                <p class="price">15 번</p>
-                                <a href="#" class="user-name-a">
-                                    <span class="user-name">김민지</span>
-                                </a>
-                            </div>
-                        </article>
-
-                        <!-- 5등 -->
-                        <article class="after-user-content">
-                            <!-- 메달 -->
-                            <span>
-                    <p>5</p>
-                  </span>
-                            <!-- 수치 -->
-                            <div class="user-info">
-                                <p class="price">13 번</p>
-                                <a href="#" class="user-name-a">
-                                    <span class="user-name">이준상</span>
-                                </a>
-                            </div>
-                        </article>
-                    </div>
+                                <!-- 수치 -->
+                                <div class="user-info">
+                                    <p class="price" th:text="${adopt.adopts} + '번'"></p>
+                                    <a href="#" class="user-name-a">
+                                        <span class="user-name" th:text="${adopt.memberNickname}"></span>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    </th:block>
                 </div>
 
             </div>

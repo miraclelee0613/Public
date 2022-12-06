@@ -24,4 +24,7 @@ public interface PointMapper {
 
 //    채택 수 기반 랭킹 조회
     public List<PointDTO> selectAllOderByAdoptCount();
+
+//   insert
+    public void insert(PointVO pointVO);
 }

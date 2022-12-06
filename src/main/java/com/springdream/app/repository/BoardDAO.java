@@ -29,6 +29,9 @@ public class BoardDAO {
         return boardMapper.select(boardNumber);
     }
 
+    //    조회수 증가
+    public void addViewCount(Long boardNumber) { boardMapper.addViewCount(boardNumber); }
+
     // 회원 게시글 전체 조회
     public List<BoardDTO> findMemberBoardAll(Long memberNumber){
         return boardMapper.selectMemberAll(memberNumber);}

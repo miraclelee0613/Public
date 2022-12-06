@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.springdream.app.mapper.NoticeMapper">
+
+    <select id="select" resultType="noticeDTO">
+        SELECT N.NOTICE_NUMBER, N.NOTICE_TITLE, N.NOTICE_CONTENT, N.NOTICE_DATE
+        FROM TBL_NOTICE N
+        WHERE N.NOTICE_NUMBER = #{noticeNumber}
+    </select>
+
+    <select id="selectAllOderByDate" resultType="noticeDTO">
+        SELECT N.NOTICE_NUMBER, N.NOTICE_TITLE, N.NOTICE_CONTENT, N.NOTICE_DATE
+        FROM TBL_NOTICE N
+        ORDER BY N.NOTICE_DATE
+    </select>
+
+
+
+
+</mapper>

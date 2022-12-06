@@ -26,24 +26,19 @@
   <component name="ChangeListManager">
     <list default="true" id="adc448d4-621f-49ab-8dac-1e9fc96fca71" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/RankingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/RankingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/domain/PointVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/domain/PointVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/PointMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/PointMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/PointDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/PointDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/PointRankingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/PointRankingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PointMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PointMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fix/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fix/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/point/point-ranking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/point/point-ranking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/controller/ChargeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/controller/ChargeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/controller/RankingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/controller/RankingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/domain/PointVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/domain/PointVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/repository/PointDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/repository/PointDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/service/PointRankingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/service/PointRankingService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,6 +50,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -91,7 +87,7 @@
     <configuration name="header.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/fix/header.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="notice-all.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/notice/notice-all.html" useBuiltInWebServerPort="true">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/main/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="point-charge.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/point/point-charge.html" useBuiltInWebServerPort="true">
@@ -110,10 +106,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.point-ranking.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.point-charge.html" />
         <item itemvalue="JavaScript Debug.header.html" />
         <item itemvalue="JUnit.RankingControllerTest.rankingListCtrl" />
-        <item itemvalue="JavaScript Debug.notice-all.html" />
       </list>
     </recent_temporary>
   </component>
@@ -134,7 +130,7 @@
       <workItem from="1670270490301" duration="177000" />
       <workItem from="1670270707774" duration="948000" />
       <workItem from="1670304590737" duration="5682000" />
-      <workItem from="1670325634084" duration="12784000" />
+      <workItem from="1670325634084" duration="16031000" />
     </task>
     <servers />
   </component>

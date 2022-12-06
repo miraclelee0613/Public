@@ -1,42 +1,34 @@
 package com.springdream.app.controller;
 
 import com.springdream.app.domain.PointDTO;
-import com.springdream.app.service.PointRankingService;
+import com.springdream.app.domain.RankingDTO;
+import com.springdream.app.service.RankingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/point/*")
+@RequestMapping("/ranking/*")
 public class RankingController {
-    private final PointRankingService pointRankingService;
+    private final RankingService rankingService;
 
     //  랭킹
-    @GetMapping("/point-ranking")
-    public void totalPointRank(Model model) {
-        List<PointDTO> points = pointRankingService.rankingListService();
+    @GetMapping("/rankingList")
+    public void totalRanking(Model model) {
+        List<RankingDTO> points = rankingService.rankingListService();
         model.addAttribute("points", points);
 
-        List<PointDTO> adopts = pointRankingService.countAdoptService();
+        List<RankingDTO> adopts = rankingService.countAdoptService();
         model.addAttribute("adopts", adopts);
 
-//        List<PointDTO> replies = pointRankingService.countRepliesService();
-//        model.addAttribute("replies", replies);
+        List<RankingDTO> replies = rankingService.countRepliesService();
+        model.addAttribute("replies", replies);
     }
-
-//    //  답변 수 랭킹
-//
-//    //  채택 랭킹
-//    @GetMapping("/adopt-ranking")
-//    public void adoptCountRank(Model model){
-//        List<PointDTO> p = pointRankingService.countAdoptService();
-//        model.addAttribute("userAdoptRank", p);
 }
 
 

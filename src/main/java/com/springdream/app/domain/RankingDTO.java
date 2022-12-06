@@ -1,16 +1,25 @@
 package com.springdream.app.domain;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
-//@NoArgsConstructor
 @RequiredArgsConstructor
-public class PointDTO {
+public class RankingDTO {
+    //  Ranking
+    private long adopts;
+    private long replies;
+
+    //  PK
+    private long memberNumber;
+
+    //  Point
     private long currentPoint;
     private long totalPoint;
-    private long memberNumber;
+
+    //  Member
+    private String memberNickname;
+
 }

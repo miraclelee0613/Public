@@ -26,7 +26,23 @@
   <component name="ChangeListManager">
     <list default="true" id="adc448d4-621f-49ab-8dac-1e9fc96fca71" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/controller/NoticeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/NoticeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/mapper/NoticeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/NoticeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/repository/NoticeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/springdream/app/service/NoticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/NoticeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/NoticeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/notice/notice.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/notice/notice.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notice/notice-all.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notice/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notice/notice-recent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notice/recent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ranking/rankingList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ranking/rankingList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/controller/NoticeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/controller/NoticeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/mapper/NoticeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/mapper/NoticeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/repository/NoticeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/repository/NoticeDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/springdream/app/service/NoticeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/springdream/app/service/NoticeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/NoticeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/NoticeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/notice/notice.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/notice/notice.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/notice/notice-all.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/notice/notice-recent.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +88,8 @@
       <recent name="C:\Users\mirac\Desktop\Project\Work\src\main\resources\templates\point" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.AppApplication">
-    <configuration name="RankingControllerTest.rankingListCtrl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JavaScript Debug.recent.html (1)">
+    <configuration name="NoticeControllerTest.noticeMainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
         <pattern>
@@ -82,23 +98,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.springdream.app.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.springdream.app.controller.RankingControllerTest" />
-      <option name="METHOD_NAME" value="rankingListCtrl" />
+      <option name="MAIN_CLASS_NAME" value="com.springdream.app.controller.NoticeControllerTest" />
+      <option name="METHOD_NAME" value="noticeMainTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="header.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/fix/header.html" useBuiltInWebServerPort="true">
+    <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/notice/main.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/main/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="point-charge.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/point/point-charge.html" useBuiltInWebServerPort="true">
+    <configuration name="page.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/board/page.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="rankingList.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/ranking/rankingList.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="recent.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/app/templates/notice/recent.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="AppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -110,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.recent.html (1)" />
+        <item itemvalue="JavaScript Debug.page.html" />
+        <item itemvalue="JavaScript Debug.main.html" />
+        <item itemvalue="JUnit.NoticeControllerTest.noticeMainTest" />
         <item itemvalue="JavaScript Debug.rankingList.html" />
-        <item itemvalue="JavaScript Debug.index.html" />
-        <item itemvalue="JavaScript Debug.point-charge.html" />
-        <item itemvalue="JavaScript Debug.header.html" />
-        <item itemvalue="JUnit.RankingControllerTest.rankingListCtrl" />
       </list>
     </recent_temporary>
   </component>
@@ -135,7 +151,7 @@
       <workItem from="1670270490301" duration="177000" />
       <workItem from="1670270707774" duration="948000" />
       <workItem from="1670304590737" duration="5682000" />
-      <workItem from="1670325634084" duration="18672000" />
+      <workItem from="1670325634084" duration="21937000" />
     </task>
     <servers />
   </component>
@@ -170,45 +186,45 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="690" y="262" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670332762019" />
-    <state width="1877" height="216" key="GridCell.Tab.0.bottom" timestamp="1670345699957">
+    <state width="1877" height="138" key="GridCell.Tab.0.bottom" timestamp="1670348797925">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.bottom/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699957" />
+    <state width="1877" height="138" key="GridCell.Tab.0.bottom/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797925" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
-    <state width="1877" height="216" key="GridCell.Tab.0.center" timestamp="1670345699956">
+    <state width="1877" height="138" key="GridCell.Tab.0.center" timestamp="1670348797924">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.center/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699956" />
+    <state width="1877" height="138" key="GridCell.Tab.0.center/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797924" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
-    <state width="1877" height="216" key="GridCell.Tab.0.left" timestamp="1670345699956">
+    <state width="1877" height="138" key="GridCell.Tab.0.left" timestamp="1670348797924">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.left/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699956" />
+    <state width="1877" height="138" key="GridCell.Tab.0.left/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797924" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
-    <state width="1877" height="216" key="GridCell.Tab.0.right" timestamp="1670345699956">
+    <state width="1877" height="138" key="GridCell.Tab.0.right" timestamp="1670348797924">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.0.right/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699956" />
+    <state width="1877" height="138" key="GridCell.Tab.0.right/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797924" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
-    <state width="1877" height="216" key="GridCell.Tab.1.bottom" timestamp="1670345699957">
+    <state width="1877" height="138" key="GridCell.Tab.1.bottom" timestamp="1670348797925">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.1.bottom/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699957" />
+    <state width="1877" height="138" key="GridCell.Tab.1.bottom/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797925" />
     <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
-    <state width="1877" height="216" key="GridCell.Tab.1.center" timestamp="1670345699957">
+    <state width="1877" height="138" key="GridCell.Tab.1.center" timestamp="1670348797925">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.1.center/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699957" />
+    <state width="1877" height="138" key="GridCell.Tab.1.center/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797925" />
     <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
-    <state width="1877" height="216" key="GridCell.Tab.1.left" timestamp="1670345699957">
+    <state width="1877" height="138" key="GridCell.Tab.1.left" timestamp="1670348797925">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.1.left/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699957" />
+    <state width="1877" height="138" key="GridCell.Tab.1.left/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797925" />
     <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
-    <state width="1877" height="216" key="GridCell.Tab.1.right" timestamp="1670345699957">
+    <state width="1877" height="138" key="GridCell.Tab.1.right" timestamp="1670348797925">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1877" height="216" key="GridCell.Tab.1.right/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670345699957" />
+    <state width="1877" height="138" key="GridCell.Tab.1.right/-1920.-8.1536.826/0.0.1920.1032@0.0.1920.1032" timestamp="1670348797925" />
     <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1670271347147" />
     <state width="1877" height="344" key="GridCell.Tab.2.bottom" timestamp="1670345365250">
       <screen x="0" y="0" width="1920" height="1032" />

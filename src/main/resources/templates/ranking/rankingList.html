@@ -11,12 +11,8 @@
             href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Sans+KR&display=swap"
             rel="stylesheet"
     />
-    <!--    <link rel="stylesheet" type="text/css" href="../../header/header.css" />-->
     <link rel="stylesheet" th:href="@{/css/fix/header.css}">
-
-    <!--    <link rel="stylesheet" href="../../footer/footer.css" />-->
     <link rel="stylesheet" th:href="@{/css/fix/footer.css}">
-
     <link rel="stylesheet" th:href="@{/css/point/rankingPage.css}">
     <!--    <link rel="stylesheet" href="../css/lankingPage.css" />-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -26,133 +22,7 @@
 </head>
 <body>
 <!-- 헤더 -->
-<!--    <div th:insert="~{/admin/adminPage-sider :: sider}"></div>-->
-
-<div class="css-header header">
-    <div class="css-header-main">
-        <!-- 로고 -->
-        <a href="" class="css-logo">
-            <div class="css-logo-img">
-                <img src="../../header/header_logo.png" alt=""/>
-            </div>
-        </a>
-        <div style="flex-grow: 1"></div>
-        <!-- 검색바 -->
-        <form action="" class="css-search">
-            <div class="css-input-wrapper" id="inputWrapper">
-                <input
-                        class="css-input"
-                        id="input"
-                        placeholder="서비스, 전문가를 검색해 보세요"
-                        maxlength="15"
-                        autocomplete="off"
-                        autocorrect="off"
-                        autocapitalize="off"
-                        type="text"
-                />
-                <div class="suffix-wrapper">
-              <span role="img" rotate="0" class="css-aah4od e181xm9y1">
-                <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        focusable="false"
-                        preserveAspectRatio="xMidYMid meet"
-                        class="css-7kp13n e181xm9y0"
-                >
-                  <path
-                          xmlns="http://www.w3.org/2000/svg"
-                          d="M11.2307008,3.5 C15.5002489,3.5 18.9614015,6.96828437 18.9614015,11.24663 C18.9614015,13.0978372 18.3133954,14.7973826 17.2322825,16.1299241 L20.2742127,19.178378 C20.5762688,19.4810023 20.5764739,19.9714482 20.2746708,20.2738195 C19.9728678,20.5761908 19.4833433,20.5759857 19.1812873,20.2733614 L19.1812873,20.2733614 L16.1426973,17.2288066 C14.8071694,18.3312107 13.0960911,18.9932599 11.2307008,18.9932599 C6.96115262,18.9932599 3.5,15.5249756 3.5,11.24663 C3.5,6.96828437 6.96115262,3.5 11.2307008,3.5 Z M11.2307008,5.04932599 C7.81506225,5.04932599 5.04614015,7.82395349 5.04614015,11.24663 C5.04614015,14.6693064 7.81506225,17.4439339 11.2307008,17.4439339 C14.6463393,17.4439339 17.4152614,14.6693064 17.4152614,11.24663 C17.4152614,7.82395349 14.6463393,5.04932599 11.2307008,5.04932599 Z"
-                  ></path>
-                </svg>
-              </span>
-                </div>
-            </div>
-        </form>
-        <!-- 버튼 -->
-        <div class="css-buttons">
-            <button class="css-button">
-                <span>결제하기</span>
-            </button>
-            <button class="css-button">
-                <span>로그인</span>
-            </button>
-            <button class="css-button">
-                <span>무료 회원가입</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- 카테고리 -->
-    <div class="css-category category">
-        <div class="css-category-main">
-            <div class="css-categoryAll-wrapper">
-                <button class="css-category-button">
-              <span role="img" rotate="0">
-                <svg
-                        width="30"
-                        height="30"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        focusable="false"
-                        preserveAspectRatio="xMidYMid meet"
-                        class="css-7kp13n e181xm9y0"
-                >
-                  <path
-                          xmlns="http://www.w3.org/2000/svg"
-                          d="M19,17 C19.5522847,17 20,17.4477153 20,18 C20,18.5522847 19.5522847,19 19,19 L5,19 C4.44771525,19 4,18.5522847 4,18 C4,17.4477153 4.44771525,17 5,17 L19,17 Z M19,11 C19.5522847,11 20,11.4477153 20,12 C20,12.5522847 19.5522847,13 19,13 L5,13 C4.44771525,13 4,12.5522847 4,12 C4,11.4477153 4.44771525,11 5,11 L19,11 Z M19,5 C19.5522847,5 20,5.44771525 20,6 C20,6.55228475 19.5522847,7 19,7 L5,7 C4.44771525,7 4,6.55228475 4,6 C4,5.44771525 4.44771525,5 5,5 L19,5 Z"
-                  ></path>
-                </svg>
-              </span>
-                    <span style="margin: 0 0 5px 8px">전체 카테고리</span>
-                    <span role="img" rotate="0" style="margin-top: 5px">
-                <svg
-                        width="25"
-                        height="25"
-                        viewBox="0 0 28 28"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        focusable="false"
-                        preserveAspectRatio="xMidYMid meet"
-                        class="css-7kp13n e181xm9y0"
-                >
-                  <polygon
-                          id="Triangle"
-                          transform="translate(12.000000, 12.000000) rotate(-180.000000) translate(-12.000000, -12.000000) "
-                          points="12 9 18 15 6 15"
-                  ></polygon>
-                </svg>
-              </span>
-                    <!-- 드롭다운 메뉴 -->
-                    <!-- <div class="css-dropdown">
-                                <ul>
-                                    <li><a href="">국어</a></li>
-                                    <li><a href="">영어</a></li>
-                                    <li><a href="">수학</a></li>
-                                    <li><a href="">과탐</a></li>
-                                    <li><a href="">사탐</a></li>
-                                    <li><a href="">한국사</a></li>
-                                    <li><a href="">제2외국어</a></li>
-                                </ul>
-                            </div> -->
-                </button>
-            </div>
-            <div class="button">
-                <button class="css-menu-button">
-                    <span>유저 랭킹</span>
-                </button>
-            </div>
-            <div class="button">
-                <button class="css-menu-button">
-                    <span>인기글</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+<div th:insert="~{/fix/header :: header}"></div>
 
 <!-- 랭킹 페이지 -->
 <div class="wrapper">

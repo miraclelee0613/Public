@@ -10,6 +10,9 @@ import java.util.List;
 //  lastUpdate: 221201
 @Mapper
 public interface PointMapper {
+    //  회원 가입
+    public void insert(Long memberNumber);
+
 //    개인 포인트 조회
     public PointVO select(Long memberNumber);
 

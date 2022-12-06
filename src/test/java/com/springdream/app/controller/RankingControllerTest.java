@@ -31,4 +31,8 @@ public class RankingControllerTest {
     void rankingListCtrl() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/ranking/point-rank")).andReturn();
     }
+
+//    @Test
+//    void insertPoint() throws Exception {
+//    }
 }

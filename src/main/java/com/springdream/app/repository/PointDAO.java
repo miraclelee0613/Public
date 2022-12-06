@@ -7,12 +7,16 @@ import com.springdream.app.mapper.PointMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.awt.*;
 import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
 public class PointDAO {
     private final PointMapper pointMapper;
+
+    //  가입
+    public void join(Long memberNumber) { pointMapper.insert(memberNumber); }
 
     //  현재 포인트 조회
     public PointVO findById(Long memberNumber){

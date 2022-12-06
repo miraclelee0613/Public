@@ -13,6 +13,8 @@ public class NoticeVO {
     private String noticeTitle;
     private String noticeContent;
 
+
+
 //    NOTICE_NUMBER NUMBER CONSTRAINT PK_NOTICE_NUMBER PRIMARY KEY,
 //    NOTICE_DATE DATE DEFAULT SYSDATE,
 //    NOTICE_TITLE VARCHAR2(500),

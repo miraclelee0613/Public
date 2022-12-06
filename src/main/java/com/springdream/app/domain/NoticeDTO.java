@@ -19,4 +19,10 @@ public class NoticeDTO {
     private String memberName;
 
     //
+
+    public void create(String noticeTitle, String noticeContent, String noticeDate){
+        this.noticeContent = noticeContent;
+        this.noticeDate = noticeDate;
+        this.noticeTitle = noticeTitle;
+    }
 }

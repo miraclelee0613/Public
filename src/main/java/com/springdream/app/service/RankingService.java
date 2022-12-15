@@ -1,9 +1,6 @@
 package com.springdream.app.service;
 
-import com.springdream.app.domain.PointDTO;
-import com.springdream.app.domain.PointVO;
 import com.springdream.app.domain.RankingDTO;
-import com.springdream.app.repository.PointDAO;
 import com.springdream.app.repository.RankingDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,9 +23,13 @@ public class RankingService {
     public List<RankingDTO> rankingListService(){ return rankingDAO.findAllOrderByTotalPoint(); }
 
     //  채택 랭킹 리스트
-    public List<RankingDTO> countAdoptService() { return rankingDAO.findAllOrderByAdoptCount(); }
+    public List<RankingDTO> rankingAdoptService() { return rankingDAO.findAllOrderByAdoptCount(); }
 
-    public List<RankingDTO> countRepliesService() { return rankingDAO.countReplies(); }
+    //  답글 랭킹 리스트
+    public List<RankingDTO> rankingRepliesService() { return rankingDAO.countReplies(); }
+
+    //  조회수 랭킹 리스트(최근 한달)
+    public List<RankingDTO> rankingViewcountService() { return rankingDAO.findAllOrderByViewcount();}
 }
 
 

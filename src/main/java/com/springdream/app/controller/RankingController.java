@@ -1,6 +1,5 @@
 package com.springdream.app.controller;
 
-import com.springdream.app.domain.PointDTO;
 import com.springdream.app.domain.RankingDTO;
 import com.springdream.app.service.RankingService;
 import lombok.RequiredArgsConstructor;
@@ -23,10 +22,10 @@ public class RankingController {
         List<RankingDTO> points = rankingService.rankingListService();
         model.addAttribute("points", points);
 
-        List<RankingDTO> adopts = rankingService.countAdoptService();
+        List<RankingDTO> adopts = rankingService.rankingAdoptService();
         model.addAttribute("adopts", adopts);
 
-        List<RankingDTO> replies = rankingService.countRepliesService();
+        List<RankingDTO> replies = rankingService.rankingRepliesService();
         model.addAttribute("replies", replies);
     }
 }

@@ -20,27 +20,37 @@
             WHERE ROWNUM<=5
         )
 
+
+
         ]]>
     </select>
 
     <!--  채택 수 랭킹-->
     <select id="selectAllOderByAdoptCount" resultType="rankingDTO">
-    SELECT M.MEMBER_NICKNAME, COUNT(*) AS ADOPTS
-    FROM TBL_MEMBER M
-        FULL OUTER JOIN TBL_REPLY R
-        ON M.MEMBER_NUMBER = R.MEMBER_NUMBER
-    WHERE R.REPLY_ADOPT=1
-    GROUP BY M.MEMBER_NICKNAME
-    ORDER BY ADOPTS DESC
+        SELECT M.MEMBER_NICKNAME, COUNT(*) AS ADOPTS
+        FROM TBL_MEMBER M
+            FULL OUTER JOIN TBL_REPLY R
+            ON M.MEMBER_NUMBER = R.MEMBER_NUMBER
+        WHERE R.REPLY_ADOPT=1
+        GROUP BY M.MEMBER_NICKNAME
+        ORDER BY ADOPTS DESC
     </select>
 
     <!--  답글 수 랭킹  -->
     <select id="countReplies" resultType="rankingDTO">
-    SELECT M.MEMBER_NICKNAME, COUNT(*) AS REPLIES
-    FROM TBL_MEMBER M
-        JOIN TBL_REPLY R
-        ON M.MEMBER_NUMBER = R.MEMBER_NUMBER
-    GROUP BY M.MEMBER_NICKNAME
-    ORDER BY REPLIES DESC
+        SELECT M.MEMBER_NICKNAME, COUNT(*) AS REPLIES
+        FROM TBL_MEMBER M
+            JOIN TBL_REPLY R
+            ON M.MEMBER_NUMBER = R.MEMBER_NUMBER
+        GROUP BY M.MEMBER_NICKNAME
+        ORDER BY REPLIES DESC
+    </select>
+
+    <select id="selectAllOrderByViewcount" resultType="rankingDTO">
+        SELECT B.BOARD_NUMBER, B.BOARD_VIEWCOUNT, M.MEMBER_NICKNAME, B.BOARD_TITLE
+        FROM TBL_BOARD B
+            JOIN TBL_MEMBER M
+            ON B.MEMBER_NUMBER = M.MEMBER_NUMBER
+        ORDER BY B.BOARD_VIEWCOUNT DESC
     </select>
 </mapper>

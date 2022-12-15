@@ -152,8 +152,9 @@
     </div>
     <!-- 랭킹 -->
     <div class="ranking-section">
-        <h1 class="css-section-title">1위는 다 모아놨어!</h1>
+        <h1 class="css-section-title" style="text-align: center !important;">1위는 다 모아놨어!</h1>
         <div class="rankings">
+
             <div class="ranking-wrapper">
 
                 <a th:href="@{/ranking/rankingList}">
@@ -166,8 +167,8 @@
                         <div class="user-list-wrapper">
                                 <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
                                     <img th:if="${i.count eq 1}" th:src="@{/img/main/medal.png}" alt="">
-                                    <img th:if="${i.count eq 2}" th:src="@{/img/main/coin.png}" alt="">
-                                    <img th:if="${i.count eq 3}" th:src="@{/img/main/coin.png}" alt="">
+                                    <img th:unless="${i.count eq 1}" th:src="@{/img/main/coin.png}" alt="">
+                                    <!--                                    <img th:if="${i.count eq 3}" th:src="@{/img/main/coin.png}" alt="">-->
                                 </span>
                             <div class="user-wrapper">
                                     <span class="userInfo-Id" id="rankingUserId1" th:text="${point.memberNickname}">
@@ -185,70 +186,39 @@
                     </div>
                 </th:block>
             </div>
+
             <div class="ranking-wrapper">
                 <a th:href="@{/board/popular}">
                     <div class="user-ranking">
                         <span>인기 게시글</span>
                     </div>
                 </a>
-                <div class="user-list-a">
-                    <div class="user-list-wrapper">
-                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img th:src="@{/img/main/medal.png}" alt="">
-                            </span>
-                        <div class="user-wrapper">
-                                <span class="userInfo-Id" id="rankingUserId">
-                                    1위유저아이디
+                <th:block th:each="popular, i : ${populars}">
+                    <div th:if="${i.count <= 3}" th:class="${i.count eq 1 ? 'user-list-a' : 'user-list-b' }">
+                        <div class="user-list-wrapper">
+                                <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
+                                    <img th:if="${i.count eq 1}" th:src="@{/img/main/medal.png}" alt="">
+                                    <img th:unless="${i.count eq 1}" th:src="@{/img/main/coin.png}" alt="">
+                                    <!--                                    <img th:if="${i.count eq 3}" th:src="@{/img/main/coin.png}" alt="">-->
                                 </span>
-                            <span class="userInfo-Point" id="rankingUserPoint">
-                                    누적 포인트 : 10000
+                            <div class="user-wrapper">
+                                <span class="userInfo-Id" id="rankingUserId2" th:text="${popular.memberNickname}">
                                 </span>
-                        </div>
-                        <span>
-                                <div>
-                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
-                                </div>
-                            </span>
-                    </div>
-                </div>
-                <div class="user-list-b">
-                    <div class="user-list-wrapper">
-                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img th:src="@{/img/main/coin.png}" alt="">
-                            </span>
-                        <div class="user-wrapper">
-                                <span class="userInfo-Id" id="rankingUserId">
-                                    2위유저아이디
+                                <a th:href="@{/board/page?boardNumber=} + ${popular.boardNumber}">
+                                    <span th:text="${popular.boardTitle}"></span>
+                                </a>
+                                <span class="userInfo-Point" id="rankingBoardViewCount1"
+                                      th:text="'조회수 : ' + ${popular.boardViewcount}">
                                 </span>
-                            <span class="userInfo-Point" id="rankingUserPoint">
-                                    누적 포인트 : 10000
+                            </div>
+                            <span>
+                                    <div>
+                                        <img th:src="@{/img/main/ranking_icon01.png}" alt="">
+                                    </div>
                                 </span>
                         </div>
-                        <span>
-                                <div>
-                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
-                                </div>
-                            </span>
                     </div>
-                    <div class="user-list-wrapper">
-                            <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 40px; height: 40px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;">
-                                <img th:src="@{/img/main/coin.png}" alt="">
-                            </span>
-                        <div class="user-wrapper">
-                                <span class="userInfo-Id" id="rankingUserId">
-                                    3위유저아이디
-                                </span>
-                            <span class="userInfo-Point" id="rankingUserPoint">
-                                    누적 포인트 : 10000
-                                </span>
-                        </div>
-                        <span>
-                                <div>
-                                    <img th:src="@{/img/main/ranking_icon01.png}" alt="">
-                                </div>
-                            </span>
-                    </div>
-                </div>
+                </th:block>
             </div>
         </div>
     </div>

@@ -22,4 +22,10 @@ public class RankingDTO {
     //  Member
     private String memberNickname;
 
+    //  Board
+    private String boardTitle;
+    private long boardNumber;
+    private long boardViewcount;
+
+
 }

@@ -1,6 +1,5 @@
 package com.springdream.app.repository;
 
-import com.springdream.app.domain.PointDTO;
 import com.springdream.app.domain.RankingDTO;
 import com.springdream.app.mapper.RankingMapper;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +18,11 @@ public class RankingDAO {
     }
 
     //  채택 수 기준 랭킹 리스트
-    public List<RankingDTO> findAllOrderByAdoptCount() { return rankingMapper.selectAllOderByAdoptCount(); }
+    public List<RankingDTO> findAllOrderByAdoptCount() { return rankingMapper.selectAllOrderByAdoptCount(); }
 
     //  답글 수 기준 랭킹 리스트
     public List<RankingDTO> countReplies() { return rankingMapper.countReplies();}
+
+    //  조회 수 기준 랭킹 리스트
+    public List<RankingDTO> findAllOrderByViewcount() { return rankingMapper.selectAllOrderByViewcount(); }
 }
